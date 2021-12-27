@@ -6,7 +6,7 @@
  <img src="https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png" width="500" />
 </p>
 
-### ``novauniverse.py`` - A modern API wrapper for the mincraft server Nova Universe written in Python.
+### ``novauniverse.py`` - A modern API wrapper for the minecraft server Nova Universe written in Python.
 
 #### ⭐[Goals of this Project.]()
 
@@ -14,7 +14,7 @@
  <img align="left" src="https://media.discordapp.net/attachments/710019553098465320/895037951443107860/Untitled_Artwork_4_1.png" width="180" />
  
  # *What is Nova Universe.py?*
- NovaUniverse.py is a API wrapper for the mincraft server **[Nova Universe](https://novauniverse.net/)** that allows you to access player data, player's game stats and server status across the Nova Universe network all in a object oriented pythonic way.
+ NovaUniverse.py is a API wrapper for the minecraft server **[Nova Universe](https://novauniverse.net/)** that allows you to access player data, player's game stats and server status across the Nova Universe network all in a object oriented pythonic way.
 </p>
 
 ## ~~*Install/Set Up*~~ *(package not released on [pypi](https://pypi.org/) yet)*
