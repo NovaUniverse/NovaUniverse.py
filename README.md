@@ -17,7 +17,7 @@
  NovaUniverse.py is a API wrapper for the mincraft server **[Nova Universe](https://novauniverse.net/)** that allows you to access player data, player's game stats and server status across the Nova Universe network all in a object oriented pythonic way.
 </p>
 
-## ~~*Install/Set Up*~~ *(package not released on pypi yet)*
+## ~~*Install/Set Up*~~ *(package not released on [pypi](https://pypi.org/) yet)*
 1. **Install package from pip.**
 ```sh
 #Windows/Linux/MacOS
