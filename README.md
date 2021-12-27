@@ -9,3 +9,10 @@
 ## ``novauniverse.py`` - A modern API wrapper for the mincraft server Nova Universe written in Python.
 
 #### [⭐Goals of this Project.]()
+
+<p align="right">
+ <img align="left" src="https://media.discordapp.net/attachments/710019553098465320/895037951443107860/Untitled_Artwork_4_1.png" width="180" />
+ 
+ # *What is Nova Universe.py?*
+ NovaUniverse.py is a modern API wrapper for the mincraft server Nova Universe that allows you to access player data, player's game stats and server status across the Nova Universe network all in a object oriented pythonic way.*
+</p>
