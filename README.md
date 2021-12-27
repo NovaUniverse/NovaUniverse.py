@@ -24,7 +24,7 @@
 
 pip install novauniverse
 ```
-2. **That's It! (MORE INFO IN [DOCUMENTATION]())**
+2. **That's It!** 
 ```python
 import novauniverse as nova
 
@@ -34,3 +34,4 @@ print(player.first_join)
 
 #OUTPUT: 2021-01-15 19:28:32
 ```
+###### (MORE INFO IN [DOCUMENTATION]())
