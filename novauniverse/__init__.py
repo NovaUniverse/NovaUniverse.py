@@ -1,4 +1,5 @@
-from . import player, session
+from . import _player_, _session_, _find_
 
-player = player.player
-session = session.session
+find = _find_
+player = _player_.player
+session = _session_.session

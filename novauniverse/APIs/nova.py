@@ -5,6 +5,7 @@ from .. import info
 
 api_name = "NOVA API"
 headers = {'User-Agent': str(info.package_name)}
+error_format = f"\u001b[31m{api_name}" + ": [{}] {}\u001b[0m"
 
 class NovaAPIError(Exception):
     pass
@@ -19,7 +20,7 @@ def request(url:str): #Makes request to api then returns data in json
             error = data["error"]
             message = data["message"]
 
-            raise NovaAPIError(f"{api_name}: [{error}] {message}")
+            raise NovaAPIError(error_format.format(error, message))
     except KeyError:
         pass
 
