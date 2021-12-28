@@ -36,9 +36,9 @@ Documentation
 Get Players
 ===========
 
-Create a Player object using the :func:`nova.find.player` function, giving a either a player ign or player uuid. (You must give one of these arguments.)
+Create a Player object using the :func:`novauniverse.find.player` function, giving a either a player ign or player uuid. (You must give one of these arguments.)
 
-.. function:: nova.find.player(player_name: str | None = None, player_uuid: str | None = None)
+.. function:: novauniverse.find.player(player_name = None, player_uuid = None)
 
 
     Creates a player object of the player found.  (Note: Entering the "uuid" of the player is faster than player's ign.)
