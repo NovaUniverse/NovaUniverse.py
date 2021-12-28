@@ -59,15 +59,15 @@ Create a Player object using the :func:`novauniverse.player` function, giving a 
 
        #OUTPUT: THEGOLDENPRO
 
-Player Object
+Player: Object
 ---------------
 
 .. class:: novauniverse.objects.player
 
 When you run :func:`novauniverse.player` you get this class, also known as the "player object".
 
-Attributes
-^^^^^^^^^^^
+Player: Attributes
+---------------
 
 Once you have created a player object using :func:`novauniverse.player`, multiple player properties are available for you to use.
 
