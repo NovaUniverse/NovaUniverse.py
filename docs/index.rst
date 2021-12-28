@@ -50,7 +50,7 @@ Create a Player object using the :func:`novauniverse.player` function, giving a 
     :rtype: :class:`novauniverse.objects.player`
 
 *Example*
----------------
+^^^^^^^^^^^^^
 .. code-block:: python
 
        import novauniverse as nova
@@ -60,8 +60,14 @@ Create a Player object using the :func:`novauniverse.player` function, giving a 
 
        #OUTPUT: THEGOLDENPRO
 
-Player Object Attributes
+Player Object
 ---------------
+.. class:: novauniverse.objects.player
+
+When you run :func:`novauniverse.player` you get this class, also known as the "player object".
+
+Attributes
+^^^^^^^^^^^
 Once you have created a player object using :func:`novauniverse.player`, multiple player properties are available for you to use.
 
 .. attribute:: player.id
