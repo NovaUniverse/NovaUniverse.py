@@ -1,4 +1,4 @@
-NovaUniverse.py *(Documentation)*
+NovaUniverse.py
 #################################
 .. image:: https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png
  :width: 600
@@ -57,14 +57,14 @@ Create a Player object using the :func:`novauniverse.player` function, giving a 
        #OUTPUT: THEGOLDENPRO
 
 Player: Object
----------------
+**************
 
 .. class:: novauniverse.objects.player
 
 When you run :func:`novauniverse.player` you get this class, also known as the "player object".
 
 Player: Attributes
----------------
+******************
 
 Once you have created a player object using :func:`novauniverse.player`, multiple player properties are available for you to use.
 
