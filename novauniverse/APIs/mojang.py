@@ -4,7 +4,7 @@ import json
 from .. import info
 
 api_name = "MOJANG API"
-headers = {'User-Agent': str(info.package_name)}
+headers = {'User-Agent': str(info.PACKAGE_NAME)}
 error_format = f"\u001b[33m{api_name}" + ": [{}] {}\u001b[0m"
 
 class MojangAPIError(Exception):

@@ -4,7 +4,7 @@ import json
 from .. import info
 
 api_name = "NOVA API"
-headers = {'User-Agent': str(info.package_name)}
+headers = {'User-Agent': str(info.PACKAGE_NAME)}
 error_format = f"\u001b[31m{api_name}" + ": [{}] {}\u001b[0m"
 
 class NovaAPIError(Exception):

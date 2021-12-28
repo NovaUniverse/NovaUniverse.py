@@ -1,9 +1,5 @@
 import datetime
 
-from .endpoints import nova
-from .APIs import nova as nova_api
-from . import objects
-
 class basic_session(object): #Session object
     def __init__(self, game:dict, session_id:int, metadata:str, total_places:int, timestamp:dict):
         self.game_dict_ = game
@@ -14,7 +10,8 @@ class basic_session(object): #Session object
 
     @property
     def game(self): #Returns game object.
-        return objects.game(self.game_dict_)
+        from . import game as game_object
+        return game_object(self.game_dict_)
 
     @property
     def id(self):
