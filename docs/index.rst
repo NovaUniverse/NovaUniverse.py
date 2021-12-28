@@ -32,12 +32,12 @@ Install/Set Up
 Get Player Data
 ###########
 
-To grab player data you got to create a Player object using the :func:`novauniverse.player` function by giving it either a player ign or player uuid. (You must feed one of these arguments.)
+To grab player data you got to create a Player object using the :func:`novauniverse.player` function by giving it either a player ign or player uuid. **(You must feed one of these arguments.)**
 
 .. function:: novauniverse.player(player_name = None, player_uuid = None)
 
 
-    Creates a player object of the player found.  (Note: Using the "player_uuid" argument is faster than using the "player_name" argument to find a player.)
+    Creates a player object of the player found.  **(Note: Using the "player_uuid" argument is faster than using the "player_name" argument to find a player.)**
 
     :param player_name: The ign of the player. (e.g. THEGOLDENPRO)
     :type player_name: str
