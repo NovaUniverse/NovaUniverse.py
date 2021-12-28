@@ -49,8 +49,8 @@ Create a Player object using the :func:`novauniverse.player` function, giving a 
     :type player_uuid: str
     :rtype: :class:`novauniverse.objects.player`
 
-*Get players Example:*
-
+*Get players Example*
+---------------
 .. code-block:: python
 
        import novauniverse as nova
