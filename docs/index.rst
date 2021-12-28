@@ -29,7 +29,7 @@ Install/Set Up
 **(MORE INFO BELOW.)**
 
 
-Get Players
+Get Player Data
 ###########
 
 Create a Player object using the :func:`novauniverse.player` function, giving a either a player ign or player uuid. (You must give one of these arguments.)
@@ -110,7 +110,7 @@ Once you have created a player object using :func:`novauniverse.player`, multipl
     
     (E.g ``True``)
 
-Get Game Sessions
+Get Session Data
 #################
 
 text
