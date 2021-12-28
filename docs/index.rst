@@ -20,7 +20,7 @@ Install/Set Up
 
        import novauniverse as nova
 
-       player = nova.find.player(player_name="THEGOLDENPRO")
+       player = nova.player(player_name="THEGOLDENPRO")
 
        print(player.first_join)
 
@@ -36,9 +36,9 @@ Documentation
 Get Players
 ===========
 
-Create a Player object using the :func:`novauniverse.find.player` function, giving a either a player ign or player uuid. (You must give one of these arguments.)
+Create a Player object using the :func:`novauniverse.player` function, giving a either a player ign or player uuid. (You must give one of these arguments.)
 
-.. function:: novauniverse.find.player(player_name = None, player_uuid = None)
+.. function:: novauniverse.player(player_name = None, player_uuid = None)
 
 
     Creates a player object of the player found.  (Note: Entering the "uuid" of the player is faster than player's ign.)
@@ -47,7 +47,56 @@ Create a Player object using the :func:`novauniverse.find.player` function, givi
     :type player_name: str
     :param player_uuid: The FULL mojang uuid of the player. (e.g 3442be05-4211-4a15-a10c-4bdb2b6060fa)
     :type player_uuid: str
-    :rtype: :class:`novauniverse.player`
+    :rtype: :class:`novauniverse.objects.player`
+
+*Get players Example:*
+
+.. code-block:: python
+
+       import novauniverse as nova
+
+       player = nova.player(player_name="THEGOLDENPRO")
+       print(player.name)
+
+       #OUTPUT: THEGOLDENPRO
+
+Player Object Attributes
+---------------
+
+.. attribute:: player.id
+
+    The Nova Universe id of the player. (*str*)
+    (E.g. ``14``)
+
+.. attribute:: player.name
+
+    The "in game name"(ign) of the player (*str*).
+    (E.g. ``THEGOLDENPRO``)
+
+.. attribute:: player.uuid
+
+    The Mojang uuid of the player. (*str*)
+    (E.g. ``3442be05-4211-4a15-a10c-4bdb2b6060fa``)
+
+.. attribute:: player.username
+
+    Alias of `player.name` (*str*)
+    (E.g ``THEGOLDENPRO``)
+
+.. attribute:: player.first_join
+
+    Returns datetime object of date and time the player first joined the Nova Universe network. (*datetime.datetime*)
+    (E.g ``2021-01-15 19:28:32``)
+
+.. attribute:: player.last_join
+
+    Returns datetime object of date and time the player last joined the Nova Universe network. (*datetime.datetime*)
+    (E.g ``2021-12-23 14:13:38``)
+    
+.. attribute:: player.is_online
+
+    Returns True/False if the player is currently present on the network. (*bool*)
+    (E.g ``True``)
 
 Get Game Sessions
 =================
