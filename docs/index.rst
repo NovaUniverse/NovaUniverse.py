@@ -1,4 +1,4 @@
-NovaUniverse.py *(API Wrapper)*
+NovaUniverse.py *(Documentation)*
 *******************************
 .. image:: https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png
  :width: 600
@@ -26,11 +26,8 @@ Install/Set Up
 
        #OUTPUT: 2021-01-15 19:28:32
 
-**(MORE INFO IN DOCUMENTATION.)**
+**(MORE INFO BELOW.)**
 
-
-Documentation
-*************
 
 Get Players
 ===========
