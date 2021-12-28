@@ -62,40 +62,48 @@ Create a Player object using the :func:`novauniverse.player` function, giving a 
 
 Player Object Attributes
 ---------------
+Once you have created a player object using :func:`novauniverse.player`, multiple player properties are available for you to use.
 
 .. attribute:: player.id
 
-    The Nova Universe id of the player. (*str*)
+    The Nova Universe id of the player. (*str*).
+    
     (E.g. ``14``)
 
 .. attribute:: player.name
 
     The "in game name"(ign) of the player (*str*).
+    
     (E.g. ``THEGOLDENPRO``)
 
 .. attribute:: player.uuid
 
-    The Mojang uuid of the player. (*str*)
+    The Mojang uuid of the player. (*str*).
+    
     (E.g. ``3442be05-4211-4a15-a10c-4bdb2b6060fa``)
 
 .. attribute:: player.username
 
-    Alias of `player.name` (*str*)
+    Alias of `player.name` (*str*).
+    
     (E.g ``THEGOLDENPRO``)
 
 .. attribute:: player.first_join
 
-    Returns datetime object of date and time the player first joined the Nova Universe network. (*datetime.datetime*)
+    Returns datetime object of date and time the player first joined the Nova Universe network. (*datetime.datetime*).
+    
     (E.g ``2021-01-15 19:28:32``)
 
 .. attribute:: player.last_join
 
-    Returns datetime object of date and time the player last joined the Nova Universe network. (*datetime.datetime*)
+    Returns datetime object of date and time the player last joined the Nova Universe network. (*datetime.datetime*).
+    
     (E.g ``2021-12-23 14:13:38``)
     
 .. attribute:: player.is_online
 
-    Returns True/False if the player is currently present on the network. (*bool*)
+    Returns True/False if the player is currently present on the network. (*bool*).
+    
     (E.g ``True``)
 
 Get Game Sessions
