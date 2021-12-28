@@ -1,4 +1,4 @@
-ver = 1.0
-version = f"v{ver}"
+VER = 1.0
+VERSION = f"v{VER}"
 
-package_name = f"NovaUniverse.py ({version})"
+PACKAGE_NAME = f"NovaUniverse.py ({VERSION})"

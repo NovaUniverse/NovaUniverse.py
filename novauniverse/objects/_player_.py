@@ -1,8 +1,5 @@
 import datetime
 
-from .endpoints import nova, mojang
-from .APIs import nova as nova_api, mojang as mojang_api
-
 class basic_player(object):
     def __init__(self, id:int, uuid:str, username:str):
         self.id_ = id
@@ -76,6 +73,9 @@ class player(basic_player): #Player Object
             pass
 
         def player_name_to_uuid(self, player_name:str):
+            from ..endpoints import mojang
+            from ..APIs import mojang as mojang_api
+
             short_uuid:str = (mojang_api.request(mojang.URLs().player_profile(player_name)))["id"]; return self.short_to_full_uuid(short_uuid)
 
         def short_to_full_uuid(self, short_uuid:str): #Converts short uuid to full uuid.
