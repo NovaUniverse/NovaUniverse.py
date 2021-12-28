@@ -10,8 +10,9 @@ NovaUniverse.py *(Pythonic API Wrapper)*
  :align: center
 
 =================
-Install/Set Up *(package not released on [pypi](https://pypi.org/) yet)*
+Install/Set Up *(package not released on pypi yet)*
 =================
+
 1. **Install package from pip.**
 
 .. code-block:: sh
@@ -32,7 +33,4 @@ Install/Set Up *(package not released on [pypi](https://pypi.org/) yet)*
 
        #OUTPUT: 2021-01-15 19:28:32
 
-""""""""""""""
-(MORE INFO IN `DOCUMENTATION`_.)
-""""""""""""""
-.. _DOCUMENTATION: https://domain.invalid/
+**(MORE INFO IN DOCUMENTATION.)**
