@@ -19,7 +19,7 @@ def session(session_id:str): #Find a game session and return data as a full sess
     url = nova.URLs().session_stats(session_id)
     plain_data = nova_api.request(url)
 
-    return session_(plain_data["game"], plain_data["session_id"], plain_data["metadata"], plain_data["total_places"], plain_data["timestamp"], plain_data["players"])
+    return session_(plain_data["game"], plain_data["session_id"], plain_data["metadata"], plain_data["total_places"], plain_data["timestamp"]["date"], plain_data["players"])
 
 
 

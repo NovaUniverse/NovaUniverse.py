@@ -1,3 +1,4 @@
 dist
 demo.py
 __pycache__
+.vscode
