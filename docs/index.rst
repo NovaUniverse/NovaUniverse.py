@@ -89,7 +89,7 @@ Once you have created a player object using :func:`novauniverse.player`, multipl
 
 .. attribute:: player.username
 
-    Alias of :attribute:`player.name`. (*str*)
+    Alias of `player.name`. (*str*)
     
     (E.g ``THEGOLDENPRO``)
 
@@ -189,7 +189,7 @@ Once you have created a session object using :func:`novauniverse.session`, multi
 
 .. attribute:: session.timestamp
 
-    Alias of :attribute:`session.timestamp`. (*datetime.datetime*)
+    Alias of `session.timestamp`. (*datetime.datetime*)
     
     (E.g ``2021-12-20 14:03:33``)
     
@@ -205,7 +205,7 @@ Game: Object
 
 .. class:: novauniverse.objects.game
 
-When you use property :attribute:`session.game` you get this class. The game class contains data like game "name" and "code name". More info below.
+When you use property `session.game` you get this class. The game class contains data like game "name" and "code name". More info below.
 
 Game: Attributes
 ****************
@@ -224,6 +224,6 @@ Game: Attributes
 
 .. attribute:: game.display_name
 
-    Alias of :attribute:`game.name`. (*str*)
+    Alias of `game.name`. (*str*)
     
     (E.g. ``Missile Wars``)
