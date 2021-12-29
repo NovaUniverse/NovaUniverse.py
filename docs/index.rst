@@ -30,7 +30,7 @@ Install/Set Up
 **(MORE INFO BELOW.)**
 
 
-Get Player Data
+• Get Player Data
 ###############
 
 To grab player data you got to create a Player object using the :func:`novauniverse.player` function by giving it either a player ign or player uuid. **(You must feed one of these arguments.)**
@@ -117,7 +117,7 @@ Once you have created a player object using :func:`novauniverse.player`, multipl
     
     (E.g ``[<novauniverse.objects._player_.player.player_session object at ...>, <novauniverse.objects._player_.player.player_session object at >...``)
 
-Get Session Data
+• Get Session Data
 #################
 
 To grab full game session data you can create a session object using the :func:`novauniverse.session` function by passing in the id of the session to find.
