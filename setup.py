@@ -8,8 +8,8 @@ classifiers = [
  
 setup(
   name='novauniverse',
-  version='1.0a1',
-  description='A modern API wrapper for the mincraft server Nova Universe written in Python.', 
+  version='1.0a2',
+  description='A modern API wrapper for the minecraft server Nova Universe written in Python.', 
   long_description=open('README.txt').read(), 
   url='https://novauniverse.net/', 
   project_urls={"Bug Tracker": "https://github.com/NovaUniverse/novauniverse.py/issues"}, 
