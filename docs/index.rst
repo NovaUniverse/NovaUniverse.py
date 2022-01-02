@@ -11,7 +11,7 @@ Install/Set Up
 
 .. code-block:: sh
 
-       #Windows/Linux/MacOS
+       #Windows/Linux
        
        pip install novauniverse
 
@@ -21,7 +21,7 @@ Install/Set Up
 
        import novauniverse as nova
 
-       player = nova.player(player_name="THEGOLDENPRO")
+       player = nova.Player(player_name="THEGOLDENPRO")
 
        print(player.first_join)
 
@@ -33,9 +33,9 @@ Install/Set Up
 •Get Player Data
 ###############
 
-To grab player data you got to create a Player object using the :func:`novauniverse.player` function by giving it either a player ign or player uuid. **(You must feed one of these arguments.)**
+To grab player data you got to create a Player object using the :func:`novauniverse.Player` function by giving it either a player ign or player uuid. **(You must feed one of these arguments.)**
 
-.. function:: novauniverse.player(player_name = None, player_uuid = None)
+.. function:: novauniverse.Player(player_name = None, player_uuid = None)
 
 
     Creates a player object of the player found.  **(Note: Using the "player_uuid" argument is faster than using the "player_name" argument to find a player.)**
@@ -52,7 +52,7 @@ To grab player data you got to create a Player object using the :func:`novaunive
 
        import novauniverse as nova
 
-       player = nova.player(player_name="THEGOLDENPRO")
+       player = nova.Player(player_name="THEGOLDENPRO")
        print(player.name)
 
        #OUTPUT: THEGOLDENPRO
@@ -62,12 +62,12 @@ Player: Object
 
 .. class:: novauniverse.objects.player
 
-When you run :func:`novauniverse.player` you get this class, also known as the "player object".
+When you run :func:`novauniverse.Player` you get this class, also known as the "player object".
 
 Player: Attributes
 ******************
 
-Once you have created a player object using :func:`novauniverse.player`, multiple player properties are available for you to use.
+Once you have created a player object using :func:`novauniverse.Player`, multiple player properties are available for you to use.
 
 .. attribute:: player.id
 
@@ -120,9 +120,9 @@ Once you have created a player object using :func:`novauniverse.player`, multipl
 •Get Session Data
 #################
 
-To grab full game session data you can create a session object using the :func:`novauniverse.session` function by passing in the id of the session to find.
+To grab full game session data you can create a session object using the :func:`novauniverse.Session` function by passing in the id of the session to find.
 
-.. function:: novauniverse.session(session_id:str)
+.. function:: novauniverse.Session(session_id:str)
 
 
     Creates a session object of the session found.  **(Note: You can also access sessions from** :class:`novauniverse.objects.player` **of the games that the player has played.)**
@@ -138,7 +138,7 @@ To grab full game session data you can create a session object using the :func:`
 
        import novauniverse as nova
 
-       session = nova.session(session_id="95")
+       session = nova.Session(session_id="95")
        print(session.game.name)
 
        #OUTPUT: Missile Wars
@@ -148,12 +148,12 @@ Session: Object
 
 .. class:: novauniverse.objects.session
 
-When you run :func:`novauniverse.session` you get this class, also known as the "session object" or "game session object".
+When you run :func:`novauniverse.Session` you get this class, also known as the "session object" or "game session object".
 
 Session: Attributes
 ******************
 
-Once you have created a session object using :func:`novauniverse.session`, multiple session properties are available for you to use.
+Once you have created a session object using :func:`novauniverse.Session`, multiple session properties are available for you to use.
 
 .. attribute:: session.game
 

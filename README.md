@@ -28,7 +28,7 @@ pip install novauniverse
 ```python
 import novauniverse as nova
 
-player = nova.player(player_name="THEGOLDENPRO")
+player = nova.Player(player_name="THEGOLDENPRO")
 
 print(player.first_join)
 

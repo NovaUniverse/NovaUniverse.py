@@ -8,7 +8,7 @@ classifiers = [
  
 setup(
   name='novauniverse',
-  version='1.0',
+  version='1.0a1',
   description='A modern API wrapper for the mincraft server Nova Universe written in Python.', 
   long_description=open('README.txt').read(), 
   url='https://novauniverse.net/', 
@@ -20,5 +20,5 @@ setup(
   keywords=['novauniverse', 'minecraft novauniverse', 'nova universe'], 
   packages=find_packages(), 
   install_requires=["requests", "json"],
-  python_requires=">=3.8"
+  python_requires=">=3.7"
 )
