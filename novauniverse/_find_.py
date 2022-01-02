@@ -1,5 +1,5 @@
 from .endpoints import nova, mojang
-from .APIs import nova as nova_api, mojang as mojang_api
+from .APIs import nova_api, mojang_api
 
 from .objects import player as player_, session as session_
 
