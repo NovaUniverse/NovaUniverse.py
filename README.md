@@ -20,7 +20,7 @@
 ## *Install/Set Up*
 1. **Install package from pip.**
 ```sh
-#Windows/Linux/MacOS
+#Windows/Linux
 
 pip install novauniverse
 ```
