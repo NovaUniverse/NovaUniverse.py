@@ -76,16 +76,3 @@ class player(basic_player): #Player Object
             session_["player_placement"], session_["timestamp"]))
 
         return sessions_list
-
-    class _utls:
-        def __init__(self):
-            pass
-
-        def player_name_to_uuid(self, player_name:str):
-            from ..endpoints import mojang
-            from ..APIs import mojang as mojang_api
-
-            short_uuid:str = (mojang_api.request(mojang.URLs().player_profile(player_name)))["id"]; return self.short_to_full_uuid(short_uuid)
-
-        def short_to_full_uuid(self, short_uuid:str): #Converts short uuid to full uuid.
-            return short_uuid[:8] + "-" + short_uuid[8:12] +  "-" + short_uuid[12:16] +  "-" + short_uuid[16:20] +  "-" + short_uuid[20:]
