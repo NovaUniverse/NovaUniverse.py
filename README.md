@@ -34,4 +34,4 @@ print(player.first_join)
 
 #OUTPUT: 2021-01-15 19:28:32
 ```
-###### (MORE INFO IN [DOCUMENTATION](http://novauniversepy.readthedocs.io/))
+###### (MORE INFO IN [DOCUMENTATION](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
