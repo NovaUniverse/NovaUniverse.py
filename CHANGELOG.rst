@@ -1,6 +1,15 @@
 Change Log
 ==========
 
+v1.1a1 - New Update (23/02/2022)
+---------------------------
+- Significantly improved typing hint.
+- Added comments to each attribute in all the novauniverse objects.
+- "is_online" attribute in player object now always returns live data.
+- Basic server stats have been added. >> "novauniverse.Server()"
+- License key validation has been added. >> "novauniverse.License()"
+- Switched to using the internal mojang API.
+
 v1.0a1 - First Alpha Release (02/01/2022)
 ---------------------------
 - "novauniverse.player()" is now "novauniverse.Player()" and same goes with "novauniverse.session()", more info in documentation. Docs: https://novauniversepy.readthedocs.io/en/latest/#
