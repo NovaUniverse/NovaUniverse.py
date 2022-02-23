@@ -2,13 +2,16 @@ from setuptools import setup, find_packages
  
 classifiers = [
   'Operating System :: Microsoft :: Windows :: Windows 10',
+  'Operating System :: POSIX :: Linux',
   'License :: OSI Approved :: MIT License',
-  'Programming Language :: Python :: 3.8'
+  'Programming Language :: Python :: 3.7',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9'
 ]
  
 setup(
   name='novauniverse',
-  version='1.0a5',
+  version='1.1a1',
   description='A modern API wrapper for the minecraft server Nova Universe written in Python.', 
   long_description=open('README.txt').read(), 
   url='https://novauniverse.net/', 
