@@ -4,9 +4,7 @@ from typing import List
 from .. import API
 
 class basic_player(object):
-    def __init__(self, ENDPOINT:str, id:int, uuid:str, username:str):
-        self.ENDPOINT = ENDPOINT
-
+    def __init__(self, id:int, uuid:str, username:str):
         self.id_ = id
         self.uuid_ = uuid
         self.username_ = username
@@ -31,7 +29,7 @@ class basic_player(object):
 
 class player(basic_player): #Player Object
     def __init__(self, ENDPOINT:str, id:int, uuid:str, username:str, first_join:dict, last_join:dict, is_online:int, sessions:list):
-        super().__init__(ENDPOINT, id, uuid, username)
+        super().__init__(id, uuid, username)
         self.ENDPOINT = ENDPOINT
 
         self.first_join_ = first_join
