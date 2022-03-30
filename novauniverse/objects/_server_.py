@@ -1,13 +1,28 @@
 from datetime import datetime
+from typing import List
 from .. import API
 
 class BasicServer(object):
     """Class for basic server stats."""
-    def __init__(self, ENDPOINT:str, ENDPOINT_2:str, cached:bool):
+    def __init__(self, ENDPOINT:str, ENDPOINT_2:str, cached:bool, players_online:dict):
         self.ENDPOINT = ENDPOINT
         self.ENDPOINT_2 = ENDPOINT_2
 
         self._cached = cached
+
+        self.players_online_ = players_online
+
+    from . import _player_
+
+    class online_player(_player_.basic_player):
+        def __init__(self, ENDPOINT: str, uuid: str, username: str, server_name:str, server_type_id:str, server_type_name:str, server_type_display_name:str):
+            id = None # I don't have an easy and quick way to grab the player's id, due to it not being in this section of the api.
+            super().__init__(id, uuid, username)
+
+            self.server_name_ = server_name
+            self.server_type_id_ = server_type_id
+            self.server_type_name_ = server_type_name
+            self.server_type_display_name_ = server_type_display_name
 
     @property
     def player_count(self) -> int:
@@ -34,6 +49,19 @@ class BasicServer(object):
     def timezone(self) -> str:
         """The name of the timezone the API server is in."""
         return str(API.update(self, "localtime")["timezone"])
+
+    @property
+    def players(self) -> List[online_player]:
+        """Returns list of players online as player object."""
+        players_list = []
+        for player_ in self.players_online_:
+            players_list.append(self.online_player(self.ENDPOINT_2, player_["uuid"], player_["username"], player_["server_name"], 
+            player_["server_type_id"], player_["server_type_name"], player_["server_type_display_name"]))
+
+        return players_list
+
+    players_online = players
+    online_players = players
     
     datetime = localtime
     time = localtime
