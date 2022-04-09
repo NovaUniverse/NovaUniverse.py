@@ -6,11 +6,9 @@
 Welcome to NovaUniverse.py's documentation!
 ===========================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
+.. include:: novauniverse.rst
+.. include:: novauniverse.objects.rst
+.. include:: novauniverse.API.rst
 
 Indices and tables
 ==================
