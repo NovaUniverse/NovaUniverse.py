@@ -34,4 +34,13 @@ print(player.first_join)
 
 #OUTPUT: 2021-01-15 19:28:32
 ```
-###### (MORE INFO IN [DOCUMENTATION](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
+
+## *Documentation*
+
+* [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
+* [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
+* [Get Server Info]()
+* [Get License Info]()
+* ~~[Get Player Stats]()~~ *Comming Soon*
+
+###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
