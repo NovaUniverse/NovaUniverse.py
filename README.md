@@ -37,10 +37,10 @@ print(player.first_join)
 
 ## *Documentation*
 
-* [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
-* [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
-* [Get Server Info]()
-* [Get License Info]()
-* ~~[Get Player Stats]()~~ *Comming Soon*
+* #### [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
+* #### [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
+* #### [Get Server Info]()
+* #### [Get License Info]()
+* #### ~~[Get Player Stats]()~~ *(Coming Soon)*
 
 ###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
