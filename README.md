@@ -35,12 +35,36 @@ print(player.first_join)
 #OUTPUT: 2021-01-15 19:28:32
 ```
 
-## *Documentation*
+# *Documentation*
 
 * #### [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
 * #### [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
-* #### [Get Server Info]()
+* #### [Get Server Info](#get-server-info)
 * #### [Get License Info]()
 * #### ~~[Get Player Stats]()~~ *(Coming Soon)*
 
 ###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
+
+## *Get Server Info*
+
+Heres how you can grab stats about our servers running on the network. You can grab stats like, the list of players online, total player count, total server count and more with novauniverse.py.
+
+```python
+novauniverse.Server()
+```
+### An Example
+```python
+import novauniverse as nova
+
+server = nova.Server()
+
+print(f"There are {server.player_count} players online.")
+print(f"There are {server.server_count} servers online.")
+print(f"It is currently {server.localtime.time} at Zeeraa's house.")
+
+for player in server.players:
+    print(f"'{player.username}' is currently online in '{player.server_name_}'.")
+```
+
+* ### Attributes
+    * fdf
