@@ -11,7 +11,7 @@ classifiers = [
  
 setup(
   name='novauniverse',
-  version='1.1.2a1',
+  version='1.2a1',
   description='A modern API wrapper for the minecraft server "Nova Universe" written in Python.', 
   long_description=open('README.txt').read(), 
   url='https://novauniverse.net/', 

@@ -1,6 +1,7 @@
 # Nova Universe.py *(Pythonic API Wrapper)*
 
-![Discord Shield](https://discordapp.com/api/guilds/692764975902752871/widget.png?style=shield)
+[![Discord Shield](https://discordapp.com/api/guilds/692764975902752871/widget.png?style=shield)](https://discord.gg/4gZSVJ7)
+[![PyPI version](https://badge.fury.io/py/novauniverse.svg)](https://pypi.org/project/novauniverse/)
 
 <p align="center">
  <img src="https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png" width="500" />
@@ -35,12 +36,45 @@ print(player.first_join)
 #OUTPUT: 2021-01-15 19:28:32
 ```
 
-## *Documentation*
+# *Documentation*
 
 * #### [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
 * #### [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
-* #### [Get Server Info]()
+* #### [Get Server Info](#get-server-info)
 * #### [Get License Info]()
 * #### ~~[Get Player Stats]()~~ *(Coming Soon)*
 
 ###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
+
+<br>
+
+## *Get Server Info*
+
+Heres how you can grab stats about our servers running on the network. You can grab stats like, the list of players online, total player count, total server count and more with novauniverse.py.
+
+```python
+novauniverse.Server()
+```
+### An Example
+```python
+import novauniverse as nova
+
+server = nova.Server()
+
+print(f"There are {server.player_count} players online.")
+print(f"There are {server.server_count} servers online.")
+print(f"It is currently {server.localtime.time} at Zeeraa's house.")
+
+for player in server.players:
+    print(f"'{player.username}' is currently online in '{player.server_name_}'.")
+```
+
+* #### Attributes
+    * **``player_count -> int`` -** *The amount of players on the network right now. (LIVE)*
+    * **``server_count -> int`` -** *The amount of servers online on the network right now. (LIVE)*
+    * **``cached -> bool`` -** *Has this data been cached by the API or not.*
+    * **``localtime -> datetime`` -** *The local time at Zeeraa's house... uMm, returns as python datetime object. (LIVE)*
+    * **``timezone -> str`` -** *The name of the timezone the API server is in.*
+    * **``players -> list[online_player]`` -** *Returns list of players online as player object.*
+-------------------
+### ``Documentation is still currently being written...``
