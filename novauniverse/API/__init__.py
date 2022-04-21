@@ -1,8 +1,8 @@
+from __future__ import annotations
 from . import endpoints
 
 import requests
 import json
-
 
 from .. import info
 
@@ -32,6 +32,14 @@ def request(url:str):
         return data["data"]
     except KeyError:
         return data
+
+def request_list(url:str):
+    """Makes request to api then returns data in json."""
+    #Make request.
+    response = requests.get(url, headers=headers)
+    data:list = response.json()
+
+    return data
 
 def update(object, data_name):
     """Requests for specific pieces of data from the API. (Used for LIVE object attributes.)"""

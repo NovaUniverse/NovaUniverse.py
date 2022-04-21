@@ -1,6 +1,6 @@
 # Nova Universe.py *(Pythonic API Wrapper)*
 
-![Discord Shield](https://discordapp.com/api/guilds/692764975902752871/widget.png?style=shield)
+[![Discord Shield](https://discordapp.com/api/guilds/692764975902752871/widget.png?style=shield)](https://discord.gg/4gZSVJ7)
 [![PyPI version](https://badge.fury.io/py/novauniverse.svg)](https://pypi.org/project/novauniverse/)
 
 <p align="center">

@@ -16,6 +16,9 @@ class URLs:
         # Tournament System validate license key.
         self.license_tournament_system_url = "/license/tournament_system/{}"
 
+        # MCF Tournament
+        self.mcf_result_url = "/mcf/result"
+
         # Internal Mojang API
         self.internal_mojang_api_url = "/private/mojang"
         
@@ -34,6 +37,9 @@ class URLs:
 
     def extended_server_stats(self):
         return self.base_url + self.extended_server_stats_url
+
+    def mcf_result(self):
+        return self.base_url + self.mcf_result_url
 
     def license_tournament_system(self, key:str):
         return self.base_url + self.license_tournament_system_url.format(key)
