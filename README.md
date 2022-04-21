@@ -70,9 +70,9 @@ for player in server.players:
 ```
 
 * #### Attributes
-    * **``player_count:int`` -** *The amount of players on the network right now. (LIVE)*
-    * **``server_count:int`` -** *The amount of servers online on the network right now. (LIVE)*
-    * **``cached:bool`` -** *Has this data been cached by the API or not.*
-    * **``localtime:datetime`` -** *The local time at Zeeraa's house... uMm, returns as python datetime object. (LIVE)*
-    * **``timezone:str`` -** *The name of the timezone the API server is in.*
-    * **``players:list[online_player]`` -** *Returns list of players online as player object.*
+    * **``player_count -> int`` -** *The amount of players on the network right now. (LIVE)*
+    * **``server_count -> int`` -** *The amount of servers online on the network right now. (LIVE)*
+    * **``cached -> bool`` -** *Has this data been cached by the API or not.*
+    * **``localtime -> datetime`` -** *The local time at Zeeraa's house... uMm, returns as python datetime object. (LIVE)*
+    * **``timezone -> str`` -** *The name of the timezone the API server is in.*
+    * **``players -> list[online_player]`` -** *Returns list of players online as player object.*
