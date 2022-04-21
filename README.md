@@ -42,6 +42,7 @@ print(player.first_join)
 * #### [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
 * #### [Get Server Info](#get-server-info)
 * #### [Get License Info]()
+* #### [Get MCF Results]()
 * #### ~~[Get Player Stats]()~~ *(Coming Soon)*
 
 ###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
