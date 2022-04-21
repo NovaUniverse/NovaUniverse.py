@@ -76,3 +76,5 @@ for player in server.players:
     * **``localtime -> datetime`` -** *The local time at Zeeraa's house... uMm, returns as python datetime object. (LIVE)*
     * **``timezone -> str`` -** *The name of the timezone the API server is in.*
     * **``players -> list[online_player]`` -** *Returns list of players online as player object.*
+-------------------
+### ``Documentation is still currently being written...``
