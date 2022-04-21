@@ -45,6 +45,8 @@ print(player.first_join)
 
 ###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
 
+<br>
+
 ## *Get Server Info*
 
 Heres how you can grab stats about our servers running on the network. You can grab stats like, the list of players online, total player count, total server count and more with novauniverse.py.
@@ -67,4 +69,9 @@ for player in server.players:
 ```
 
 * ### Attributes
-    * fdf
+    * ``player_count:int``: The amount of players on the network right now. (LIVE)
+    * ``server_count:int``: The amount of servers online on the network right now. (LIVE)
+    * ``cached:bool``: Has this data been cached by the API or not.
+    * ``localtime:datetime``: The local time at Zeeraa's house... uMm, returns as python datetime object. (LIVE)
+    * ``timezone:str``: The name of the timezone the API server is in.
+    * ``players:list[online_player]``: Returns list of players online as player object.
