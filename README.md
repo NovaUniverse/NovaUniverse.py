@@ -131,18 +131,12 @@ Both AiroKun and darkleonard2 was rewarded.
 ## *Objects*
 
 ```python
-novauniverse.Mcf()
+novauniverse.objects._mcf_.ExtendedMCFTeam()
 ```
 
-Heres how you can grab stats about our tournament MCF. With novauniverse.py you can grab all staticstics of each MCF week & session. Like the kills of a player or a team.
+Class that represents a team in the mcf tournamant.
 
 * #### Attributes
-    * **``id -> int`` -** *The id of the tournament.*
-    * **``date -> datetime.datetime`` -** *The date when the tournament took place.*
-    * **``display_name -> str`` -** *The display name of the MCF session.*
-    * **``winner_team_id -> int`` -** *The team number of the winning team.*
-    * **``winner_team ->`` [``ExtendedMCFTeam``]() -** *Returns team object of the winning team.*
-    * **``teams ->`` [``list[ExtendedMCFTeam]``]() -** *Returns list of all teams that played in this MCF.*
-
+    * 
 -------------------
 ### ``Documentation is still currently being written...``
