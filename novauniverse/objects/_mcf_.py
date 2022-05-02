@@ -60,13 +60,17 @@ class MCFPlayer(object):
     """Returns the player's mojang username."""
 
 class BasicMCFTeam(object):
+    "Basic mcf team class."
     def __init__(self, team_number:int, team_score:int):
         self.team_number_ = team_number
         self.team_score_ = team_score
 
     @property
     def team_number(self):
-        """Returns the number of this team."""
+        """
+        Returns the number of this team.
+        WARNING: This method is slower, it is recommended to use ``MCF().winner_team_number`` whenever possible.
+        """
         return self.team_number_
 
     @property
@@ -75,6 +79,7 @@ class BasicMCFTeam(object):
         return self.team_score_
 
 class ExtendedMCFTeam(BasicMCFTeam):
+    """Class that represents a team in the mcf tournamant."""
     def __init__(self, team_players:list, team_number:int, team_score:int):
         self.players_:list = team_players
         super().__init__(team_number, team_score)
@@ -103,10 +108,12 @@ class MCF(object):
 
     @property
     def id(self):
+        """The id of the tournament."""
         return self.id_
 
     @property
     def date(self) -> datetime.datetime:
+        """The date when the tournament took place.*"""
         return datetime.datetime.strptime(self.date_, '%Y-%m-%d')
 
     @property
@@ -143,3 +150,4 @@ class MCF(object):
         return teams_list
 
     winner_team_number = winner_team_id
+    """The team number of the winning team."""
