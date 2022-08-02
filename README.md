@@ -123,14 +123,15 @@ Both AiroKun and darkleonard2 was rewarded.
     * **``date -> datetime.datetime`` -** *The date when the tournament took place.*
     * **``display_name -> str`` -** *The display name of the MCF session.*
     * **``winner_team_id -> int`` -** *The team number of the winning team.*
-    * **``winner_team ->`` [``ExtendedMCFTeam``](#ExtendedMCFTeam) -** *Returns team object of the winning team.*
-    * **``teams ->`` [``list[ExtendedMCFTeam]``](#ExtendedMCFTeam) -** *Returns list of all teams that played in this MCF.*
+    * **``winner_team ->`` [``ExtendedMCFTeam``](#extendedmcfteam) -** *Returns team object of the winning team.*
+    * **``teams ->`` [``list[ExtendedMCFTeam]``](#extendedmcfteam) -** *Returns list of all teams that played in this MCF.*
 
 <br>
 
 ## *Objects*
 
-### ***- ``ExtendedMCFTeam``*** **( Inherits from [``BasicMCFTeam``](#BasicMCFTeam) )**
+### ***- ``ExtendedMCFTeam``***
+**( Inherits from [``BasicMCFTeam``](#BasicMCFTeam) )**
 ```python
 novauniverse.objects._mcf_.ExtendedMCFTeam()
 ```
