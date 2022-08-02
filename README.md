@@ -41,9 +41,8 @@ print(player.first_join)
 * #### [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
 * #### [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
 * #### [Get Server Info](#get-server-info)
-* #### [Get License Info]() *(Docs Coming Soon)*
+* #### ~~[Get License Info]()~~ *(Coming Soon)*
 * #### [Get Mcf Stats](#get-mcf-stats-1)
-* #### ~~[Get Player Stats]()~~ *(Docs Coming Soon)*
 
 ###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
 
