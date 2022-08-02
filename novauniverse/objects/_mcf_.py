@@ -56,6 +56,9 @@ class MCFPlayer(object):
     uid = id
     """Returns the MCF id of the player."""
 
+    mojang_id = uuid
+    """Returns the player's mojang uuid."""
+
     name = username
     """Returns the player's mojang username."""
 
@@ -69,7 +72,7 @@ class BasicMCFTeam(object):
     def team_number(self):
         """
         Returns the number of this team.
-        WARNING: This method is slower, it is recommended to use ``MCF().winner_team_number`` whenever possible.
+        WARNING: This method is slower, it is recommended to use ``MCF().winner_team_number`` whenever possible if you are finding the winner's team id.
         """
         return self.team_number_
 
@@ -79,14 +82,14 @@ class BasicMCFTeam(object):
         return self.team_score_
 
 class ExtendedMCFTeam(BasicMCFTeam):
-    """Class that represents a team in the mcf tournamant."""
+    """This class that represents a team in the mcf tournamant."""
     def __init__(self, team_players:list, team_number:int, team_score:int):
         self.players_:list = team_players
         super().__init__(team_number, team_score)
 
     @property
     def players(self) -> List[MCFPlayer]:
-        """Returns list of player objects of the players in that team."""
+        """Returns list of players in that team via MCFPlayer objects."""
         player_list = []
         for player in self.players_:
             player_list.append(MCFPlayer(player))

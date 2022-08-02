@@ -41,9 +41,9 @@ print(player.first_join)
 * #### [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
 * #### [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
 * #### [Get Server Info](#get-server-info)
-* #### [Get License Info]()
-* #### [Get Mcf Stats](#get-mcf-stats-1)
-* #### ~~[Get Player Stats]()~~ *(Coming Soon)*
+* #### [Get License Info]() *(Docs Coming Soon)*
+* #### [Get Mcf Stats](#get-mcf-stats)
+* #### ~~[Get Player Stats]()~~ *(Docs Coming Soon)*
 
 ###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
 
@@ -123,20 +123,56 @@ Both AiroKun and darkleonard2 was rewarded.
     * **``date -> datetime.datetime`` -** *The date when the tournament took place.*
     * **``display_name -> str`` -** *The display name of the MCF session.*
     * **``winner_team_id -> int`` -** *The team number of the winning team.*
-    * **``winner_team ->`` [``ExtendedMCFTeam``]() -** *Returns team object of the winning team.*
-    * **``teams ->`` [``list[ExtendedMCFTeam]``]() -** *Returns list of all teams that played in this MCF.*
+    * **``winner_team ->`` [``ExtendedMCFTeam``](#ExtendedMCFTeam) -** *Returns team object of the winning team.*
+    * **``teams ->`` [``list[ExtendedMCFTeam]``](#ExtendedMCFTeam) -** *Returns list of all teams that played in this MCF.*
 
 <br>
 
 ## *Objects*
 
+<br>
+
+### ***- ``ExtendedMCFTeam``*** **( Inherits from [``BasicMCFTeam``](#BasicMCFTeam) )**
 ```python
 novauniverse.objects._mcf_.ExtendedMCFTeam()
 ```
 
-Class that represents a team in the mcf tournamant.
+This class represents a team in the mcf tournamant.
 
 * #### Attributes
-    * 
+    * **``players ->`` [``list[MCFPlayer]``](#MCFPlayer) -** *Returns list of players in that team via MCFPlayer objects.*
+
+<br>
+
+### ***- ``BasicMCFTeam``***
+```python
+novauniverse.objects._mcf_.ExtendedMCFTeam()
+```
+
+Basic mcf team class.
+
+* #### Attributes
+    * **``team_number -> int`` -** *Returns the number of this team. WARNING: This method is slower, it is recommended to use ``MCF().winner_team_number`` whenever possible if you are finding the winner's team id.*
+    * **``team_score -> int``** - Returns the total score of this team.
+
+<br>
+
+### ***- ``MCFPlayer``***
+```python
+novauniverse.objects._mcf_.MCFPlayer()
+```
+
+This class represents a player in the mcf tournamant.
+
+* #### Attributes
+    * **``id -> int``** - Returns the MCF id of the player.
+    * **``has_nova_account -> bool``** - Returns True/False if the player is linked to a novauniverse account.
+    * **``nova_account_name -> (str | None)``** - Returns the name of the nova universe account this player is linked to.
+    * **``username -> int``** - Returns the MCF id of the player.
+    * **``uuid -> str``** - Returns the player's mojang uuid.
+    * **``team_number -> int``** - Returns the number of the team the player is in.
+    * **``score -> int``** - Returns the total score this player achived.
+    * **``kills -> int``** - Returns the amount of kills this player got.
+    
 -------------------
 ### ``Documentation is still currently being written...``
