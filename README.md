@@ -130,8 +130,6 @@ Both AiroKun and darkleonard2 was rewarded.
 
 ## *Objects*
 
-<br>
-
 ### ***- ``ExtendedMCFTeam``*** **( Inherits from [``BasicMCFTeam``](#BasicMCFTeam) )**
 ```python
 novauniverse.objects._mcf_.ExtendedMCFTeam()
