@@ -2,5 +2,4 @@ dist
 demo.py
 demo_old.py
 __pycache__
-.vscode
 novauniverse.egg-info

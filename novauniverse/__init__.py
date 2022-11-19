@@ -4,3 +4,4 @@
 Copyright (C) 2022 - Dev Goldy
 """
 
+from .interfaces.news import News
