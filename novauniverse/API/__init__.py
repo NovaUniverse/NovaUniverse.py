@@ -1,14 +1,9 @@
 import requests
+
+from .errors import *
 from .endpoints import Endpoints
 
-from ..errors import NovaError
 from ..info import PACKAGE_NAME
-
-class NovaAPIError(NovaError):
-    """Error raised when a known error occurs on the API."""
-    def __init__(self, message:str) -> None:
-        super().__init__(message)
-
 
 class NovaAPI():
     """The main class that handles all requests to ``https://novauniverse.net/api/``. """
@@ -36,6 +31,12 @@ class NovaAPI():
     def get(self):
         """Send a get request to that endpoint."""
 
-        pass
+        if self.endpoint is None: raise NoEndpointPassed()
+        if self.is_online is False: raise FailedConnectivityCheck()
 
-    
+        response_json:dict = self.__http_session.get(self.endpoint).json()
+
+        if response_json.get("success", True):
+            return response_json
+        else:
+            raise UnSuccessfulOperation()

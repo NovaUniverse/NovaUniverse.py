@@ -14,7 +14,7 @@ readme_request = requests.get("https://raw.githubusercontent.com/Goldy-Bot/Goldy
  
 setup(
   name='novauniverse',
-  version='1.3',
+  version='2.0',
   description='A modern API wrapper for the minecraft server "Nova Universe" written in Python.', 
   long_description=readme_request.text,
   long_description_content_type="text/markdown",

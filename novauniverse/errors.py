@@ -9,5 +9,6 @@ class ErrorType(Enum):
 class NovaError(Exception):
     """The base class of all NovaUniverse.py errors."""
     def __init__(self, message:str, type:ErrorType=1) -> None:
+        """Raises this as a NovaUniverse.py exception."""
         
         super().__init__(Console().RED(message))
