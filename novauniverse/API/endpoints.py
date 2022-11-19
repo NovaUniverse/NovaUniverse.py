@@ -21,3 +21,5 @@ class Endpoints:
     NEWS_LATEST = (
         BASE_URL + "/news/latest"
     )
+
+    
