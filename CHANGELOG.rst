@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+v1.3 - Rewrite, BREAKING CHANGES (18/11/2022)
+---------------------------
+- 
+
 v1.1a1 - New Update (23/02/2022)
 ---------------------------
 - Significantly improved typing hint.

@@ -1,50 +1,41 @@
-from __future__ import annotations
-from . import endpoints
-
 import requests
-import json
+from .endpoints import Endpoints
 
-from .. import info
+from ..errors import NovaError
+from ..info import PACKAGE_NAME
 
-api_name = "NOVA API"
-headers = {'User-Agent': (str(info.PACKAGE_NAME))[0:-2]}
-error_format = f"\u001b[31m{api_name}" + ": [{}] {}\u001b[0m"
+class NovaAPIError(NovaError):
+    """Error raised when a known error occurs on the API."""
+    def __init__(self, message:str) -> None:
+        super().__init__(message)
 
-class NovaAPIError(Exception):
-    pass
 
-def request(url:str):
-    """Makes request to api then returns data in json."""
-    #Make request.
-    response = requests.get(url, headers=headers)
-    data:dict = response.json()
-    
-    try: # Nova Universe API error catcher.
-        if data["success"] == False:
-            error = data["error"]
-            message = data["message"]
+class NovaAPI():
+    """The main class that handles all requests to ``https://novauniverse.net/api/``. """
 
-            raise NovaAPIError(error_format.format(error, message))
-    except KeyError:
+    def __init__(self, endpoint:str=None):
+        self.endpoint = endpoint
+
+        self.__http_session = requests.Session()
+        self.__http_session.headers["User-Agent"] = PACKAGE_NAME
+
+    @property
+    def is_online(self) -> bool:
+        try:
+            response = self.__http_session.get(Endpoints.connectivity_check)
+            success = response.json()["success"]
+        except (requests.exceptions.RequestException, KeyError):
+            return False
+
+        if success == True:
+            return True
+        else:
+            return False
+        
+
+    def get(self):
+        """Send a get request to that endpoint."""
+
         pass
 
-    try:
-        return data["data"]
-    except KeyError:
-        return data
-
-def request_list(url:str):
-    """Makes request to api then returns data in json."""
-    #Make request.
-    response = requests.get(url, headers=headers)
-    data:list = response.json()
-
-    return data
-
-def update(object, data_name):
-    """Requests for specific pieces of data from the API. (Used for LIVE object attributes.)"""
-    if not object.ENDPOINT == None:
-        data = request(object.ENDPOINT)
-        return data[f"{data_name}"]
-    else:
-        return None
+    
