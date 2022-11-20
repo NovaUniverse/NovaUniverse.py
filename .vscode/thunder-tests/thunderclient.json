@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "0ca422d4-4cc4-4a26-aca0-7fcb061a1b2b",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "news all",
+    "url": "{{base_endpoint}}/news/all",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-11-20T12:55:25.104Z",
+    "modified": "2022-11-20T12:55:25.104Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b5e773e3-9a04-4bee-b14d-2e18aaeec1f2",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "news latest",
+    "url": "{{base_endpoint}}/news/latest",
+    "method": "GET",
+    "sortNum": 32500,
+    "created": "2022-11-20T12:55:25.105Z",
+    "modified": "2022-11-20T12:55:25.105Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "35b6139c-8256-44fd-90db-41bbea4a1a1b",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "connectivity check",
+    "url": "{{base_endpoint}}/connectivity_check",
+    "method": "GET",
+    "sortNum": 35000,
+    "created": "2022-11-20T12:55:25.106Z",
+    "modified": "2022-11-20T12:55:25.106Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "87381f26-2259-4f81-b404-8f483514de91",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "connectivity check Copy",
+    "url": "{{base_endpoint}}/connectivity_check",
+    "method": "GET",
+    "sortNum": 45000,
+    "created": "2022-11-20T12:55:25.107Z",
+    "modified": "2022-11-20T12:55:25.107Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  }
+]
