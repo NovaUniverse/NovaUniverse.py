@@ -7,8 +7,18 @@ import logging as log
 from .logging import add_custom_handler
 
 from .info import LOGGER_NAME
+nova_logger = add_custom_handler(log.getLogger(LOGGER_NAME)); nova_logger.setLevel(log.WARN)
+"""
+The python ``logging.Logger()`` class for NovaUniverse.py.
 
-nova_logger = add_custom_handler(log.getLogger(LOGGER_NAME))
+--------------
+
+You can adjust log level like this: 
+```python
+import logging
+nova_logger.setLevel(log.DEBUG)
+```
+"""
 
 # Endpoint Interfaces.
 # ------------------------

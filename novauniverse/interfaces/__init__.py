@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 import abc
-import sys, os
 from typing import Type, List, Tuple, Any
 
 from .. import nova_logger
+from ..errors import NovaError, ErrorType
 from ..api import NovaAPI, Endpoints
-from ..utils.search import Search, SearchBy, HasNotBeenSearched
+from ..utils.search import Search, SearchBy
 
 # Base Interface & Object Class
 # -------------------------
@@ -50,54 +50,42 @@ class SearchInterface(Interface):
     """Adds searching to the basic interface class. Use this to add searching functionality to interfaces."""
     def __init__(self, interface_class:object, supports:List[SearchBy]):
         __metaclass__ = abc.ABCMeta
-        super().__init__(self)
+        super().__init__()
 
-        self.__interface_class = interface_class
+        self.__interface_class = interface_class.__class__
         self.__supports = supports
 
-    # Just adding it as a abstract method.
     @abc.abstractmethod
-    def __new__(self:SearchInterface, search:Search=None) -> InterfaceObject | Any | None:
-        return super().__new__(self)
-    
-    def search(self, search_class:Search, object_list:List[InterfaceObject]) -> InterfaceObject|None:
-        if not search_class.search_by in self.__supports:
-            search_class.not_supported(self.__interface_class)
+    def find(self, search_class:Search, object_list:List[InterfaceObject]=None) -> InterfaceObject|None:
+        if isinstance(search_class, Search):
+            if not search_class.search_by in self.__supports:
+                search_class.not_supported(self.__interface_class)
+            
+            # Search by id
+            # --------------
+            if search_class.search_by is SearchBy.id:
+                nova_logger.debug(f"Searching for '{self.__interface_class.__name__}' by id...")
+
+                for object in object_list:
+                    if object.id == search_class.get_query():
+                        nova_logger.info(f"Found '{self.__interface_class.__name__}' by id.")
+                        return object
+
+            # Search by name
+            # --------------
+            if search_class.search_by is SearchBy.name_:
+                nova_logger.debug(f"Searching for '{self.__interface_class.__name__}' by name...")
+
+                for object in object_list:
+                    if object.name == search_class.get_query():
+                        nova_logger.info(f"Found '{self.__interface_class.__name__}' by name.")
+                        return object
         
-        # Search by id
-        # --------------
-        if search_class.search_by is SearchBy.id:
-            nova_logger.debug(f"Searching for '{self.__interface_class.__name__}' by id...")
-
-            for object in object_list:
-                if object.id == search_class.get_query():
-                    nova_logger.info(f"Found '{self.__interface_class.__name__}' by id.")
-                    return object
-
-        # Search by name
-        # --------------
-        if search_class.search_by is SearchBy.name_:
-            nova_logger.debug(f"Searching for '{self.__interface_class.__name__}' by name...")
-
-            for object in object_list:
-                if object.name == search_class.get_query():
-                    nova_logger.info(f"Found '{self.__interface_class.__name__}' by name.")
-                    return object
+        else:
+            raise NovaError(f"You must use the 'novauniverse.Search()' class for searching in '{self.__interface_class.__name__}'.", ErrorType.ERROR)
 
         return None
         
-
-def raise_on_not_searched(func):
-    """Raises ``HasNotBeenSearched()`` when attribute error occurs in this property/method."""
-    func:function
-
-    def inner(self):
-        try:
-            return func(self)
-        except AttributeError:
-            raise HasNotBeenSearched()
-    return inner
-
 
 
 # Import all interfaces under this module.

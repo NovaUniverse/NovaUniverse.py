@@ -1,4 +1,5 @@
-BASE_URL = "https://novauniverse.net/api"
+BASE_DOMAIN = "https://novauniverse.net"
+BASE_URL = BASE_DOMAIN + "/api"
 
 class Endpoints:
     """Class containing all Nova Universe API endpoints."""

@@ -42,6 +42,7 @@ class NovaAPI():
 
         self.__logger.info(f"Sending get request to '{self.endpoint}'...")
         response_json:dict = self.__http_session.get(self.endpoint).json()
+        self.__logger.debug(f"Data from request --> {response_json}")
 
         if response_json.get("success", True):
             self.__logger.info(f"Get request of '{self.endpoint}' was successful!")

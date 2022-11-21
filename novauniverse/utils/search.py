@@ -14,15 +14,17 @@ class SearchBy(Enum):
 # --------
 class SearchGotNoArgs(NovaError):
     def __init__(self) -> None:
-        super().__init__("Search() class must have either id or name passed. Like --> Search(name='UwU Bot')", ErrorType.ERROR)
+        super().__init__("'Search()' class must have either id or name passed. Like --> Search(name='UwU Dev Goldy')", ErrorType.ERROR)
 
 class SearchNotCompletelySupported(NovaError):
     def __init__(self, searched_by, interface:object) -> None:
         super().__init__(f"Searching by '{searched_by}' not supported by '{interface.__class__.__name__}' interface/endpoint.", ErrorType.ERROR)
 
+"""
 class HasNotBeenSearched(NovaError):
     def __init__(self) -> None:
         super().__init__("Can't return this property/method because you have not searched for this object.", ErrorType.ERROR)
+"""
 
 # Search class
 # ---------------
@@ -38,7 +40,7 @@ class Search():
         if not self.__id == None: self.__using_id = True
         if not self.__name == None: self.__using_name = True
         
-        if self.__using_id and self.__using_name:
+        if self.__using_id == False and self.__using_name == False:
             raise SearchGotNoArgs()
 
     def get_query(self) -> str|int|None:
