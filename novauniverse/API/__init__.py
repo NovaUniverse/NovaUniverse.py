@@ -20,7 +20,7 @@ class NovaAPI():
     @property
     def is_online(self) -> bool:
         try:
-            self.__logger.info("Checking if Nova Universe API is online...")
+            self.__logger.debug("Checking if Nova Universe API is online...")
 
             response = self.__http_session.get(Endpoints.connectivity_check)
             success = response.json()["success"]
@@ -28,7 +28,7 @@ class NovaAPI():
             return False
 
         if success:
-            self.__logger.info("Yes API is Online!")
+            self.__logger.debug("Yes API is Online!")
             return True
         else:
             return False

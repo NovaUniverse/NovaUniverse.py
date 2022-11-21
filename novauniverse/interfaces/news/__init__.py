@@ -1,17 +1,30 @@
 from __future__ import annotations
 
-from .. import Interface
+from ...utils.search import Search, SearchBy
+from .. import Interface, SearchInterface, InterfaceObject
 from .newsletter import NewsLetter
 
-from typing import List
+from typing import List, Any
 
-class News(Interface):
-    def __init__(self):
-        """Class to inference with NovaUniverse API news endpoint."""
-        super().__init__()
-        
+class News(SearchInterface, NewsLetter):
+    """
+    The interface for NovaAPI's ``/news`` endpoint.
+    Allows you to get latest, get all and search for newsletters.
+    """
+    def __init__(self, search:Search=None):
+        ...
+    
+    def __new__(self:News, search:Search=None) -> InterfaceObject | News | None:
+        super().__init__(self, self, supports=[SearchBy.id, SearchBy.name_])
+
         self.__news_all_api = self.api(self.endpoints.NEWS_ALL)
         self.__news_latest_api = self.api(self.endpoints.NEWS_LATEST)
+
+        if not search is None:
+            return self.search(self, search, self.get_all(self))
+        else:
+            return super().__new__(self)
+
 
     def get_all(self) -> List[NewsLetter]:
         """Returns all newsletters from api in a list. Returns empty list if none."""

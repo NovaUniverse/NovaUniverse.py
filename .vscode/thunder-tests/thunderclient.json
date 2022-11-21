@@ -63,12 +63,32 @@
     "_id": "87381f26-2259-4f81-b404-8f483514de91",
     "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
     "containerId": "",
-    "name": "connectivity check Copy",
-    "url": "{{base_endpoint}}/connectivity_check",
+    "name": "mcf result",
+    "url": "{{base_endpoint}}/mcf/result/",
     "method": "GET",
     "sortNum": 45000,
     "created": "2022-11-20T12:55:25.107Z",
-    "modified": "2022-11-20T12:55:25.107Z",
+    "modified": "2022-11-20T20:39:18.760Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "08aad472-f648-4d75-baed-491560ef57c2",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats player",
+    "url": "{{base_endpoint}}/stats/player/3442be05-4211-4a15-a10c-4bdb2b6060fa",
+    "method": "GET",
+    "sortNum": 55000,
+    "created": "2022-11-20T20:40:33.958Z",
+    "modified": "2022-11-20T20:42:35.951Z",
     "headers": [
       {
         "name": "User-Agent",
