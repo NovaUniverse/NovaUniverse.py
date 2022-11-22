@@ -18,7 +18,7 @@ class Interface():
         
 class InterfaceObject():
     """Base class for objects in all NovaUniverse.py interfaces."""
-    def __init__(self, id_and_name:Tuple[int, str], object_class:object, properties_to_represent:List[Tuple[str, object]]=[]):
+    def __init__(self, id_and_name:Tuple[int, str], object_class:object, properties_to_represent:List[Tuple[str, Any]]=[]):
         self.__id = id_and_name[0]
         self.__name = id_and_name[1]
         self.__object_class = object_class

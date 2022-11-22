@@ -23,4 +23,13 @@ class Endpoints:
         BASE_URL + "/news/latest"
     )
 
-    
+
+    # Stats
+    # ------------
+    STATS_EXTENDED = (
+        BASE_URL + "/stats/extended"
+    )
+
+    STATS_DISCORD = (
+        BASE_URL + "/stats/discord"
+    )

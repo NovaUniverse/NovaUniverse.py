@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from .. import InterfaceObject
 
-from ...utils.timestamp import Timestamp
+from ...objects.timestamp import Timestamp
 
 from ... import nova_logger
 from ...api.endpoints import BASE_DOMAIN

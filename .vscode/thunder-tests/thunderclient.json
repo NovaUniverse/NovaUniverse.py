@@ -98,5 +98,65 @@
     ],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "c944ad55-ee24-4853-baf7-01144bb4dbf5",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats extended",
+    "url": "{{base_endpoint}}/stats/extended",
+    "method": "GET",
+    "sortNum": 65000,
+    "created": "2022-11-22T14:31:00.592Z",
+    "modified": "2022-11-22T14:35:19.323Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8f0dbab3-092e-43f4-838e-f4f1f8e4d82f",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats basic",
+    "url": "{{base_endpoint}}/stats/basic",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-11-22T14:34:15.797Z",
+    "modified": "2022-11-22T14:35:23.908Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1feb6a8e-e27c-415c-928a-41c8aafd87d0",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats discord",
+    "url": "{{base_endpoint}}/stats/discord",
+    "method": "GET",
+    "sortNum": 75000,
+    "created": "2022-11-22T21:40:02.292Z",
+    "modified": "2022-11-22T21:40:11.626Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
   }
 ]
