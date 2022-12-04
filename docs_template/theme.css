@@ -1,10 +1,11 @@
 /* pdoc color scheme (see also: examples/dark-mode) */
 
 :root {
-    --colour-1: #e7fdff;
-    --background-colour: #212529;
-    --background-colour-2: #555;
-    --colour-3: #FFB97B;
+    --colour-1: #ffe2e2;
+    --background-colour: #171717;
+    --background-colour-2: #413535;
+    --background-colour-3: #3D0000;
+    --colour-3: #ff4040;
     --colour-5: #77C1FF;
     --colour-6: #7790ff;
     
@@ -19,7 +20,7 @@
     --code: #333;
     --active: var(--background-colour-2);
 
-    --accent: #343434;
+    --accent: var(--background-colour-3);
     --accent2: var(--background-colour-2);
 
     --nav-hover: rgba(0, 0, 0, 0.1);
