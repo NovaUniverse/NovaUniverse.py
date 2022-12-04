@@ -33,3 +33,9 @@ class Endpoints:
     STATS_DISCORD = (
         BASE_URL + "/stats/discord"
     )
+
+    # Players
+    # ---------
+    PLAYERS_ONLINE = (
+        BASE_URL + "/players/online"
+    )

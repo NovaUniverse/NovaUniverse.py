@@ -25,11 +25,12 @@ nova_logger.setLevel(log.DEBUG)
 # ------------------------
 from .interfaces.news import News
 from .interfaces.stats.discord import Discord
-from .interfaces.stats.server import Server
+from .interfaces.stats.server import Server, NovaOnlinePlayer
 
 
 # Utils and Objects.
 # ------------------------
 from .client import NovaClient
+from .events import Events
 
 from .utils.search import Search

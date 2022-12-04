@@ -13,3 +13,8 @@ class NovaBasicPlayer:
     def __post_init__(self):
         self.uuid = self.__data["uuid"]
         self.username = self.__data["username"]
+
+        try:
+            self.__init_subclass__(self.__data)
+        except TypeError:
+            pass

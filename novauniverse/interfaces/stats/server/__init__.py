@@ -6,6 +6,7 @@ from ... import Interface, InterfaceObject
 from typing import List, Any
 
 from .server_info import ServerInfo
+from .nova_online_player import NovaOnlinePlayer
 
 class Server(Interface):
     """
@@ -16,7 +17,12 @@ class Server(Interface):
         super().__init__()
         
         self.__stats_extended_api = self.api(self.endpoints.STATS_EXTENDED)
+        self.__players_online_api = self.api(self.endpoints.PLAYERS_ONLINE)
 
     def get_stats(self) -> ServerInfo:
         """Get's and returns all server stats."""
-        return ServerInfo(self.__stats_extended_api.get())
+        return ServerInfo(self.__stats_extended_api.get(), self.__players_online_api.get())
+    
+    def get_online_players(self) -> List[NovaOnlinePlayer]:
+        """Returns list of just the online players."""
+        return [NovaOnlinePlayer(player_data) for player_data in self.__players_online_api.get()["players"]]

@@ -4,12 +4,14 @@ from .global_ import Global
 from .player_preview import PlayerPreview
 from .nova_server import NovaServer
 from .system import System
+from .nova_online_player import NovaOnlinePlayer
 
 from typing import List
 
 class ServerInfo(InterfaceObject):
-    def __init__(self, data:dict):
+    def __init__(self, data:dict, players_data):
         self.__data = data
+        self.__players_data = players_data
 
         super().__init__(
             id_and_name=(None, None), object_class=self,
@@ -45,6 +47,11 @@ class ServerInfo(InterfaceObject):
     def servers(self) -> List[NovaServer]:
         """Returns all servers on the Nova Universe network."""
         return [NovaServer(server_data) for server_data in self.__data["servers"]]
+
+    @property
+    def online_players(self) -> List[NovaOnlinePlayer]:
+        """Returns all players that are online as NovaBasicPlayer object."""
+        return [NovaOnlinePlayer(player_data) for player_data in self.__players_data["players"]]
 
     @property
     def cached(self) -> bool:
