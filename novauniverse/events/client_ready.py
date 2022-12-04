@@ -3,11 +3,11 @@ from . import Event, EventInfo
 class ClientReady(Event):
     """Triggers when NovaClient is ready."""
     def __init__(self):
-        super().__init__(self, EventInfo("client_ready"))
+        super().__init__(self, EventInfo("client_ready", None))
 
         self.__ready = False
 
-    def loop(self) -> bool:
+    def loop(self, data) -> bool:
         if self.__ready is False:
             self.__ready = True
             return True

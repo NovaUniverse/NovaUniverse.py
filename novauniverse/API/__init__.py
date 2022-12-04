@@ -10,7 +10,7 @@ class NovaAPI():
     """The main class that handles all requests to ``https://novauniverse.net/api/``. """
 
     def __init__(self, endpoint:str=None):
-        self.endpoint = endpoint
+        self.endpoint:str = endpoint
 
         self.__http_session = requests.Session()
         self.__http_session.headers["User-Agent"] = PACKAGE_NAME_WITH_VER
