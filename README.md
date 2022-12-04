@@ -46,4 +46,4 @@ client.start()
 
 # *Documentation*
 
-### Documentation has been moved to: 
+### Documentation has been moved to: https://novauniversepy.devgoldy.me/
