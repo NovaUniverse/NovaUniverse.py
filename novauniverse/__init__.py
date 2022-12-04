@@ -4,7 +4,7 @@
 Copyright (C) 2022 - Dev Goldy
 
 ----------------------------
-.. include:: ../docs_template/README.md
+.. include:: ../README.md
 """
 import logging as log
 
