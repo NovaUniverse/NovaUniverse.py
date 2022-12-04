@@ -10,7 +10,7 @@ classifiers = [
 ]
 
 import requests
-readme_request = requests.get("https://raw.githubusercontent.com/Goldy-Bot/Goldy-Bot-V4/main/README.md")
+readme_request = requests.get("https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/main/README.md")
  
 setup(
   name='novauniverse',
