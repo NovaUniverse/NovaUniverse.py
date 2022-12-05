@@ -2,6 +2,7 @@ import requests
 
 from .errors import *
 from .endpoints import Endpoints
+from .cache import cache_dict
 
 from .. import nova_logger
 from ..info import PACKAGE_NAME_WITH_VER
@@ -11,9 +12,14 @@ class NovaAPI():
 
     def __init__(self, endpoint:str=None):
         self.endpoint:str = endpoint
+        
+        self.__http_session = cache_dict.get("http_session", None)
 
-        self.__http_session = requests.Session()
-        self.__http_session.headers["User-Agent"] = PACKAGE_NAME_WITH_VER
+        if self.__http_session is None:
+            self.__http_session = requests.Session()
+            self.__http_session.headers["User-Agent"] = PACKAGE_NAME_WITH_VER
+            
+            cache_dict["http_session"] = self.__http_session
 
         self.__logger = nova_logger
 
