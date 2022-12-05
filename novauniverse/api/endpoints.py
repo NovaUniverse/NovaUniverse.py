@@ -39,3 +39,9 @@ class Endpoints:
     PLAYERS_ONLINE = (
         BASE_URL + "/players/online"
     )
+
+    # MCF
+    # ------
+    MCF_RESULT = (
+        BASE_URL + "/mcf/result"
+    )

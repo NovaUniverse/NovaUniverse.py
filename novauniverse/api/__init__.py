@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import requests
 
 from .errors import *
@@ -6,6 +8,8 @@ from .cache import cache_dict
 
 from .. import nova_logger
 from ..info import PACKAGE_NAME_WITH_VER
+
+from typing import Any
 
 class NovaAPI():
     """The main class that handles all requests to ``https://novauniverse.net/api/``. """
@@ -40,16 +44,21 @@ class NovaAPI():
             return False
         
 
-    def get(self):
+    def get(self) -> dict|list:
         """Send a get request to that endpoint."""
 
         if self.endpoint is None: raise NoEndpointPassed()
         if self.is_online is False: raise FailedConnectivityCheck()
 
         self.__logger.info(f"Sending get request to '{self.endpoint}'...")
-        response_json:dict = self.__http_session.get(self.endpoint).json()
+        response_json = self.__http_session.get(self.endpoint).json()
         self.__logger.debug(f"Data from request --> {response_json}")
 
+        if isinstance(response_json, list):
+            # If it's a list just return it.
+            return response_json
+
+        response_json:dict
         if response_json.get("success", True):
             self.__logger.info(f"Get request of '{self.endpoint}' was successful!")
 
@@ -58,4 +67,4 @@ class NovaAPI():
 
             return response_json
         else:
-            raise UnSuccessfulOperation()
+            raise UnSuccessfulOperation(response_json.get("message"))
