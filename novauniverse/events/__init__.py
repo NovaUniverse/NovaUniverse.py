@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Callable
 
-from ..api import NovaAPI
+from ..api_ import NovaAPI
 from .. import nova_logger
 
 @dataclass

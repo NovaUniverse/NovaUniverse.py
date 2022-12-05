@@ -3,8 +3,8 @@ import ast
 from . import Event, EventInfo
 from ..interfaces.stats.server import NovaOnlinePlayer
 
-from ..api import NovaAPI
-from ..api.endpoints import Endpoints
+from ..api_ import NovaAPI
+from ..api_.endpoints import Endpoints
 
 from typing import Set
 

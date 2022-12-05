@@ -5,7 +5,7 @@ from typing import Type, List, Tuple, Any
 
 from .. import nova_logger
 from ..errors import NovaError, ErrorType
-from ..api import NovaAPI, Endpoints
+from ..api_ import NovaAPI, Endpoints
 from ..utils.search import Search, SearchBy
 
 # Base Interface & Object Class
