@@ -5,7 +5,7 @@ from typing import List, Type, NoReturn, Dict, Callable
 import logging
 from . import nova_logger
 
-from .api_ import NovaAPI
+from .api import NovaAPI
 from .events import Event, Events
 
 class NovaClient():
