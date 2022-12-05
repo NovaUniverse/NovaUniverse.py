@@ -5,7 +5,7 @@ from .. import InterfaceObject
 from ...objects.timestamp import Timestamp
 
 from ... import nova_logger
-from ...api_.endpoints import BASE_DOMAIN
+from ...api.endpoints import BASE_DOMAIN
 from .type import NewsLetterType
 from .author import NewsLetterAuthor
 
