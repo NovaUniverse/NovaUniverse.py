@@ -4,7 +4,7 @@ from ....objects.nova_player import NovaBasicPlayer
 
 @dataclass
 class NovaOnlinePlayer(NovaBasicPlayer):
-    """A online Nova Universe player class."""
+    """A online Nova Universe player. WOW their actually ONLINE!"""
 
     server_name:str = field(init=False)
     """Returns name of the server the player is in."""
