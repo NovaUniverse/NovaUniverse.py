@@ -1,34 +1,34 @@
+import ast
+
 from . import Event, EventInfo
-from ..interfaces.stats.server import Server, NovaOnlinePlayer
+from ..interfaces.stats.server import NovaOnlinePlayer
 
 from ..api import NovaAPI
 from ..api.endpoints import Endpoints
 
-from typing import List
+from typing import Set
 
 class PlayerJoin(Event):
     """Triggers each time a player joins any lobby on the Nova Universe network."""
     def __init__(self):
         super().__init__(self, EventInfo("player_join", NovaAPI(Endpoints.PLAYERS_ONLINE)))
 
-        self.__old_players_list:List[NovaOnlinePlayer] = []
+        self.__old_players:Set[str] = set()
         self.__who_joined:NovaOnlinePlayer = None
         self.__first_run:bool = True
 
     def loop(self, data:dict) -> bool:
-        data = [NovaOnlinePlayer(player_data) for player_data in data["players"]]
+        current_online_players = set([str(player_data) for player_data in data["players"]])
 
-        # Lambda expression ignores players who are already on the server.
-        players_difference:List[NovaOnlinePlayer] = (lambda players: players if self.__first_run is False else [])([player for player in data if player not in self.__old_players_list])
+        for player in current_online_players - self.__old_players:
+            if not self.__first_run:
+                self.__who_joined = NovaOnlinePlayer(ast.literal_eval(player))
+                self.__old_players = current_online_players
+                return True
 
-        if not players_difference == []:
-            self.__who_joined = players_difference[0]
-            self.__old_players_list = data
-            return True
-        else:
-            self.__old_players_list = data
-            self.__first_run = False
-            return False
+        self.__first_run = False
+        self.__old_players = current_online_players
+        return False
 
     def trigger_event(self):
         for function in self.functions_to_trigger:

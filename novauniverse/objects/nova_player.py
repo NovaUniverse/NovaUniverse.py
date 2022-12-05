@@ -11,8 +11,8 @@ class NovaBasicPlayer:
     """Returns username of novauniverse player."""
 
     def __post_init__(self):
-        self.uuid = self.__data["uuid"]
-        self.username = self.__data["username"]
+        object.__setattr__(self, 'uuid', self.__data["uuid"])
+        object.__setattr__(self, 'username', self.__data["username"])
 
         try:
             self.__init_subclass__(self.__data)

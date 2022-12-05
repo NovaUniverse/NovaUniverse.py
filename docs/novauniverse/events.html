@@ -32,6 +32,7 @@
         <ul>
                 <li><a href="events/client_ready.html">client_ready</a></li>
                 <li><a href="events/player_join.html">player_join</a></li>
+                <li><a href="events/player_leave.html">player_leave</a></li>
         </ul>
 
         <h2>API Documentation</h2>
@@ -50,6 +51,9 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="variable" href="#Event.code_name">code_name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Event.data_api">data_api</a>
                         </li>
                         <li>
                                 <a class="function" href="#Event.loop">loop</a>
@@ -71,6 +75,9 @@
                         </li>
                         <li>
                                 <a class="variable" href="#Events.PLAYER_JOIN">PLAYER_JOIN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Events.PLAYER_LEAVE">PLAYER_LEAVE</a>
                         </li>
                 </ul>
 
@@ -97,74 +104,111 @@
 
                         <label class="view-source-button" for="events-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">nova_logger</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="nd">@dataclass</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="k">class</span> <span class="nc">EventInfo</span><span class="p">:</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="sd">&quot;&quot;&quot;Details about a event.&quot;&quot;&quot;</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="n">code_name</span><span class="p">:</span><span class="nb">str</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="c1"># Base Event Class</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="c1"># -------------------------</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="k">class</span> <span class="nc">Event</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="sd">&quot;&quot;&quot;A base class for all NovaUniverse.py events.&quot;&quot;&quot;</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_class</span><span class="p">:</span><span class="nb">object</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span><span class="n">EventInfo</span><span class="p">):</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__event_class</span> <span class="o">=</span> <span class="n">event_class</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__info</span> <span class="o">=</span> <span class="n">info</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="p">:</span><span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="nd">@property</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="k">def</span> <span class="nf">code_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>        <span class="sd">&quot;&quot;&quot;Returns code name of event.&quot;&quot;&quot;</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__info</span><span class="o">.</span><span class="n">code_name</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="nd">@abstractmethod</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="sd">        This method is called each ``NovaClient`` 💖heartbeat if the event is in use.</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a><span class="sd">        -------------------</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="sd">        </span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="sd">        Returning ``True`` indicates to ``NovaClient`` that the data has changed and it can trigger the event.</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">        Returning ``False`` indicates to ``NovaClient`` that the data has not changed and it shouldn&#39;t trigger the event.</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>        <span class="o">...</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>    <span class="nd">@abstractmethod</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>    <span class="k">def</span> <span class="nf">trigger_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>        <span class="sd">&quot;&quot;&quot;This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``.&quot;&quot;&quot;</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>        <span class="o">...</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>    <span class="k">def</span> <span class="nf">add_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>        <span class="sd">&quot;&quot;&quot;Used by ``NovaClient`` to add functions to events.&quot;&quot;&quot;</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>        <span class="n">nova_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; function to &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="si">}</span><span class="s2">&#39; func trigger list.&quot;</span><span class="p">)</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>
-</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="c1"># Import all events under this module.</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="c1"># --------------------------------------------</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="kn">from</span> <span class="nn">.client_ready</span> <span class="kn">import</span> <span class="n">ClientReady</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="kn">from</span> <span class="nn">.player_join</span> <span class="kn">import</span> <span class="n">PlayerJoin</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="k">class</span> <span class="nc">Events</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>    <span class="sd">&quot;&quot;&quot;An enum class of all available events. These can be used in ``NovaClient().on_event()`` function decorator.&quot;&quot;&quot;</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>    <span class="n">CLIENT_READY</span> <span class="o">=</span> <span class="n">ClientReady</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a>    <span class="sd">&quot;&quot;&quot;Triggers when NovaClient is ready.&quot;&quot;&quot;</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a>
-</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a>    <span class="n">PLAYER_JOIN</span> <span class="o">=</span> <span class="n">PlayerJoin</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>    <span class="sd">&quot;&quot;&quot;Triggers each time a player joins any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function.&quot;&quot;&quot;</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a>
+</span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="kn">from</span> <span class="nn">..api</span> <span class="kn">import</span> <span class="n">NovaAPI</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">nova_logger</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a>
+</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a><span class="nd">@dataclass</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a><span class="k">class</span> <span class="nc">EventInfo</span><span class="p">:</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a>    <span class="sd">&quot;&quot;&quot;Details about a event.&quot;&quot;&quot;</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>    <span class="n">code_name</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>    <span class="n">data_api</span><span class="p">:</span><span class="n">NovaAPI</span><span class="o">|</span><span class="kc">None</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>
+</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>
+</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="c1"># Base Event Class</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="c1"># -------------------------</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="k">class</span> <span class="nc">Event</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>    <span class="sd">&quot;&quot;&quot;A base class for all NovaUniverse.py events.&quot;&quot;&quot;</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_class</span><span class="p">:</span><span class="nb">object</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span><span class="n">EventInfo</span><span class="p">):</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__event_class</span> <span class="o">=</span> <span class="n">event_class</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__info</span> <span class="o">=</span> <span class="n">info</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>
+</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="p">:</span><span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>    <span class="nd">@property</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>    <span class="k">def</span> <span class="nf">code_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>        <span class="sd">&quot;&quot;&quot;Returns code name of event.&quot;&quot;&quot;</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__info</span><span class="o">.</span><span class="n">code_name</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>    <span class="nd">@property</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="k">def</span> <span class="nf">data_api</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaAPI</span><span class="o">|</span><span class="kc">None</span><span class="p">:</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>        <span class="sd">&quot;&quot;&quot;Returns data function/callable from event info.&quot;&quot;&quot;</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__info</span><span class="o">.</span><span class="n">data_api</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>    <span class="nd">@abstractmethod</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="sd">        This method is called each ``NovaClient`` 💖heartbeat if the event is in use.</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="sd">        -------------------</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="sd">        </span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a><span class="sd">        Returning ``True`` indicates to ``NovaClient`` that the data has changed and it can trigger the event.</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">        Returning ``False`` indicates to ``NovaClient`` that the data has not changed and it shouldn&#39;t trigger the event.</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>        <span class="o">...</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>    <span class="nd">@abstractmethod</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>    <span class="k">def</span> <span class="nf">trigger_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>        <span class="sd">&quot;&quot;&quot;This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``.&quot;&quot;&quot;</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>        <span class="o">...</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>    <span class="k">def</span> <span class="nf">add_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>        <span class="sd">&quot;&quot;&quot;Used by ``NovaClient`` to add functions to events.&quot;&quot;&quot;</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>        <span class="n">nova_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; function to &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="si">}</span><span class="s2">&#39; func trigger list.&quot;</span><span class="p">)</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="c1"># Import all events under this module.</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="c1"># --------------------------------------------</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="kn">from</span> <span class="nn">.client_ready</span> <span class="kn">import</span> <span class="n">ClientReady</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="kn">from</span> <span class="nn">.player_join</span> <span class="kn">import</span> <span class="n">PlayerJoin</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="kn">from</span> <span class="nn">.player_leave</span> <span class="kn">import</span> <span class="n">PlayerLeave</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="k">class</span> <span class="nc">Events</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">    An enum class of all available events.</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">    </span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    ---------------</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    ### ***``Example:``***</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">    These can be used like this:</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">    ```python</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">    client = NovaClient()</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="sd">    @client.on_event(Events.CLIENT_READY)</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">    def client_is_ready():</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">        print(&quot;Client is ready!&quot;)</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">    @client.on_event(Events.PLAYER_JOIN)</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">    def on_player_join(player:NovaOnlinePlayer):</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">        print(f&quot;{player.username} joined {player.server_name}!&quot;)</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="sd">    @client.on_event(Events.PLAYER_LEAVE)</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">    def on_player_join(player:NovaOnlinePlayer):</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">        print(f&quot;{player.username} left {player.server_name}!&quot;)</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">    client.start()</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">    ```</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>    <span class="n">CLIENT_READY</span> <span class="o">=</span> <span class="n">ClientReady</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>    <span class="sd">&quot;&quot;&quot;Triggers when NovaClient is ready.&quot;&quot;&quot;</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>    <span class="n">PLAYER_JOIN</span> <span class="o">=</span> <span class="n">PlayerJoin</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>    <span class="sd">&quot;&quot;&quot;Triggers each time a player joins any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function.&quot;&quot;&quot;</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>    <span class="n">PLAYER_LEAVE</span> <span class="o">=</span> <span class="n">PlayerLeave</span>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="sd">&quot;&quot;&quot;Triggers each time a player leaves any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function.&quot;&quot;&quot;</span>
 </span></pre></div>
 
 
@@ -181,10 +225,11 @@
 
     </div>
     <a class="headerlink" href="#EventInfo"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="EventInfo-10"><a href="#EventInfo-10"><span class="linenos">10</span></a><span class="nd">@dataclass</span>
-</span><span id="EventInfo-11"><a href="#EventInfo-11"><span class="linenos">11</span></a><span class="k">class</span> <span class="nc">EventInfo</span><span class="p">:</span>
-</span><span id="EventInfo-12"><a href="#EventInfo-12"><span class="linenos">12</span></a>    <span class="sd">&quot;&quot;&quot;Details about a event.&quot;&quot;&quot;</span>
-</span><span id="EventInfo-13"><a href="#EventInfo-13"><span class="linenos">13</span></a>    <span class="n">code_name</span><span class="p">:</span><span class="nb">str</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="EventInfo-12"><a href="#EventInfo-12"><span class="linenos">12</span></a><span class="nd">@dataclass</span>
+</span><span id="EventInfo-13"><a href="#EventInfo-13"><span class="linenos">13</span></a><span class="k">class</span> <span class="nc">EventInfo</span><span class="p">:</span>
+</span><span id="EventInfo-14"><a href="#EventInfo-14"><span class="linenos">14</span></a>    <span class="sd">&quot;&quot;&quot;Details about a event.&quot;&quot;&quot;</span>
+</span><span id="EventInfo-15"><a href="#EventInfo-15"><span class="linenos">15</span></a>    <span class="n">code_name</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="EventInfo-16"><a href="#EventInfo-16"><span class="linenos">16</span></a>    <span class="n">data_api</span><span class="p">:</span><span class="n">NovaAPI</span><span class="o">|</span><span class="kc">None</span>
 </span></pre></div>
 
 
@@ -195,7 +240,7 @@
                             <div id="EventInfo.__init__" class="classattr">
                                 <div class="attr function">
             
-        <span class="name">EventInfo</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">code_name</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+        <span class="name">EventInfo</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">code_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">data_api</span><span class="p">:</span> <span class="n"><a href="api.html#NovaAPI">novauniverse.api.NovaAPI</a></span> <span class="o">|</span> <span class="kc">None</span></span>)</span>
 
         
     </div>
@@ -216,43 +261,48 @@
 
     </div>
     <a class="headerlink" href="#Event"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Event-18"><a href="#Event-18"><span class="linenos">18</span></a><span class="k">class</span> <span class="nc">Event</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-</span><span id="Event-19"><a href="#Event-19"><span class="linenos">19</span></a>    <span class="sd">&quot;&quot;&quot;A base class for all NovaUniverse.py events.&quot;&quot;&quot;</span>
-</span><span id="Event-20"><a href="#Event-20"><span class="linenos">20</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_class</span><span class="p">:</span><span class="nb">object</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span><span class="n">EventInfo</span><span class="p">):</span>
-</span><span id="Event-21"><a href="#Event-21"><span class="linenos">21</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__event_class</span> <span class="o">=</span> <span class="n">event_class</span>
-</span><span id="Event-22"><a href="#Event-22"><span class="linenos">22</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__info</span> <span class="o">=</span> <span class="n">info</span>
-</span><span id="Event-23"><a href="#Event-23"><span class="linenos">23</span></a>
-</span><span id="Event-24"><a href="#Event-24"><span class="linenos">24</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="p">:</span><span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="Event-25"><a href="#Event-25"><span class="linenos">25</span></a>
-</span><span id="Event-26"><a href="#Event-26"><span class="linenos">26</span></a>    <span class="nd">@property</span>
-</span><span id="Event-27"><a href="#Event-27"><span class="linenos">27</span></a>    <span class="k">def</span> <span class="nf">code_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="Event-28"><a href="#Event-28"><span class="linenos">28</span></a>        <span class="sd">&quot;&quot;&quot;Returns code name of event.&quot;&quot;&quot;</span>
-</span><span id="Event-29"><a href="#Event-29"><span class="linenos">29</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__info</span><span class="o">.</span><span class="n">code_name</span>
-</span><span id="Event-30"><a href="#Event-30"><span class="linenos">30</span></a>
-</span><span id="Event-31"><a href="#Event-31"><span class="linenos">31</span></a>
-</span><span id="Event-32"><a href="#Event-32"><span class="linenos">32</span></a>    <span class="nd">@abstractmethod</span>
-</span><span id="Event-33"><a href="#Event-33"><span class="linenos">33</span></a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="Event-34"><a href="#Event-34"><span class="linenos">34</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Event-35"><a href="#Event-35"><span class="linenos">35</span></a><span class="sd">        This method is called each ``NovaClient`` 💖heartbeat if the event is in use.</span>
-</span><span id="Event-36"><a href="#Event-36"><span class="linenos">36</span></a>
-</span><span id="Event-37"><a href="#Event-37"><span class="linenos">37</span></a><span class="sd">        -------------------</span>
-</span><span id="Event-38"><a href="#Event-38"><span class="linenos">38</span></a><span class="sd">        </span>
-</span><span id="Event-39"><a href="#Event-39"><span class="linenos">39</span></a><span class="sd">        Returning ``True`` indicates to ``NovaClient`` that the data has changed and it can trigger the event.</span>
-</span><span id="Event-40"><a href="#Event-40"><span class="linenos">40</span></a>
-</span><span id="Event-41"><a href="#Event-41"><span class="linenos">41</span></a><span class="sd">        Returning ``False`` indicates to ``NovaClient`` that the data has not changed and it shouldn&#39;t trigger the event.</span>
-</span><span id="Event-42"><a href="#Event-42"><span class="linenos">42</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Event-43"><a href="#Event-43"><span class="linenos">43</span></a>        <span class="o">...</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Event-21"><a href="#Event-21"><span class="linenos">21</span></a><span class="k">class</span> <span class="nc">Event</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span><span id="Event-22"><a href="#Event-22"><span class="linenos">22</span></a>    <span class="sd">&quot;&quot;&quot;A base class for all NovaUniverse.py events.&quot;&quot;&quot;</span>
+</span><span id="Event-23"><a href="#Event-23"><span class="linenos">23</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_class</span><span class="p">:</span><span class="nb">object</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span><span class="n">EventInfo</span><span class="p">):</span>
+</span><span id="Event-24"><a href="#Event-24"><span class="linenos">24</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__event_class</span> <span class="o">=</span> <span class="n">event_class</span>
+</span><span id="Event-25"><a href="#Event-25"><span class="linenos">25</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__info</span> <span class="o">=</span> <span class="n">info</span>
+</span><span id="Event-26"><a href="#Event-26"><span class="linenos">26</span></a>
+</span><span id="Event-27"><a href="#Event-27"><span class="linenos">27</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="p">:</span><span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="Event-28"><a href="#Event-28"><span class="linenos">28</span></a>
+</span><span id="Event-29"><a href="#Event-29"><span class="linenos">29</span></a>    <span class="nd">@property</span>
+</span><span id="Event-30"><a href="#Event-30"><span class="linenos">30</span></a>    <span class="k">def</span> <span class="nf">code_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="Event-31"><a href="#Event-31"><span class="linenos">31</span></a>        <span class="sd">&quot;&quot;&quot;Returns code name of event.&quot;&quot;&quot;</span>
+</span><span id="Event-32"><a href="#Event-32"><span class="linenos">32</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__info</span><span class="o">.</span><span class="n">code_name</span>
+</span><span id="Event-33"><a href="#Event-33"><span class="linenos">33</span></a>
+</span><span id="Event-34"><a href="#Event-34"><span class="linenos">34</span></a>    <span class="nd">@property</span>
+</span><span id="Event-35"><a href="#Event-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">data_api</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaAPI</span><span class="o">|</span><span class="kc">None</span><span class="p">:</span>
+</span><span id="Event-36"><a href="#Event-36"><span class="linenos">36</span></a>        <span class="sd">&quot;&quot;&quot;Returns data function/callable from event info.&quot;&quot;&quot;</span>
+</span><span id="Event-37"><a href="#Event-37"><span class="linenos">37</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__info</span><span class="o">.</span><span class="n">data_api</span>
+</span><span id="Event-38"><a href="#Event-38"><span class="linenos">38</span></a>
+</span><span id="Event-39"><a href="#Event-39"><span class="linenos">39</span></a>
+</span><span id="Event-40"><a href="#Event-40"><span class="linenos">40</span></a>    <span class="nd">@abstractmethod</span>
+</span><span id="Event-41"><a href="#Event-41"><span class="linenos">41</span></a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="Event-42"><a href="#Event-42"><span class="linenos">42</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Event-43"><a href="#Event-43"><span class="linenos">43</span></a><span class="sd">        This method is called each ``NovaClient`` 💖heartbeat if the event is in use.</span>
 </span><span id="Event-44"><a href="#Event-44"><span class="linenos">44</span></a>
-</span><span id="Event-45"><a href="#Event-45"><span class="linenos">45</span></a>    <span class="nd">@abstractmethod</span>
-</span><span id="Event-46"><a href="#Event-46"><span class="linenos">46</span></a>    <span class="k">def</span> <span class="nf">trigger_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="Event-47"><a href="#Event-47"><span class="linenos">47</span></a>        <span class="sd">&quot;&quot;&quot;This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``.&quot;&quot;&quot;</span>
-</span><span id="Event-48"><a href="#Event-48"><span class="linenos">48</span></a>        <span class="o">...</span>
-</span><span id="Event-49"><a href="#Event-49"><span class="linenos">49</span></a>
-</span><span id="Event-50"><a href="#Event-50"><span class="linenos">50</span></a>
-</span><span id="Event-51"><a href="#Event-51"><span class="linenos">51</span></a>    <span class="k">def</span> <span class="nf">add_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-</span><span id="Event-52"><a href="#Event-52"><span class="linenos">52</span></a>        <span class="sd">&quot;&quot;&quot;Used by ``NovaClient`` to add functions to events.&quot;&quot;&quot;</span>
-</span><span id="Event-53"><a href="#Event-53"><span class="linenos">53</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-</span><span id="Event-54"><a href="#Event-54"><span class="linenos">54</span></a>        <span class="n">nova_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; function to &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="si">}</span><span class="s2">&#39; func trigger list.&quot;</span><span class="p">)</span>
+</span><span id="Event-45"><a href="#Event-45"><span class="linenos">45</span></a><span class="sd">        -------------------</span>
+</span><span id="Event-46"><a href="#Event-46"><span class="linenos">46</span></a><span class="sd">        </span>
+</span><span id="Event-47"><a href="#Event-47"><span class="linenos">47</span></a><span class="sd">        Returning ``True`` indicates to ``NovaClient`` that the data has changed and it can trigger the event.</span>
+</span><span id="Event-48"><a href="#Event-48"><span class="linenos">48</span></a>
+</span><span id="Event-49"><a href="#Event-49"><span class="linenos">49</span></a><span class="sd">        Returning ``False`` indicates to ``NovaClient`` that the data has not changed and it shouldn&#39;t trigger the event.</span>
+</span><span id="Event-50"><a href="#Event-50"><span class="linenos">50</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Event-51"><a href="#Event-51"><span class="linenos">51</span></a>        <span class="o">...</span>
+</span><span id="Event-52"><a href="#Event-52"><span class="linenos">52</span></a>
+</span><span id="Event-53"><a href="#Event-53"><span class="linenos">53</span></a>    <span class="nd">@abstractmethod</span>
+</span><span id="Event-54"><a href="#Event-54"><span class="linenos">54</span></a>    <span class="k">def</span> <span class="nf">trigger_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Event-55"><a href="#Event-55"><span class="linenos">55</span></a>        <span class="sd">&quot;&quot;&quot;This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``.&quot;&quot;&quot;</span>
+</span><span id="Event-56"><a href="#Event-56"><span class="linenos">56</span></a>        <span class="o">...</span>
+</span><span id="Event-57"><a href="#Event-57"><span class="linenos">57</span></a>
+</span><span id="Event-58"><a href="#Event-58"><span class="linenos">58</span></a>
+</span><span id="Event-59"><a href="#Event-59"><span class="linenos">59</span></a>    <span class="k">def</span> <span class="nf">add_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+</span><span id="Event-60"><a href="#Event-60"><span class="linenos">60</span></a>        <span class="sd">&quot;&quot;&quot;Used by ``NovaClient`` to add functions to events.&quot;&quot;&quot;</span>
+</span><span id="Event-61"><a href="#Event-61"><span class="linenos">61</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span><span id="Event-62"><a href="#Event-62"><span class="linenos">62</span></a>        <span class="n">nova_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; function to &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="si">}</span><span class="s2">&#39; func trigger list.&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -273,30 +323,43 @@
 
 
                             </div>
+                            <div id="Event.data_api" class="classattr">
+                                <div class="attr variable">
+            <span class="name">data_api</span><span class="annotation">: <a href="api.html#NovaAPI">novauniverse.api.NovaAPI</a> | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Event.data_api"></a>
+    
+            <div class="docstring"><p>Returns data function/callable from event info.</p>
+</div>
+
+
+                            </div>
                             <div id="Event.loop" class="classattr">
                                         <input id="Event.loop-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
                     <div class="decorator">@abstractmethod</div>
 
         <span class="def">def</span>
-        <span class="name">loop</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">loop</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
 
                 <label class="view-source-button" for="Event.loop-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#Event.loop"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Event.loop-32"><a href="#Event.loop-32"><span class="linenos">32</span></a>    <span class="nd">@abstractmethod</span>
-</span><span id="Event.loop-33"><a href="#Event.loop-33"><span class="linenos">33</span></a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="Event.loop-34"><a href="#Event.loop-34"><span class="linenos">34</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Event.loop-35"><a href="#Event.loop-35"><span class="linenos">35</span></a><span class="sd">        This method is called each ``NovaClient`` 💖heartbeat if the event is in use.</span>
-</span><span id="Event.loop-36"><a href="#Event.loop-36"><span class="linenos">36</span></a>
-</span><span id="Event.loop-37"><a href="#Event.loop-37"><span class="linenos">37</span></a><span class="sd">        -------------------</span>
-</span><span id="Event.loop-38"><a href="#Event.loop-38"><span class="linenos">38</span></a><span class="sd">        </span>
-</span><span id="Event.loop-39"><a href="#Event.loop-39"><span class="linenos">39</span></a><span class="sd">        Returning ``True`` indicates to ``NovaClient`` that the data has changed and it can trigger the event.</span>
-</span><span id="Event.loop-40"><a href="#Event.loop-40"><span class="linenos">40</span></a>
-</span><span id="Event.loop-41"><a href="#Event.loop-41"><span class="linenos">41</span></a><span class="sd">        Returning ``False`` indicates to ``NovaClient`` that the data has not changed and it shouldn&#39;t trigger the event.</span>
-</span><span id="Event.loop-42"><a href="#Event.loop-42"><span class="linenos">42</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Event.loop-43"><a href="#Event.loop-43"><span class="linenos">43</span></a>        <span class="o">...</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Event.loop-40"><a href="#Event.loop-40"><span class="linenos">40</span></a>    <span class="nd">@abstractmethod</span>
+</span><span id="Event.loop-41"><a href="#Event.loop-41"><span class="linenos">41</span></a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="o">|</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="Event.loop-42"><a href="#Event.loop-42"><span class="linenos">42</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Event.loop-43"><a href="#Event.loop-43"><span class="linenos">43</span></a><span class="sd">        This method is called each ``NovaClient`` 💖heartbeat if the event is in use.</span>
+</span><span id="Event.loop-44"><a href="#Event.loop-44"><span class="linenos">44</span></a>
+</span><span id="Event.loop-45"><a href="#Event.loop-45"><span class="linenos">45</span></a><span class="sd">        -------------------</span>
+</span><span id="Event.loop-46"><a href="#Event.loop-46"><span class="linenos">46</span></a><span class="sd">        </span>
+</span><span id="Event.loop-47"><a href="#Event.loop-47"><span class="linenos">47</span></a><span class="sd">        Returning ``True`` indicates to ``NovaClient`` that the data has changed and it can trigger the event.</span>
+</span><span id="Event.loop-48"><a href="#Event.loop-48"><span class="linenos">48</span></a>
+</span><span id="Event.loop-49"><a href="#Event.loop-49"><span class="linenos">49</span></a><span class="sd">        Returning ``False`` indicates to ``NovaClient`` that the data has not changed and it shouldn&#39;t trigger the event.</span>
+</span><span id="Event.loop-50"><a href="#Event.loop-50"><span class="linenos">50</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Event.loop-51"><a href="#Event.loop-51"><span class="linenos">51</span></a>        <span class="o">...</span>
 </span></pre></div>
 
 
@@ -323,10 +386,10 @@
 
     </div>
     <a class="headerlink" href="#Event.trigger_event"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Event.trigger_event-45"><a href="#Event.trigger_event-45"><span class="linenos">45</span></a>    <span class="nd">@abstractmethod</span>
-</span><span id="Event.trigger_event-46"><a href="#Event.trigger_event-46"><span class="linenos">46</span></a>    <span class="k">def</span> <span class="nf">trigger_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="Event.trigger_event-47"><a href="#Event.trigger_event-47"><span class="linenos">47</span></a>        <span class="sd">&quot;&quot;&quot;This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``.&quot;&quot;&quot;</span>
-</span><span id="Event.trigger_event-48"><a href="#Event.trigger_event-48"><span class="linenos">48</span></a>        <span class="o">...</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Event.trigger_event-53"><a href="#Event.trigger_event-53"><span class="linenos">53</span></a>    <span class="nd">@abstractmethod</span>
+</span><span id="Event.trigger_event-54"><a href="#Event.trigger_event-54"><span class="linenos">54</span></a>    <span class="k">def</span> <span class="nf">trigger_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Event.trigger_event-55"><a href="#Event.trigger_event-55"><span class="linenos">55</span></a>        <span class="sd">&quot;&quot;&quot;This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``.&quot;&quot;&quot;</span>
+</span><span id="Event.trigger_event-56"><a href="#Event.trigger_event-56"><span class="linenos">56</span></a>        <span class="o">...</span>
 </span></pre></div>
 
 
@@ -346,10 +409,10 @@
 
     </div>
     <a class="headerlink" href="#Event.add_function"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Event.add_function-51"><a href="#Event.add_function-51"><span class="linenos">51</span></a>    <span class="k">def</span> <span class="nf">add_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-</span><span id="Event.add_function-52"><a href="#Event.add_function-52"><span class="linenos">52</span></a>        <span class="sd">&quot;&quot;&quot;Used by ``NovaClient`` to add functions to events.&quot;&quot;&quot;</span>
-</span><span id="Event.add_function-53"><a href="#Event.add_function-53"><span class="linenos">53</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-</span><span id="Event.add_function-54"><a href="#Event.add_function-54"><span class="linenos">54</span></a>        <span class="n">nova_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; function to &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="si">}</span><span class="s2">&#39; func trigger list.&quot;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Event.add_function-59"><a href="#Event.add_function-59"><span class="linenos">59</span></a>    <span class="k">def</span> <span class="nf">add_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+</span><span id="Event.add_function-60"><a href="#Event.add_function-60"><span class="linenos">60</span></a>        <span class="sd">&quot;&quot;&quot;Used by ``NovaClient`` to add functions to events.&quot;&quot;&quot;</span>
+</span><span id="Event.add_function-61"><a href="#Event.add_function-61"><span class="linenos">61</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">functions_to_trigger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span><span id="Event.add_function-62"><a href="#Event.add_function-62"><span class="linenos">62</span></a>        <span class="n">nova_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added &#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; function to &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="si">}</span><span class="s2">&#39; func trigger list.&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -370,18 +433,69 @@
 
     </div>
     <a class="headerlink" href="#Events"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Events-62"><a href="#Events-62"><span class="linenos">62</span></a><span class="k">class</span> <span class="nc">Events</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="Events-63"><a href="#Events-63"><span class="linenos">63</span></a>    <span class="sd">&quot;&quot;&quot;An enum class of all available events. These can be used in ``NovaClient().on_event()`` function decorator.&quot;&quot;&quot;</span>
-</span><span id="Events-64"><a href="#Events-64"><span class="linenos">64</span></a>
-</span><span id="Events-65"><a href="#Events-65"><span class="linenos">65</span></a>    <span class="n">CLIENT_READY</span> <span class="o">=</span> <span class="n">ClientReady</span>
-</span><span id="Events-66"><a href="#Events-66"><span class="linenos">66</span></a>    <span class="sd">&quot;&quot;&quot;Triggers when NovaClient is ready.&quot;&quot;&quot;</span>
-</span><span id="Events-67"><a href="#Events-67"><span class="linenos">67</span></a>
-</span><span id="Events-68"><a href="#Events-68"><span class="linenos">68</span></a>    <span class="n">PLAYER_JOIN</span> <span class="o">=</span> <span class="n">PlayerJoin</span>
-</span><span id="Events-69"><a href="#Events-69"><span class="linenos">69</span></a>    <span class="sd">&quot;&quot;&quot;Triggers each time a player joins any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function.&quot;&quot;&quot;</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Events-71"><a href="#Events-71"><span class="linenos"> 71</span></a><span class="k">class</span> <span class="nc">Events</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="Events-72"><a href="#Events-72"><span class="linenos"> 72</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Events-73"><a href="#Events-73"><span class="linenos"> 73</span></a><span class="sd">    An enum class of all available events.</span>
+</span><span id="Events-74"><a href="#Events-74"><span class="linenos"> 74</span></a><span class="sd">    </span>
+</span><span id="Events-75"><a href="#Events-75"><span class="linenos"> 75</span></a><span class="sd">    ---------------</span>
+</span><span id="Events-76"><a href="#Events-76"><span class="linenos"> 76</span></a><span class="sd">    ### ***``Example:``***</span>
+</span><span id="Events-77"><a href="#Events-77"><span class="linenos"> 77</span></a>
+</span><span id="Events-78"><a href="#Events-78"><span class="linenos"> 78</span></a><span class="sd">    These can be used like this:</span>
+</span><span id="Events-79"><a href="#Events-79"><span class="linenos"> 79</span></a>
+</span><span id="Events-80"><a href="#Events-80"><span class="linenos"> 80</span></a><span class="sd">    ```python</span>
+</span><span id="Events-81"><a href="#Events-81"><span class="linenos"> 81</span></a><span class="sd">    client = NovaClient()</span>
+</span><span id="Events-82"><a href="#Events-82"><span class="linenos"> 82</span></a>
+</span><span id="Events-83"><a href="#Events-83"><span class="linenos"> 83</span></a><span class="sd">    @client.on_event(Events.CLIENT_READY)</span>
+</span><span id="Events-84"><a href="#Events-84"><span class="linenos"> 84</span></a><span class="sd">    def client_is_ready():</span>
+</span><span id="Events-85"><a href="#Events-85"><span class="linenos"> 85</span></a><span class="sd">        print(&quot;Client is ready!&quot;)</span>
+</span><span id="Events-86"><a href="#Events-86"><span class="linenos"> 86</span></a>
+</span><span id="Events-87"><a href="#Events-87"><span class="linenos"> 87</span></a><span class="sd">    @client.on_event(Events.PLAYER_JOIN)</span>
+</span><span id="Events-88"><a href="#Events-88"><span class="linenos"> 88</span></a><span class="sd">    def on_player_join(player:NovaOnlinePlayer):</span>
+</span><span id="Events-89"><a href="#Events-89"><span class="linenos"> 89</span></a><span class="sd">        print(f&quot;{player.username} joined {player.server_name}!&quot;)</span>
+</span><span id="Events-90"><a href="#Events-90"><span class="linenos"> 90</span></a>
+</span><span id="Events-91"><a href="#Events-91"><span class="linenos"> 91</span></a><span class="sd">    @client.on_event(Events.PLAYER_LEAVE)</span>
+</span><span id="Events-92"><a href="#Events-92"><span class="linenos"> 92</span></a><span class="sd">    def on_player_join(player:NovaOnlinePlayer):</span>
+</span><span id="Events-93"><a href="#Events-93"><span class="linenos"> 93</span></a><span class="sd">        print(f&quot;{player.username} left {player.server_name}!&quot;)</span>
+</span><span id="Events-94"><a href="#Events-94"><span class="linenos"> 94</span></a>
+</span><span id="Events-95"><a href="#Events-95"><span class="linenos"> 95</span></a><span class="sd">    client.start()</span>
+</span><span id="Events-96"><a href="#Events-96"><span class="linenos"> 96</span></a><span class="sd">    ```</span>
+</span><span id="Events-97"><a href="#Events-97"><span class="linenos"> 97</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="Events-98"><a href="#Events-98"><span class="linenos"> 98</span></a>
+</span><span id="Events-99"><a href="#Events-99"><span class="linenos"> 99</span></a>    <span class="n">CLIENT_READY</span> <span class="o">=</span> <span class="n">ClientReady</span>
+</span><span id="Events-100"><a href="#Events-100"><span class="linenos">100</span></a>    <span class="sd">&quot;&quot;&quot;Triggers when NovaClient is ready.&quot;&quot;&quot;</span>
+</span><span id="Events-101"><a href="#Events-101"><span class="linenos">101</span></a>
+</span><span id="Events-102"><a href="#Events-102"><span class="linenos">102</span></a>    <span class="n">PLAYER_JOIN</span> <span class="o">=</span> <span class="n">PlayerJoin</span>
+</span><span id="Events-103"><a href="#Events-103"><span class="linenos">103</span></a>    <span class="sd">&quot;&quot;&quot;Triggers each time a player joins any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function.&quot;&quot;&quot;</span>
+</span><span id="Events-104"><a href="#Events-104"><span class="linenos">104</span></a>
+</span><span id="Events-105"><a href="#Events-105"><span class="linenos">105</span></a>    <span class="n">PLAYER_LEAVE</span> <span class="o">=</span> <span class="n">PlayerLeave</span>
+</span><span id="Events-106"><a href="#Events-106"><span class="linenos">106</span></a>    <span class="sd">&quot;&quot;&quot;Triggers each time a player leaves any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function.&quot;&quot;&quot;</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>An enum class of all available events. These can be used in <code>NovaClient().on_event()</code> function decorator.</p>
+            <div class="docstring"><p>An enum class of all available events.</p>
+
+<hr />
+
+<h3 id="example"><strong><em><code>Example:</code></em></strong></h3>
+
+<p>These can be used like this:</p>
+
+<div class="pdoc-code codehilite"><pre><span></span><code><span class="n">client</span> <span class="o">=</span> <span class="n">NovaClient</span><span class="p">()</span>
+
+<span class="nd">@client</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="n"><a href="#Events.CLIENT_READY">Events.CLIENT_READY</a></span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">client_is_ready</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client is ready!&quot;</span><span class="p">)</span>
+
+<span class="nd">@client</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="n"><a href="#Events.PLAYER_JOIN">Events.PLAYER_JOIN</a></span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">on_player_join</span><span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">NovaOnlinePlayer</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> joined </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">server_name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="nd">@client</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="n"><a href="#Events.PLAYER_LEAVE">Events.PLAYER_LEAVE</a></span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">on_player_join</span><span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">NovaOnlinePlayer</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> left </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">server_name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
 </div>
 
 
@@ -407,6 +521,19 @@
     <a class="headerlink" href="#Events.PLAYER_JOIN"></a>
     
             <div class="docstring"><p>Triggers each time a player joins any lobby on the Nova Universe network. Passes <code>NovaOnlinePlayer</code> object to function.</p>
+</div>
+
+
+                            </div>
+                            <div id="Events.PLAYER_LEAVE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PLAYER_LEAVE</span><span class="default_value"> = &lt;<a href="#Events.PLAYER_LEAVE">Events.PLAYER_LEAVE</a>: &lt;class &#39;<a href="events/player_leave.html#PlayerLeave">novauniverse.events.player_leave.PlayerLeave</a>&#39;&gt;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Events.PLAYER_LEAVE"></a>
+    
+            <div class="docstring"><p>Triggers each time a player leaves any lobby on the Nova Universe network. Passes <code>NovaOnlinePlayer</code> object to function.</p>
 </div>
 
 

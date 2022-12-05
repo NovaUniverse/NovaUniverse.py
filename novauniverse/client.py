@@ -69,10 +69,9 @@ class NovaClient():
                 nova_logger.debug("❤")
                 
                 for endpoint in self.__events:
+                    data = None
                     if not endpoint == "NO_ENDPOINT":
                         data = NovaAPI(endpoint).get()
-                    else:
-                        data = None
 
                     for event in self.__events[endpoint]:
                         if event.loop(data) is True: event.trigger_event()
