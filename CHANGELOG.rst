@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+v1.3 - Rewrite, BREAKING CHANGES (18/11/2022)
+---------------------------
+- API requests are much much faster and efficient.
+- BRAND NEW programing interface.
+- Events are NOW HERE! (player join, player leave, client ready, etc)
+- NEW Docs!
+
 v1.1a1 - New Update (23/02/2022)
 ---------------------------
 - Significantly improved typing hint.

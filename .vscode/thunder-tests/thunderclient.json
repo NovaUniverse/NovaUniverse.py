@@ -1,0 +1,162 @@
+[
+  {
+    "_id": "0ca422d4-4cc4-4a26-aca0-7fcb061a1b2b",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "news all",
+    "url": "{{base_endpoint}}/news/all",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-11-20T12:55:25.104Z",
+    "modified": "2022-11-20T12:55:25.104Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b5e773e3-9a04-4bee-b14d-2e18aaeec1f2",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "news latest",
+    "url": "{{base_endpoint}}/news/latest",
+    "method": "GET",
+    "sortNum": 32500,
+    "created": "2022-11-20T12:55:25.105Z",
+    "modified": "2022-11-20T12:55:25.105Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "35b6139c-8256-44fd-90db-41bbea4a1a1b",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "connectivity check",
+    "url": "{{base_endpoint}}/connectivity_check",
+    "method": "GET",
+    "sortNum": 35000,
+    "created": "2022-11-20T12:55:25.106Z",
+    "modified": "2022-11-20T12:55:25.106Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "87381f26-2259-4f81-b404-8f483514de91",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "mcf result",
+    "url": "{{base_endpoint}}/mcf/result/",
+    "method": "GET",
+    "sortNum": 45000,
+    "created": "2022-11-20T12:55:25.107Z",
+    "modified": "2022-11-20T20:39:18.760Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "08aad472-f648-4d75-baed-491560ef57c2",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats player",
+    "url": "{{base_endpoint}}/stats/player/3442be05-4211-4a15-a10c-4bdb2b6060fa",
+    "method": "GET",
+    "sortNum": 55000,
+    "created": "2022-11-20T20:40:33.958Z",
+    "modified": "2022-11-20T20:42:35.951Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c944ad55-ee24-4853-baf7-01144bb4dbf5",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats extended",
+    "url": "{{base_endpoint}}/stats/extended",
+    "method": "GET",
+    "sortNum": 65000,
+    "created": "2022-11-22T14:31:00.592Z",
+    "modified": "2022-11-22T14:35:19.323Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8f0dbab3-092e-43f4-838e-f4f1f8e4d82f",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats basic",
+    "url": "{{base_endpoint}}/stats/basic",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-11-22T14:34:15.797Z",
+    "modified": "2022-11-22T14:35:23.908Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1feb6a8e-e27c-415c-928a-41c8aafd87d0",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "stats discord",
+    "url": "{{base_endpoint}}/stats/discord",
+    "method": "GET",
+    "sortNum": 75000,
+    "created": "2022-11-22T21:40:02.292Z",
+    "modified": "2022-11-22T21:40:11.626Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  }
+]
