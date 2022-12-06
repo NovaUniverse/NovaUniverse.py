@@ -69,7 +69,7 @@ Some brief examples of how you can use NovaUniverse.py.
     print(f"ID of news letter --> {newsletter.id}")
     ```
 
-    #### Warning!
+    #### ⚠Warning!
     Each interface supports it's own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case ``novauniverse.utils.search.SearchNotCompletelySupported`` will be raised.
 
     More examples...
