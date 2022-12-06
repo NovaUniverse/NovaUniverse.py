@@ -32,10 +32,18 @@ class InterfaceObject():
         """Tries to return the id."""
         return self.__id
 
+    @id.setter
+    def id(self, value):
+        self.__id = value
+
     @property
     def name(self) -> str|None:
         """Tries to return the name."""
         return self.__name
+
+    @name.setter
+    def name(self, value):
+        self.__name = value
 
     def __repr__(self) -> str:
         try:
@@ -85,7 +93,6 @@ class SearchInterface(Interface):
             raise NovaError(f"You must use the 'novauniverse.Search()' class for searching in '{self.__interface_class.__name__}'.", ErrorType.ERROR)
 
         return None
-        
 
 
 # Import all interfaces under this module.

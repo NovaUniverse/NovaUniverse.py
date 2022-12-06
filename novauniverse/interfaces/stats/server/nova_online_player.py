@@ -15,7 +15,7 @@ class NovaOnlinePlayer(NovaBasicPlayer):
     server_type_display_name:str = field(init=False)
     """Returns type display name of the server the player is in."""
 
-    def __init_subclass__(self, data:dict) -> None:
+    def __post_init_subclass__(self, data:dict) -> None:
         self.server_name = data["server_name"]
         self.server_type_id = data["server_type_id"]
         self.server_type_name = data["server_type_name"]
