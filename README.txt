@@ -1,0 +1,1 @@
+NovaUniverse.py is a modern API wrapper for the minecraft server Nova Universe that allows you to access player data, player's game stats and server status across the Nova Universe network all in a object oriented pythonic way.
