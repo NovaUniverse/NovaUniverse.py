@@ -41,3 +41,43 @@ def on_player_join(player:NovaOnlinePlayer):
 
 client.start()
 ```
+
+## *Examples*
+Some brief examples of how you can use NovaUniverse.py.
+
+- ### The Search interface
+
+    Some interfaces/endpoints obtain search features, specially those that inherited from SearchInterface.
+
+    Here we are searching by id.
+    ```python
+    from novauniverse import News, Search
+
+    newsletter = News().find(Search(id=17))
+
+    print(f"Name of news letter --> {newsletter.name}")
+    print(f"ID of news letter --> {newsletter.id}")
+    ```
+
+    Here we are searching by name.
+    ```python
+    from novauniverse import News, Search
+
+    newsletter = News().find(Search(name="Api Wrappers"))
+
+    print(f"Name of news letter --> {newsletter.name}")
+    print(f"ID of news letter --> {newsletter.id}")
+    ```
+
+    #### Warning!
+    Each interface supports it's own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case ``novauniverse.utils.search.SearchNotCompletelySupported`` will be raised.
+
+    More examples...
+    ```python
+    from novauniverse import MCF, Search
+
+    mcf = MCF().find(Search(id=17))
+
+    for player in mcf.players:
+        print(f"'{player.username}' got {player.kills} kill(s) and scored {player.score} point(s) in the MCF hosted on {mcf.date.date()}.")
+    ```

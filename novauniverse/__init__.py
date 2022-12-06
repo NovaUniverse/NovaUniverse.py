@@ -5,6 +5,8 @@ Copyright (C) 2022 - Dev Goldy
 
 ----------------------------
 .. include:: ../README.md
+
+<br>
 """
 
 import logging as log

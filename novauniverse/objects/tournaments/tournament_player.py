@@ -21,7 +21,7 @@ class TournamentPlayer(NovaBasicPlayer):
     kills:int = field(init=False)
     """Returns the current amount of kills the player achieved."""
 
-    def __init_subclass__(self, data:dict) -> None:
+    def __post_init_subclass__(self, data:dict) -> None:
         self.uid = data["uid"]
         self.has_nova_account = data["has_nova_account"]
         self.nova_account_name = data["nova_account_name"]

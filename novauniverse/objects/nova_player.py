@@ -15,6 +15,6 @@ class NovaBasicPlayer:
         self.username = self.__data["username"]
 
         try:
-            self.__init_subclass__(self.__data)
+            self.__post_init_subclass__(self.__data)
         except TypeError:
             pass

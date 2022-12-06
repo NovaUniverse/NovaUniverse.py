@@ -20,22 +20,12 @@ class MCF(SearchInterface):
 
     def get_all(self) -> List[MCFTournament]:
         """Returns all 🔥mcf tournament results from api in a list. Returns empty list if none."""
-        tournaments:List[MCFTournament] = []
 
-        data:list = self.__mcf_result_api.get()
-
-        for tournament_data in data:
-            tournaments.append(MCFTournament(tournament_data))
-
-        return tournaments
+        return [MCFTournament(tournament_data) for tournament_data in self.__mcf_result_api.get()]
 
     def get_latest(self) -> MCFTournament|None:
         """Returns the latest 🔥mcf tournament result from api. Returns None if not found."""
-        data:list = self.__mcf_result_api.get()
+        data = self.__mcf_result_api.get()
+        data.reverse()
 
-        if data == []:
-            return None
-
-        data.reverse() # I hope this works. #Not-tested
-        return data[0]
-        
+        return (lambda uwu: None if uwu is [] else MCFTournament(uwu[0]))(data)
