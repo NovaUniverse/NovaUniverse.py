@@ -1,59 +1,16 @@
 """
-🐲 Nova Universe - A modern API wrapper for the minecraft server Nova Universe written in Python.
+Nova Universe (Python API Wrapper)
 
-Copyright (C) 2022 - Dev Goldy
-
-----------------------------
-.. include:: ../README.md
-
-<br>
+Copyright (c) 2022-present (Dev Goldy)
 """
 
-import logging as log
+from . import _find_, info, _server_, _keys_, _license_key_validation_, _mcf_
 
-from .logging import add_custom_handler
-from .info import LOGGER_NAME
+# Methods
+Player = _find_.player
+Session = _find_.session
+Server = _server_.server
+License = _license_key_validation_.license
+Mcf = _mcf_.mcf
 
-nova_logger = add_custom_handler(log.getLogger(LOGGER_NAME))
-"""
-The python ``logging.Logger()`` class for NovaUniverse.py.
-
----------------
-### ***``Example:``***
-
-You can disable and also adjust the level of logging from the api wrapper like this:
-
-```python
-import logging
-nova_logger.setLevel(logging.DEBUG)
-```
-
-If your using the ``novauniverse.NovaClient`` class, a shortcut for enabling debugging would be this:
-
-```python
-NovaClient(debug=True)
-```
-
-If you want to completely disable logging like example warnings, you can do that with:
-
-```python
-nova_logger.setLevel(logging.NOTSET)
-```
-"""
-
-nova_logger.setLevel(log.WARN)
-
-# Endpoint Interfaces.
-# ------------------------
-from .interfaces.news import News
-from .interfaces.stats.discord import Discord
-from .interfaces.stats.server import Server, NovaOnlinePlayer
-from .interfaces.mcf import MCF
-
-
-# Utils and Objects.
-# ------------------------
-from .client import NovaClient
-from .events import Events
-
-from .utils.search import Search
+KEYS = _keys_

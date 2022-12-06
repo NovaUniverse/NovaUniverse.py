@@ -8,24 +8,20 @@ classifiers = [
   'Programming Language :: Python :: 3.8',
   'Programming Language :: Python :: 3.9'
 ]
-
-import requests
-readme_request = requests.get("https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/main/README.md")
  
 setup(
   name='novauniverse',
-  version='2.0',
+  version='1.2a1',
   description='A modern API wrapper for the minecraft server "Nova Universe" written in Python.', 
-  long_description=readme_request.text,
-  long_description_content_type="text/markdown",
+  long_description=open('README.txt').read(), 
   url='https://novauniverse.net/', 
-  project_urls={"GitHub": "https://github.com/NovaUniverse/novauniverse.py", "Bug Tracker": "https://github.com/NovaUniverse/novauniverse.py/issues"}, 
+  project_urls={"Bug Tracker": "https://github.com/NovaUniverse/novauniverse.py/issues"}, 
   author='Dev Goldy', 
-  author_email='goldy@novauniverse.net', 
+  author_email='jassim7256@gmail.com', 
   license='MIT', 
   classifiers=classifiers, 
   keywords=['novauniverse', 'minecraft novauniverse', 'nova universe', "mc novauniverse"], 
   packages=find_packages(), 
-  install_requires=open('requirements.txt').read(),
+  install_requires=["requests"],
   python_requires=">=3.7"
 )
