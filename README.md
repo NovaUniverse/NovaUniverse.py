@@ -9,7 +9,7 @@
 
 ### ``novauniverse.py`` - A modern API wrapper for the minecraft server Nova Universe written in Python.
 
-#### ⭐[Goals of this Project.](https://github.com/NovaUniverse/NovaUniverse.py/projects/1)
+#### [🆕NEW VERSION - 2.0](https://github.com/NovaUniverse/NovaUniverse.py/tree/v2)
 
 <p align="right">
  <img align="left" src="https://media.discordapp.net/attachments/710019553098465320/895037951443107860/Untitled_Artwork_4_1.png" width="180" />
