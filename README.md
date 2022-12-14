@@ -18,6 +18,18 @@
 
 <br>
 
+<details>
+  <summary> <b>📔 Menu</b> </summary>
+  
+- ### [*Install/Set Up*](#installset-up)
+- ### [*Examples*](#examples)
+  - [The Search interface](#the-search-interface)
+  - [Events](#events)
+
+</details>
+
+<br>
+
 ## *Install/Set Up*
 1. **Install package from pip.**
 ```sh
@@ -69,7 +81,7 @@ Some brief examples of how you can use NovaUniverse.py.
     print(f"ID of news letter --> {newsletter.id}")
     ```
 
-    #### ⚠Warning!
+    #### ❗ Notice!
     Each interface supports it's own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case ``novauniverse.utils.search.SearchNotCompletelySupported`` will be raised.
 
     More examples...
@@ -81,3 +93,24 @@ Some brief examples of how you can use NovaUniverse.py.
     for player in mcf.players:
         print(f"'{player.username}' got {player.kills} kill(s) and scored {player.score} point(s) in the MCF hosted on {mcf.date.date()}.")
     ```
+
+- ### Events
+    NovaUniverse.py being a feature rich api wrapper provides a collection of events that can be triggered by an action occurring on the Nova Universe Network. Like example a player joining the minecraft server.
+
+    This is how we register a player join event.
+    ```python
+    from novauniverse import NovaClient, Events, NovaOnlinePlayer 
+
+    client = NovaClient()
+
+    @client.on_event(Events.PLAYER_JOIN)
+    def on_player_join(player:NovaOnlinePlayer):
+        print(f"{player.username} joined {player.server_name}!")
+
+    client.start()
+    ```
+
+    If you would like to know the attributes of NovaOnlinePlayer, check this out:
+
+    **https://novauniversepy.devgoldy.me/novauniverse/interfaces/stats/server/nova_online_player.html#NovaOnlinePlayer**
+
