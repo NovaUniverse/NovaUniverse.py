@@ -64,11 +64,11 @@
     "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
     "containerId": "",
     "name": "mcf result",
-    "url": "{{base_endpoint}}/mcf/result/",
+    "url": "{{base_endpoint}}/nova_games/result",
     "method": "GET",
     "sortNum": 45000,
     "created": "2022-11-20T12:55:25.107Z",
-    "modified": "2022-11-20T20:39:18.760Z",
+    "modified": "2022-12-14T13:55:41.346Z",
     "headers": [
       {
         "name": "User-Agent",
@@ -149,6 +149,26 @@
     "sortNum": 75000,
     "created": "2022-11-22T21:40:02.292Z",
     "modified": "2022-11-22T21:40:11.626Z",
+    "headers": [
+      {
+        "name": "User-Agent",
+        "value": "Thunder Client (https://www.thunderclient.com)",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "30c3eaaf-537f-4191-9b75-7cff564f1f91",
+    "colId": "c7ae83b6-e088-4b52-ad9c-68e68cd71e17",
+    "containerId": "",
+    "name": "nova games result",
+    "url": "{{base_endpoint}}/nova_games/result",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-12-14T13:55:13.052Z",
+    "modified": "2022-12-14T13:56:03.427Z",
     "headers": [
       {
         "name": "User-Agent",
