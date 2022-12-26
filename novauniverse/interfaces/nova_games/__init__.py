@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from .. import SearchInterface, SearchBy, Search, InterfaceObject
+from .. import SearchInterface, SearchBy, Search
 from .nova_games_tournament import NovaGamesTournament
+from .dynamic_config import NovaGamesDynamicConfig
 
 from typing import List
 
@@ -14,6 +15,7 @@ class NovaGames(SearchInterface):
         super().__init__(self, supports=[SearchBy.id, SearchBy.name_])
 
         self.__nova_games_result_api = self.api(self.endpoints.NOVA_GAMES_RESULT)
+        self.__nova_games_dynamic_config_api = self.api(self.endpoints.NOVA_GAMES_DYNAMIC_CONFIGURATION)
 
     def find(self, search: Search) -> NovaGamesTournament | None:
         return super().find(search, self.get_all())
@@ -29,3 +31,9 @@ class NovaGames(SearchInterface):
         data.reverse()
 
         return (lambda uwu: None if uwu is [] else NovaGamesTournament(uwu[0]))(data)
+
+    def get_config(self) -> NovaGamesDynamicConfig:
+        """Returns the dynamic configuration of Nova Games from the api."""
+        data = self.__nova_games_dynamic_config_api.get()
+
+        return NovaGamesDynamicConfig(data)

@@ -2,7 +2,7 @@ from ...objects.tournaments import NovaBasicTournament
 from .. import InterfaceObject
 
 class NovaGamesTournament(NovaBasicTournament, InterfaceObject):
-    """An individual mcf game/tournament."""
+    """An individual nova games tournament."""
     def __init__(self, data:dict):
         self.__data = data
 
