@@ -12,7 +12,7 @@ from ..info import PACKAGE_NAME_WITH_VER
 from typing import Any
 
 class NovaAPI():
-    """The main class that handles all requests to ``https://novauniverse.net/api/``. """
+    """The main class that handles all requests to the web server at ``https://novauniverse.net/api/``. """
 
     def __init__(self, endpoint:str=None):
         self.endpoint:str = endpoint
@@ -55,7 +55,7 @@ class NovaAPI():
         self.__logger.debug(f"Data from request --> {response_json}")
 
         if isinstance(response_json, list):
-            # If it's a list just return it.
+            # If it's a list just return it. (The consistency in this api, smh lol)
             return response_json
 
         response_json:dict
@@ -67,4 +67,5 @@ class NovaAPI():
 
             return response_json
         else:
-            raise UnSuccessfulOperation(response_json.get("message"))
+            # I'm getting message and error here because some endpoints don't error with a message key.
+            raise UnSuccessfulOperation(response_json.get("message", response_json.get("error")))

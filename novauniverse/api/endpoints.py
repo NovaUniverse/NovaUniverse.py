@@ -34,14 +34,31 @@ class Endpoints:
         BASE_URL + "/stats/discord"
     )
 
+
     # Players
     # ---------
     PLAYERS_ONLINE = (
         BASE_URL + "/players/online"
     )
 
+
     # MCF
     # ------
     MCF_RESULT = (
         BASE_URL + "/mcf/result"
+    )
+
+
+    # Nova Games
+    # -----------
+    NOVA_GAMES_RESULT = (
+        BASE_URL + "/nova_games/result"
+    )
+
+    NOVA_GAMES_LIVE_STATS = (
+        BASE_URL + "/nova_games/live_stats"
+    )
+
+    NOVA_GAMES_DYNAMIC_CONFIGURATION = (
+        BASE_URL + "/nova_games/dynamic_configuration"
     )
