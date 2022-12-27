@@ -57,6 +57,63 @@ client.start()
 ## *Examples*
 Some brief examples of how you can use NovaUniverse.py.
 
+- ### The Interface
+    The easiest way to retrieve data from the Nova api using NovaUniverse.py is by using the interfaces available to you. As of December 2022, this api wrapper covers most of the api's endpoints with an interface.
+
+    These are interfaces and a quick showcase on how to use them.
+
+    - Getting Discord Stats.
+
+        ```python
+        from novauniverse import Discord
+
+        # Get discord server stats.
+        discord_stats = Discord().get_stats()
+
+        # Prints out the member count.
+        print(f"There are {discord_stats.member_count.members} members on the Nova Universe discord server.")
+        ```
+    - Getting Newsletters.
+
+        ```python
+        from novauniverse import News
+
+        # Get latest newsletter.
+        latest_newsletter = News().get_latest()
+
+        # Print it.
+        print(f"The url for the news letter '{latest_newsletter.title}' is '{latest_newsletter.full_url}'.")
+        ```
+    - Getting online players.
+
+        ```python
+        from novauniverse import Server
+
+        # Get all online players on the minecraft server.
+        online_players = Server().get_online_players()
+
+        # Print all online players on the minecraft server.
+        for player in online_players:
+            print(f"{player.username} is online on the '{player.server_name}' server.")
+        ```
+
+    - Getting tournament results.
+
+        ```python
+        from novauniverse import NovaGames, MCF
+
+        # Get the latest Nova Games tournament.
+        nova_games = NovaGames().get_latest()
+
+        # Prints out how much each player scored in that tournament and also how many kills they achieved.
+        for player in nova_games.players:
+            print(f"'{player.username}' got {player.kills} kill(s) and scored {player.score} point(s) in the Nova Games hosted on {nova_games.date.date()}.")
+        ```
+        
+        MCF interface also exists this same way.
+
+    More info in our [docs](https://novauniversepy.devgoldy.me/).
+
 - ### The Search interface
 
     Some interfaces/endpoints obtain search features, specially those that inherited from SearchInterface.

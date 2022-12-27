@@ -24,4 +24,4 @@ class FailedConnectivityCheck(NovaAPIError):
 class UnSuccessfulOperation(NovaAPIError):
     """Raised when Nova Universe API returns unsuccessful operation."""
     def __init__(self, message_from_api) -> None:
-        super().__init__(f"That operation was return as unsuccessful by Nova Universe.\n Error --> {message_from_api}")
+        super().__init__(f"That operation was returned as unsuccessful by the Nova Universe API.\n Error --> {message_from_api}")

@@ -8,10 +8,13 @@ class MemberCount:
 
     total:int = field(init=False)
     bots:int = field(init=False)
+    members:int = field(init=False)
 
     def __post_init__(self):
         self.total = self.__data["total"]
         self.bots = self.__data["bots"]
+
+        self.members = ( self.total - self.bots )
 
 class DiscordStats(InterfaceObject):
     def __init__(self, data:dict):
