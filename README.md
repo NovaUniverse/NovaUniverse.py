@@ -23,6 +23,7 @@
   
 - ### [*Install/Set Up*](#installset-up)
 - ### [*Examples*](#examples)
+  - [The Interface](#the-interface)
   - [The Search interface](#the-search-interface)
   - [Events](#events)
 
