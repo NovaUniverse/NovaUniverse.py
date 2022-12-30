@@ -7,7 +7,7 @@
  <img src="https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png" width="500" />
 </p>
 
-### ``novauniverse.py`` - A modern & maintained wrapper for the [Nova Universe API](https://novauniverse.net/api/) written in Python.
+### [``novauniverse.py``](https://pypi.org/project/novauniverse/) - A modern & maintained wrapper for the [Nova Universe API](https://novauniverse.net/api/) written in Python.
 
 #### ℹ Notice: 2.0 is currently in development so PyPi package install will not be avaliable but you can still install it via github. More on that below.
 
