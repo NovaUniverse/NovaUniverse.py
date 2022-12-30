@@ -38,7 +38,7 @@
 ```sh
 #Windows/Linux
 
-pip install git+https://github.com/NovaUniverse/NovaUniverse.py/tree/v2
+pip install git+https://github.com/NovaUniverse/NovaUniverse.py.git@v2
 ```
 2. **That's It!** - *Brief Example Below*
 ```python
