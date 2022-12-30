@@ -1,4 +1,6 @@
 from dataclasses import dataclass, field
+from . import _inheritance_support
+
 
 @dataclass
 class NovaBasicPlayer:
@@ -18,7 +20,4 @@ class NovaBasicPlayer:
 
         self.name = self.username
 
-        try:
-            self.__post_init_subclass__(self.__data)
-        except TypeError:
-            pass
+        _inheritance_support(self, self.__data)

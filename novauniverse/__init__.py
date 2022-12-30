@@ -11,6 +11,9 @@ Copyright (C) 2022 - Dev Goldy
 
 import logging as log
 
+from .configuration import Config
+config = Config()
+
 from .logging import add_custom_handler
 from .info import LOGGER_NAME
 
