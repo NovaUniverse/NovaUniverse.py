@@ -15,7 +15,7 @@ readme_request = requests.get("https://raw.githubusercontent.com/NovaUniverse/No
  
 setup(
   name='novauniverse',
-  version='2.0',
+  version='2.0dev1',
   description='A modern API wrapper for the minecraft server "Nova Universe" written in Python.', 
   long_description=readme_request.text,
   long_description_content_type="text/markdown",
