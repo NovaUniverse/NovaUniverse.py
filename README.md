@@ -7,7 +7,9 @@
  <img src="https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png" width="500" />
 </p>
 
-### ``novauniverse.py`` - A modern API wrapper for the minecraft server Nova Universe written in Python.
+### ~~``novauniverse.py`` - A modern API wrapper for the minecraft server Nova Universe written in Python.~~
+
+## ⚠ Warning: Version 1.2 is being rewrited and replaced by [2.0](https://github.com/NovaUniverse/NovaUniverse.py/tree/v2) so 1.2 will soon be depricated.
 
 #### [🆕NEW VERSION - 2.0](https://github.com/NovaUniverse/NovaUniverse.py/tree/v2)
 
