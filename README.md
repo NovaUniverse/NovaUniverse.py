@@ -9,7 +9,7 @@
 
 ### ~~``novauniverse.py`` - A modern API wrapper for the minecraft server Nova Universe written in Python.~~
 
-## ⚠ Warning: Version 1.2 is being rewrited and replaced by [2.0](https://github.com/NovaUniverse/NovaUniverse.py/tree/v2) so 1.2 will soon be depricated.
+## ⚠ Warning: Version *1.2* is being depricated. It will soon get rewritten and replaced by *[2.0](https://github.com/NovaUniverse/NovaUniverse.py/tree/v2)*.
 
 #### [🆕NEW VERSION - 2.0](https://github.com/NovaUniverse/NovaUniverse.py/tree/v2)
 
@@ -175,4 +175,4 @@ This class represents a player in the mcf tournamant.
     * **``kills -> int``** - Returns the amount of kills this player got.
     
 -------------------
-### ``Documentation is still currently being written...``
+#### [🆕NEW VERSION - 2.0](https://github.com/NovaUniverse/NovaUniverse.py/tree/v2)
