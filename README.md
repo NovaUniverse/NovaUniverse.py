@@ -7,7 +7,9 @@
  <img src="https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png" width="500" />
 </p>
 
-### ``novauniverse.py`` - A modern API wrapper for the minecraft server Nova Universe written in Python.
+### ``novauniverse.py`` - A modern & maintained wrapper for the [Nova Universe API](https://novauniverse.net/api/) written in Python.
+
+#### ℹ Notice: 2.0 is currently in development so PyPi package install will not be avaliable but you can still install it via github. More on that below.
 
 <p align="right">
  <img align="left" src="https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/v2/assets/logo.png" width="180" />
@@ -32,11 +34,11 @@
 <br>
 
 ## *Install/Set Up*
-1. **Install package from pip.**
+1. ~~**Install package from pypi.**~~ (In development so no PyPi package yet, install via GitHub instead.)
 ```sh
 #Windows/Linux
 
-pip install novauniverse
+pip install git+https://github.com/NovaUniverse/NovaUniverse.py/tree/v2
 ```
 2. **That's It!** - *Brief Example Below*
 ```python
@@ -61,7 +63,7 @@ Some brief examples of how you can use NovaUniverse.py.
 - ### The Interface
     The easiest way to retrieve data from the Nova api using NovaUniverse.py is by using the interfaces available to you. As of December 2022, this api wrapper covers most of the api's endpoints with an interface.
 
-    These are interfaces and a quick showcase on how to use them.
+    Here's a quick showcase on how to use them.
 
     - Getting Discord Stats.
 
@@ -113,7 +115,7 @@ Some brief examples of how you can use NovaUniverse.py.
         
         MCF interface also exists this same way.
 
-    More info in our [docs](https://novauniversepy.devgoldy.me/).
+    Neat right 😁, more info in our [docs](https://novauniversepy.devgoldy.me/).
 
 - ### The Search interface
 
