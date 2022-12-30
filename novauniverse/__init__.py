@@ -1,5 +1,5 @@
 """
-🐲 Nova Universe - A modern API wrapper for the minecraft server Nova Universe written in Python.
+🐲 Nova Universe - A modern & maintained wrapper for the Nova Universe API written in Python.
 
 Copyright (C) 2022 - Dev Goldy
 
@@ -52,9 +52,17 @@ from .interfaces.mcf import MCF
 from .interfaces.nova_games import NovaGames
 
 
-# Utils and Objects.
+#  Utils and Objects.
 # ------------------------
 from .client import NovaClient
 from .events import Events
 
 from .utils.search import Search
+
+# Backend objects
+from .objects.nova_player import NovaBasicPlayer
+from .objects.timestamp import Timestamp
+from .objects.tournaments import NovaBasicTournament, TournamentPlayer, TournamentTeam
+
+# Backend utils
+from .api import Endpoints, NovaAPI

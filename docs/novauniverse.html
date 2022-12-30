@@ -64,7 +64,7 @@
                     <h1 class="modulename">
 novauniverse    </h1>
 
-                        <div class="docstring"><p>🐲 Nova Universe - A modern API wrapper for the minecraft server Nova Universe written in Python.</p>
+                        <div class="docstring"><p>🐲 Nova Universe - A modern &amp; maintained wrapper for the Nova Universe API written in Python.</p>
 
 <p>Copyright (C) 2022 - Dev Goldy</p>
 
@@ -97,6 +97,7 @@ novauniverse    </h1>
 <li>### <a href="#installset-up"><em>Install/Set Up</em></a></li>
 <li>### <a href="#examples"><em>Examples</em></a>
 <ul>
+<li><a href="#the-interface">The Interface</a></li>
 <li><a href="#the-search-interface">The Search interface</a></li>
 <li><a href="#events">Events</a></li>
 </ul></li>
@@ -141,6 +142,60 @@ pip install novauniverse
 <p>Some brief examples of how you can use NovaUniverse.py.</p>
 
 <ul>
+<li><h3 id="the-interface">The Interface</h3>
+
+<p>The easiest way to retrieve data from the Nova api using NovaUniverse.py is by using the interfaces available to you. As of December 2022, this api wrapper covers most of the api's endpoints with an interface.</p>
+
+<p>These are interfaces and a quick showcase on how to use them.</p>
+
+<ul>
+<li><p>Getting Discord Stats.</p>
+
+<div class="pdoc-code codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">Discord</span>
+
+<span class="c1"># Get discord server stats.</span>
+<span class="n">discord_stats</span> <span class="o">=</span> <span class="n">Discord</span><span class="p">()</span><span class="o">.</span><span class="n">get_stats</span><span class="p">()</span>
+
+<span class="c1"># Prints out the member count.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">discord_stats</span><span class="o">.</span><span class="n">member_count</span><span class="o">.</span><span class="n">members</span><span class="si">}</span><span class="s2"> members on the Nova Universe discord server.&quot;</span><span class="p">)</span>
+</code></pre></div></li>
+<li><p>Getting Newsletters.</p>
+
+<div class="pdoc-code codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">News</span>
+
+<span class="c1"># Get latest newsletter.</span>
+<span class="n">latest_newsletter</span> <span class="o">=</span> <span class="n">News</span><span class="p">()</span><span class="o">.</span><span class="n">get_latest</span><span class="p">()</span>
+
+<span class="c1"># Print it.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The url for the news letter &#39;</span><span class="si">{</span><span class="n">latest_newsletter</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39; is &#39;</span><span class="si">{</span><span class="n">latest_newsletter</span><span class="o">.</span><span class="n">full_url</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+</code></pre></div></li>
+<li><p>Getting online players.</p>
+
+<div class="pdoc-code codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">Server</span>
+
+<span class="c1"># Get all online players on the minecraft server.</span>
+<span class="n">online_players</span> <span class="o">=</span> <span class="n">Server</span><span class="p">()</span><span class="o">.</span><span class="n">get_online_players</span><span class="p">()</span>
+
+<span class="c1"># Print all online players on the minecraft server.</span>
+<span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">online_players</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> is online on the &#39;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">server_name</span><span class="si">}</span><span class="s2">&#39; server.&quot;</span><span class="p">)</span>
+</code></pre></div></li>
+<li><p>Getting tournament results.</p>
+
+<div class="pdoc-code codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">NovaGames</span><span class="p">,</span> <span class="n">MCF</span>
+
+<span class="c1"># Get the latest Nova Games tournament.</span>
+<span class="n">nova_games</span> <span class="o">=</span> <span class="n">NovaGames</span><span class="p">()</span><span class="o">.</span><span class="n">get_latest</span><span class="p">()</span>
+
+<span class="c1"># Prints out how much each player scored in that tournament and also how many kills they achieved.</span>
+<span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">nova_games</span><span class="o">.</span><span class="n">players</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; got </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">kills</span><span class="si">}</span><span class="s2"> kill(s) and scored </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2"> point(s) in the Nova Games hosted on </span><span class="si">{</span><span class="n">nova_games</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>MCF interface also exists this same way.</p></li>
+</ul>
+
+<p>More info in our <a href="https://novauniversepy.devgoldy.me/">docs</a>.</p></li>
 <li><h3 id="the-search-interface">The Search interface</h3>
 
 <p>Some interfaces/endpoints obtain search features, specially those that inherited from SearchInterface.</p>
@@ -195,10 +250,8 @@ pip install novauniverse
 <span class="n">client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
 
-<p>If you would like to know the attributes of NovaOnlinePlayer, check this out:</p>
-
-<p><strong>https://novauniversepy.devgoldy.me/novauniverse/interfaces/stats/server/nova_online_player.html#NovaOnlinePlayer</strong></p></li>
-</ul>
+<p><p>If you would like to know the attributes of NovaOnlinePlayer, check this out: <a href="https://novauniversepy.devgoldy.me/novauniverse/interfaces/stats/server/nova_online_player.html#NovaOnlinePlayer"><strong>NovaOnlinePlayer</strong></a></p></li>
+</ul></p>
 
 <p><br></p>
 </div>
@@ -208,7 +261,7 @@ pip install novauniverse
                         <label class="view-source-button" for="novauniverse-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="sd">🐲 Nova Universe - A modern API wrapper for the minecraft server Nova Universe written in Python.</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="sd">🐲 Nova Universe - A modern &amp; maintained wrapper for the Nova Universe API written in Python.</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="sd">Copyright (C) 2022 - Dev Goldy</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
@@ -258,14 +311,23 @@ pip install novauniverse
 </span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="kn">from</span> <span class="nn">.interfaces.stats.discord</span> <span class="kn">import</span> <span class="n">Discord</span>
 </span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="kn">from</span> <span class="nn">.interfaces.stats.server</span> <span class="kn">import</span> <span class="n">Server</span><span class="p">,</span> <span class="n">NovaOnlinePlayer</span>
 </span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="kn">from</span> <span class="nn">.interfaces.mcf</span> <span class="kn">import</span> <span class="n">MCF</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>
+</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a><span class="kn">from</span> <span class="nn">.interfaces.nova_games</span> <span class="kn">import</span> <span class="n">NovaGames</span>
 </span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a><span class="c1"># Utils and Objects.</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="c1"># ------------------------</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="kn">from</span> <span class="nn">.client</span> <span class="kn">import</span> <span class="n">NovaClient</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="kn">from</span> <span class="nn">.events</span> <span class="kn">import</span> <span class="n">Events</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="kn">from</span> <span class="nn">.utils.search</span> <span class="kn">import</span> <span class="n">Search</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>
+</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="c1">#  Utils and Objects.</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="c1"># ------------------------</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="kn">from</span> <span class="nn">.client</span> <span class="kn">import</span> <span class="n">NovaClient</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="kn">from</span> <span class="nn">.events</span> <span class="kn">import</span> <span class="n">Events</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="kn">from</span> <span class="nn">.utils.search</span> <span class="kn">import</span> <span class="n">Search</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a><span class="c1"># Backend objects</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a><span class="kn">from</span> <span class="nn">.objects.nova_player</span> <span class="kn">import</span> <span class="n">NovaBasicPlayer</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="kn">from</span> <span class="nn">.objects.timestamp</span> <span class="kn">import</span> <span class="n">Timestamp</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a><span class="kn">from</span> <span class="nn">.objects.tournaments</span> <span class="kn">import</span> <span class="n">NovaBasicTournament</span><span class="p">,</span> <span class="n">TournamentPlayer</span><span class="p">,</span> <span class="n">TournamentTeam</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a>
+</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a><span class="c1"># Backend utils</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a><span class="kn">from</span> <span class="nn">.api</span> <span class="kn">import</span> <span class="n">Endpoints</span><span class="p">,</span> <span class="n">NovaAPI</span>
 </span></pre></div>
 
 

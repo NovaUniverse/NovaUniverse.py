@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="pdoc 12.1.0"/>
-    <title>novauniverse.objects.tournaments.tournament_player API documentation</title>
+    <title>novauniverse.interfaces.nova_games API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
     <style>/*! syntax-highlighting.css */pre{line-height:125%;}span.linenos{color:inherit; background-color:transparent; padding-left:5px; padding-right:20px;}.pdoc-code .hll{background-color:#49483e}.pdoc-code{background:#272822; color:#f8f8f2}.pdoc-code .c{color:#75715e}.pdoc-code .err{color:#960050; background-color:#1e0010}.pdoc-code .esc{color:#f8f8f2}.pdoc-code .g{color:#f8f8f2}.pdoc-code .k{color:#66d9ef}.pdoc-code .l{color:#ae81ff}.pdoc-code .n{color:#f8f8f2}.pdoc-code .o{color:#f92672}.pdoc-code .x{color:#f8f8f2}.pdoc-code .p{color:#f8f8f2}.pdoc-code .ch{color:#75715e}.pdoc-code .cm{color:#75715e}.pdoc-code .cp{color:#75715e}.pdoc-code .cpf{color:#75715e}.pdoc-code .c1{color:#75715e}.pdoc-code .cs{color:#75715e}.pdoc-code .gd{color:#f92672}.pdoc-code .ge{color:#f8f8f2; font-style:italic}.pdoc-code .gr{color:#f8f8f2}.pdoc-code .gh{color:#f8f8f2}.pdoc-code .gi{color:#a6e22e}.pdoc-code .go{color:#66d9ef}.pdoc-code .gp{color:#f92672; font-weight:bold}.pdoc-code .gs{color:#f8f8f2; font-weight:bold}.pdoc-code .gu{color:#75715e}.pdoc-code .gt{color:#f8f8f2}.pdoc-code .kc{color:#66d9ef}.pdoc-code .kd{color:#66d9ef}.pdoc-code .kn{color:#f92672}.pdoc-code .kp{color:#66d9ef}.pdoc-code .kr{color:#66d9ef}.pdoc-code .kt{color:#66d9ef}.pdoc-code .ld{color:#e6db74}.pdoc-code .m{color:#ae81ff}.pdoc-code .s{color:#e6db74}.pdoc-code .na{color:#a6e22e}.pdoc-code .nb{color:#f8f8f2}.pdoc-code .nc{color:#a6e22e}.pdoc-code .no{color:#66d9ef}.pdoc-code .nd{color:#a6e22e}.pdoc-code .ni{color:#f8f8f2}.pdoc-code .ne{color:#a6e22e}.pdoc-code .nf{color:#a6e22e}.pdoc-code .nl{color:#f8f8f2}.pdoc-code .nn{color:#f8f8f2}.pdoc-code .nx{color:#a6e22e}.pdoc-code .py{color:#f8f8f2}.pdoc-code .nt{color:#f92672}.pdoc-code .nv{color:#f8f8f2}.pdoc-code .ow{color:#f92672}.pdoc-code .w{color:#f8f8f2}.pdoc-code .mb{color:#ae81ff}.pdoc-code .mf{color:#ae81ff}.pdoc-code .mh{color:#ae81ff}.pdoc-code .mi{color:#ae81ff}.pdoc-code .mo{color:#ae81ff}.pdoc-code .sa{color:#e6db74}.pdoc-code .sb{color:#e6db74}.pdoc-code .sc{color:#e6db74}.pdoc-code .dl{color:#e6db74}.pdoc-code .sd{color:#e6db74}.pdoc-code .s2{color:#e6db74}.pdoc-code .se{color:#ae81ff}.pdoc-code .sh{color:#e6db74}.pdoc-code .si{color:#e6db74}.pdoc-code .sx{color:#e6db74}.pdoc-code .sr{color:#e6db74}.pdoc-code .s1{color:#e6db74}.pdoc-code .ss{color:#e6db74}.pdoc-code .bp{color:#f8f8f2}.pdoc-code .fm{color:#a6e22e}.pdoc-code .vc{color:#f8f8f2}.pdoc-code .vg{color:#f8f8f2}.pdoc-code .vi{color:#f8f8f2}.pdoc-code .vm{color:#f8f8f2}</style>
@@ -16,11 +16,11 @@
     <nav class="pdoc">
         <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
         <input id="togglestate" type="checkbox" aria-hidden="true" tabindex="-1">
-        <div>            <a class="pdoc-button module-list-button" href="../tournaments.html">
+        <div>            <a class="pdoc-button module-list-button" href="../interfaces.html">
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-</svg>                &nbsp;novauniverse.objects.tournaments</a>
+</svg>                &nbsp;novauniverse.interfaces</a>
 
 <a href="https://novauniversepy.devgoldy.me/">            <img src="https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/v2/assets/logo.png" class="logo" alt="project logo"/>
 </a>
@@ -28,32 +28,31 @@
                    pattern=".+" required>
 
 
+        <h2>Submodules</h2>
+        <ul>
+                <li><a href="nova_games/dynamic_config.html">dynamic_config</a></li>
+                <li><a href="nova_games/nova_games_tournament.html">nova_games_tournament</a></li>
+        </ul>
 
         <h2>API Documentation</h2>
             <ul class="memberlist">
             <li>
-                    <a class="class" href="#TournamentPlayer">TournamentPlayer</a>
+                    <a class="class" href="#NovaGames">NovaGames</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#TournamentPlayer.__init__">TournamentPlayer</a>
+                                <a class="function" href="#NovaGames.__init__">NovaGames</a>
                         </li>
                         <li>
-                                <a class="variable" href="#TournamentPlayer.uid">uid</a>
+                                <a class="function" href="#NovaGames.find">find</a>
                         </li>
                         <li>
-                                <a class="variable" href="#TournamentPlayer.has_nova_account">has_nova_account</a>
+                                <a class="function" href="#NovaGames.get_all">get_all</a>
                         </li>
                         <li>
-                                <a class="variable" href="#TournamentPlayer.nova_account_name">nova_account_name</a>
+                                <a class="function" href="#NovaGames.get_latest">get_latest</a>
                         </li>
                         <li>
-                                <a class="variable" href="#TournamentPlayer.team_number">team_number</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#TournamentPlayer.score">score</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#TournamentPlayer.kills">kills</a>
+                                <a class="function" href="#NovaGames.get_config">get_config</a>
                         </li>
                 </ul>
 
@@ -73,190 +72,217 @@
     <main class="pdoc">
             <section class="module-info">
                     <h1 class="modulename">
-<a href="./../../../novauniverse.html">novauniverse</a><wbr>.<a href="./../../objects.html">objects</a><wbr>.<a href="./../tournaments.html">tournaments</a><wbr>.tournament_player    </h1>
+<a href="./../../novauniverse.html">novauniverse</a><wbr>.<a href="./../interfaces.html">interfaces</a><wbr>.nova_games    </h1>
 
                 
-                        <input id="tournament_player-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                        <input id="nova_games-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 
-                        <label class="view-source-button" for="tournament_player-view-source"><span>View Source</span></label>
+                        <label class="view-source-button" for="nova_games-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="kn">from</span> <span class="nn">..nova_player</span> <span class="kn">import</span> <span class="n">NovaBasicPlayer</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">SearchInterface</span><span class="p">,</span> <span class="n">SearchBy</span><span class="p">,</span> <span class="n">Search</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">.nova_games_tournament</span> <span class="kn">import</span> <span class="n">NovaGamesTournament</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="kn">from</span> <span class="nn">.dynamic_config</span> <span class="kn">import</span> <span class="n">NovaGamesDynamicConfig</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="nd">@dataclass</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="k">class</span> <span class="nc">TournamentPlayer</span><span class="p">(</span><span class="n">NovaBasicPlayer</span><span class="p">):</span>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="sd">&quot;&quot;&quot;A base tournament player class, used in interfaces like mcf and nova games because player data is very similar between them.&quot;&quot;&quot;</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="n">uid</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="sd">&quot;&quot;&quot;Returns uid of tournament player.&quot;&quot;&quot;</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="n">has_nova_account</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="sd">&quot;&quot;&quot;Returns True or False if player has nova account.&quot;&quot;&quot;</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="n">nova_account_name</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="sd">&quot;&quot;&quot;Returns nova account name of tournament player.&quot;&quot;&quot;</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team number of the player.&quot;&quot;&quot;</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="n">score</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="sd">&quot;&quot;&quot;Returns the score the player currently achieved.&quot;&quot;&quot;</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="n">kills</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="sd">&quot;&quot;&quot;Returns the current amount of kills the player achieved.&quot;&quot;&quot;</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>    <span class="k">def</span> <span class="nf">__post_init_subclass__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;uid&quot;</span><span class="p">]</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">has_nova_account</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;has_nova_account&quot;</span><span class="p">]</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nova_account_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;nova_account_name&quot;</span><span class="p">]</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_number</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;team_number&quot;</span><span class="p">]</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">kills</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;kills&quot;</span><span class="p">]</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="k">class</span> <span class="nc">NovaGames</span><span class="p">(</span><span class="n">SearchInterface</span><span class="p">):</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="sd">    The interface for NovaAPI&#39;s ``/nova_games`` endpoint.</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="sd">    Allows you to get the latest and all 🟥nova games tournament results and also allows you to search for them.</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supports</span><span class="o">=</span><span class="p">[</span><span class="n">SearchBy</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">SearchBy</span><span class="o">.</span><span class="n">name_</span><span class="p">])</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_RESULT</span><span class="p">)</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_dynamic_config_api</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_DYNAMIC_CONFIGURATION</span><span class="p">)</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search</span><span class="p">:</span> <span class="n">Search</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesTournament</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_all</span><span class="p">())</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>    <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">NovaGamesTournament</span><span class="p">]:</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="sd">&quot;&quot;&quot;Returns all 🔥mcf tournament results from api in a list. Returns empty list if there are no results.&quot;&quot;&quot;</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">NovaGamesTournament</span><span class="p">(</span><span class="n">tournament_data</span><span class="p">)</span> <span class="k">for</span> <span class="n">tournament_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span><span class="o">.</span><span class="n">get</span><span class="p">()]</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>    <span class="k">def</span> <span class="nf">get_latest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesTournament</span><span class="o">|</span><span class="kc">None</span><span class="p">:</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>        <span class="sd">&quot;&quot;&quot;Returns the latest 🟥Nova Games tournament result from api. Returns None if there are no results.&quot;&quot;&quot;</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="n">data</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>        <span class="k">return</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">uwu</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">uwu</span> <span class="ow">is</span> <span class="p">[]</span> <span class="k">else</span> <span class="n">NovaGamesTournament</span><span class="p">(</span><span class="n">uwu</span><span class="p">[</span><span class="mi">0</span><span class="p">]))(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesDynamicConfig</span><span class="p">:</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>        <span class="sd">&quot;&quot;&quot;Returns the dynamic configuration of Nova Games from the api.&quot;&quot;&quot;</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_dynamic_config_api</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>        <span class="k">return</span> <span class="n">NovaGamesDynamicConfig</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span></pre></div>
 
 
             </section>
-                <section id="TournamentPlayer">
-                            <input id="TournamentPlayer-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="NovaGames">
+                            <input id="NovaGames-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-                    <div class="decorator">@dataclass</div>
-
+            
     <span class="def">class</span>
-    <span class="name">TournamentPlayer</span><wbr>(<span class="base"><a href="../nova_player.html#NovaBasicPlayer">novauniverse.objects.nova_player.NovaBasicPlayer</a></span>):
+    <span class="name">NovaGames</span><wbr>(<span class="base"><a href="../interfaces.html#SearchInterface">novauniverse.interfaces.SearchInterface</a></span>):
 
-                <label class="view-source-button" for="TournamentPlayer-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="NovaGames-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#TournamentPlayer"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentPlayer-8"><a href="#TournamentPlayer-8"><span class="linenos"> 8</span></a><span class="nd">@dataclass</span>
-</span><span id="TournamentPlayer-9"><a href="#TournamentPlayer-9"><span class="linenos"> 9</span></a><span class="k">class</span> <span class="nc">TournamentPlayer</span><span class="p">(</span><span class="n">NovaBasicPlayer</span><span class="p">):</span>
-</span><span id="TournamentPlayer-10"><a href="#TournamentPlayer-10"><span class="linenos">10</span></a>    <span class="sd">&quot;&quot;&quot;A base tournament player class, used in interfaces like mcf and nova games because player data is very similar between them.&quot;&quot;&quot;</span>
-</span><span id="TournamentPlayer-11"><a href="#TournamentPlayer-11"><span class="linenos">11</span></a>
-</span><span id="TournamentPlayer-12"><a href="#TournamentPlayer-12"><span class="linenos">12</span></a>    <span class="n">uid</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="TournamentPlayer-13"><a href="#TournamentPlayer-13"><span class="linenos">13</span></a>    <span class="sd">&quot;&quot;&quot;Returns uid of tournament player.&quot;&quot;&quot;</span>
-</span><span id="TournamentPlayer-14"><a href="#TournamentPlayer-14"><span class="linenos">14</span></a>    <span class="n">has_nova_account</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="TournamentPlayer-15"><a href="#TournamentPlayer-15"><span class="linenos">15</span></a>    <span class="sd">&quot;&quot;&quot;Returns True or False if player has nova account.&quot;&quot;&quot;</span>
-</span><span id="TournamentPlayer-16"><a href="#TournamentPlayer-16"><span class="linenos">16</span></a>    <span class="n">nova_account_name</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="TournamentPlayer-17"><a href="#TournamentPlayer-17"><span class="linenos">17</span></a>    <span class="sd">&quot;&quot;&quot;Returns nova account name of tournament player.&quot;&quot;&quot;</span>
-</span><span id="TournamentPlayer-18"><a href="#TournamentPlayer-18"><span class="linenos">18</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="TournamentPlayer-19"><a href="#TournamentPlayer-19"><span class="linenos">19</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team number of the player.&quot;&quot;&quot;</span>
-</span><span id="TournamentPlayer-20"><a href="#TournamentPlayer-20"><span class="linenos">20</span></a>    <span class="n">score</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="TournamentPlayer-21"><a href="#TournamentPlayer-21"><span class="linenos">21</span></a>    <span class="sd">&quot;&quot;&quot;Returns the score the player currently achieved.&quot;&quot;&quot;</span>
-</span><span id="TournamentPlayer-22"><a href="#TournamentPlayer-22"><span class="linenos">22</span></a>    <span class="n">kills</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="TournamentPlayer-23"><a href="#TournamentPlayer-23"><span class="linenos">23</span></a>    <span class="sd">&quot;&quot;&quot;Returns the current amount of kills the player achieved.&quot;&quot;&quot;</span>
-</span><span id="TournamentPlayer-24"><a href="#TournamentPlayer-24"><span class="linenos">24</span></a>
-</span><span id="TournamentPlayer-25"><a href="#TournamentPlayer-25"><span class="linenos">25</span></a>    <span class="k">def</span> <span class="nf">__post_init_subclass__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="TournamentPlayer-26"><a href="#TournamentPlayer-26"><span class="linenos">26</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;uid&quot;</span><span class="p">]</span>
-</span><span id="TournamentPlayer-27"><a href="#TournamentPlayer-27"><span class="linenos">27</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">has_nova_account</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;has_nova_account&quot;</span><span class="p">]</span>
-</span><span id="TournamentPlayer-28"><a href="#TournamentPlayer-28"><span class="linenos">28</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nova_account_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;nova_account_name&quot;</span><span class="p">]</span>
-</span><span id="TournamentPlayer-29"><a href="#TournamentPlayer-29"><span class="linenos">29</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_number</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;team_number&quot;</span><span class="p">]</span>
-</span><span id="TournamentPlayer-30"><a href="#TournamentPlayer-30"><span class="linenos">30</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span>
-</span><span id="TournamentPlayer-31"><a href="#TournamentPlayer-31"><span class="linenos">31</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">kills</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;kills&quot;</span><span class="p">]</span>
+    <a class="headerlink" href="#NovaGames"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGames-10"><a href="#NovaGames-10"><span class="linenos">10</span></a><span class="k">class</span> <span class="nc">NovaGames</span><span class="p">(</span><span class="n">SearchInterface</span><span class="p">):</span>
+</span><span id="NovaGames-11"><a href="#NovaGames-11"><span class="linenos">11</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="NovaGames-12"><a href="#NovaGames-12"><span class="linenos">12</span></a><span class="sd">    The interface for NovaAPI&#39;s ``/nova_games`` endpoint.</span>
+</span><span id="NovaGames-13"><a href="#NovaGames-13"><span class="linenos">13</span></a><span class="sd">    Allows you to get the latest and all 🟥nova games tournament results and also allows you to search for them.</span>
+</span><span id="NovaGames-14"><a href="#NovaGames-14"><span class="linenos">14</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="NovaGames-15"><a href="#NovaGames-15"><span class="linenos">15</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="NovaGames-16"><a href="#NovaGames-16"><span class="linenos">16</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supports</span><span class="o">=</span><span class="p">[</span><span class="n">SearchBy</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">SearchBy</span><span class="o">.</span><span class="n">name_</span><span class="p">])</span>
+</span><span id="NovaGames-17"><a href="#NovaGames-17"><span class="linenos">17</span></a>
+</span><span id="NovaGames-18"><a href="#NovaGames-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_RESULT</span><span class="p">)</span>
+</span><span id="NovaGames-19"><a href="#NovaGames-19"><span class="linenos">19</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_dynamic_config_api</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_DYNAMIC_CONFIGURATION</span><span class="p">)</span>
+</span><span id="NovaGames-20"><a href="#NovaGames-20"><span class="linenos">20</span></a>
+</span><span id="NovaGames-21"><a href="#NovaGames-21"><span class="linenos">21</span></a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search</span><span class="p">:</span> <span class="n">Search</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesTournament</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="NovaGames-22"><a href="#NovaGames-22"><span class="linenos">22</span></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_all</span><span class="p">())</span>
+</span><span id="NovaGames-23"><a href="#NovaGames-23"><span class="linenos">23</span></a>
+</span><span id="NovaGames-24"><a href="#NovaGames-24"><span class="linenos">24</span></a>    <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">NovaGamesTournament</span><span class="p">]:</span>
+</span><span id="NovaGames-25"><a href="#NovaGames-25"><span class="linenos">25</span></a>        <span class="sd">&quot;&quot;&quot;Returns all 🔥mcf tournament results from api in a list. Returns empty list if there are no results.&quot;&quot;&quot;</span>
+</span><span id="NovaGames-26"><a href="#NovaGames-26"><span class="linenos">26</span></a>
+</span><span id="NovaGames-27"><a href="#NovaGames-27"><span class="linenos">27</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">NovaGamesTournament</span><span class="p">(</span><span class="n">tournament_data</span><span class="p">)</span> <span class="k">for</span> <span class="n">tournament_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span><span class="o">.</span><span class="n">get</span><span class="p">()]</span>
+</span><span id="NovaGames-28"><a href="#NovaGames-28"><span class="linenos">28</span></a>
+</span><span id="NovaGames-29"><a href="#NovaGames-29"><span class="linenos">29</span></a>    <span class="k">def</span> <span class="nf">get_latest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesTournament</span><span class="o">|</span><span class="kc">None</span><span class="p">:</span>
+</span><span id="NovaGames-30"><a href="#NovaGames-30"><span class="linenos">30</span></a>        <span class="sd">&quot;&quot;&quot;Returns the latest 🟥Nova Games tournament result from api. Returns None if there are no results.&quot;&quot;&quot;</span>
+</span><span id="NovaGames-31"><a href="#NovaGames-31"><span class="linenos">31</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="NovaGames-32"><a href="#NovaGames-32"><span class="linenos">32</span></a>        <span class="n">data</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+</span><span id="NovaGames-33"><a href="#NovaGames-33"><span class="linenos">33</span></a>
+</span><span id="NovaGames-34"><a href="#NovaGames-34"><span class="linenos">34</span></a>        <span class="k">return</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">uwu</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">uwu</span> <span class="ow">is</span> <span class="p">[]</span> <span class="k">else</span> <span class="n">NovaGamesTournament</span><span class="p">(</span><span class="n">uwu</span><span class="p">[</span><span class="mi">0</span><span class="p">]))(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="NovaGames-35"><a href="#NovaGames-35"><span class="linenos">35</span></a>
+</span><span id="NovaGames-36"><a href="#NovaGames-36"><span class="linenos">36</span></a>    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesDynamicConfig</span><span class="p">:</span>
+</span><span id="NovaGames-37"><a href="#NovaGames-37"><span class="linenos">37</span></a>        <span class="sd">&quot;&quot;&quot;Returns the dynamic configuration of Nova Games from the api.&quot;&quot;&quot;</span>
+</span><span id="NovaGames-38"><a href="#NovaGames-38"><span class="linenos">38</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_dynamic_config_api</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="NovaGames-39"><a href="#NovaGames-39"><span class="linenos">39</span></a>
+</span><span id="NovaGames-40"><a href="#NovaGames-40"><span class="linenos">40</span></a>        <span class="k">return</span> <span class="n">NovaGamesDynamicConfig</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>A base tournament player class, used in interfaces like mcf and nova games because player data is very similar between them.</p>
+            <div class="docstring"><p>The interface for NovaAPI's <code>/nova_games</code> endpoint.
+Allows you to get the latest and all 🟥nova games tournament results and also allows you to search for them.</p>
 </div>
 
 
-                            <div id="TournamentPlayer.__init__" class="classattr">
-                                <div class="attr function">
+                            <div id="NovaGames.__init__" class="classattr">
+                                        <input id="NovaGames.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
             
-        <span class="name">TournamentPlayer</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">_NovaBasicPlayer__data</span><span class="p">:</span> <span class="nb">dict</span></span>)</span>
+        <span class="name">NovaGames</span><span class="signature pdoc-code condensed">()</span>
 
-        
+                <label class="view-source-button" for="NovaGames.__init__-view-source"><span>View Source</span></label>
+
     </div>
-    <a class="headerlink" href="#TournamentPlayer.__init__"></a>
-    
+    <a class="headerlink" href="#NovaGames.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGames.__init__-15"><a href="#NovaGames.__init__-15"><span class="linenos">15</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="NovaGames.__init__-16"><a href="#NovaGames.__init__-16"><span class="linenos">16</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supports</span><span class="o">=</span><span class="p">[</span><span class="n">SearchBy</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">SearchBy</span><span class="o">.</span><span class="n">name_</span><span class="p">])</span>
+</span><span id="NovaGames.__init__-17"><a href="#NovaGames.__init__-17"><span class="linenos">17</span></a>
+</span><span id="NovaGames.__init__-18"><a href="#NovaGames.__init__-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_RESULT</span><span class="p">)</span>
+</span><span id="NovaGames.__init__-19"><a href="#NovaGames.__init__-19"><span class="linenos">19</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_dynamic_config_api</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_DYNAMIC_CONFIGURATION</span><span class="p">)</span>
+</span></pre></div>
+
+
     
 
                             </div>
-                            <div id="TournamentPlayer.uid" class="classattr">
-                                <div class="attr variable">
-            <span class="name">uid</span><span class="annotation">: int</span>
+                            <div id="NovaGames.find" class="classattr">
+                                        <input id="NovaGames.find-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">find</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">search</span><span class="p">:</span> <span class="n"><a href="../utils/search.html#Search">novauniverse.utils.search.Search</a></span></span><span class="return-annotation">) -> <span class="n"><a href="nova_games/nova_games_tournament.html#NovaGamesTournament">novauniverse.interfaces.nova_games.nova_games_tournament.NovaGamesTournament</a></span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
-        
+                <label class="view-source-button" for="NovaGames.find-view-source"><span>View Source</span></label>
+
     </div>
-    <a class="headerlink" href="#TournamentPlayer.uid"></a>
+    <a class="headerlink" href="#NovaGames.find"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGames.find-21"><a href="#NovaGames.find-21"><span class="linenos">21</span></a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search</span><span class="p">:</span> <span class="n">Search</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesTournament</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="NovaGames.find-22"><a href="#NovaGames.find-22"><span class="linenos">22</span></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_all</span><span class="p">())</span>
+</span></pre></div>
+
+
     
-            <div class="docstring"><p>Returns uid of tournament player.</p>
+
+                            </div>
+                            <div id="NovaGames.get_all" class="classattr">
+                                        <input id="NovaGames.get_all-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_all</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">List</span><span class="p">[</span><span class="n"><a href="nova_games/nova_games_tournament.html#NovaGamesTournament">novauniverse.interfaces.nova_games.nova_games_tournament.NovaGamesTournament</a></span><span class="p">]</span>:</span></span>
+
+                <label class="view-source-button" for="NovaGames.get_all-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#NovaGames.get_all"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGames.get_all-24"><a href="#NovaGames.get_all-24"><span class="linenos">24</span></a>    <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">NovaGamesTournament</span><span class="p">]:</span>
+</span><span id="NovaGames.get_all-25"><a href="#NovaGames.get_all-25"><span class="linenos">25</span></a>        <span class="sd">&quot;&quot;&quot;Returns all 🔥mcf tournament results from api in a list. Returns empty list if there are no results.&quot;&quot;&quot;</span>
+</span><span id="NovaGames.get_all-26"><a href="#NovaGames.get_all-26"><span class="linenos">26</span></a>
+</span><span id="NovaGames.get_all-27"><a href="#NovaGames.get_all-27"><span class="linenos">27</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">NovaGamesTournament</span><span class="p">(</span><span class="n">tournament_data</span><span class="p">)</span> <span class="k">for</span> <span class="n">tournament_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span><span class="o">.</span><span class="n">get</span><span class="p">()]</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Returns all 🔥mcf tournament results from api in a list. Returns empty list if there are no results.</p>
 </div>
 
 
                             </div>
-                            <div id="TournamentPlayer.has_nova_account" class="classattr">
-                                <div class="attr variable">
-            <span class="name">has_nova_account</span><span class="annotation">: bool</span>
+                            <div id="NovaGames.get_latest" class="classattr">
+                                        <input id="NovaGames.get_latest-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_latest</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="nova_games/nova_games_tournament.html#NovaGamesTournament">novauniverse.interfaces.nova_games.nova_games_tournament.NovaGamesTournament</a></span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
-        
+                <label class="view-source-button" for="NovaGames.get_latest-view-source"><span>View Source</span></label>
+
     </div>
-    <a class="headerlink" href="#TournamentPlayer.has_nova_account"></a>
-    
-            <div class="docstring"><p>Returns True or False if player has nova account.</p>
+    <a class="headerlink" href="#NovaGames.get_latest"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGames.get_latest-29"><a href="#NovaGames.get_latest-29"><span class="linenos">29</span></a>    <span class="k">def</span> <span class="nf">get_latest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesTournament</span><span class="o">|</span><span class="kc">None</span><span class="p">:</span>
+</span><span id="NovaGames.get_latest-30"><a href="#NovaGames.get_latest-30"><span class="linenos">30</span></a>        <span class="sd">&quot;&quot;&quot;Returns the latest 🟥Nova Games tournament result from api. Returns None if there are no results.&quot;&quot;&quot;</span>
+</span><span id="NovaGames.get_latest-31"><a href="#NovaGames.get_latest-31"><span class="linenos">31</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_result_api</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="NovaGames.get_latest-32"><a href="#NovaGames.get_latest-32"><span class="linenos">32</span></a>        <span class="n">data</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+</span><span id="NovaGames.get_latest-33"><a href="#NovaGames.get_latest-33"><span class="linenos">33</span></a>
+</span><span id="NovaGames.get_latest-34"><a href="#NovaGames.get_latest-34"><span class="linenos">34</span></a>        <span class="k">return</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">uwu</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">uwu</span> <span class="ow">is</span> <span class="p">[]</span> <span class="k">else</span> <span class="n">NovaGamesTournament</span><span class="p">(</span><span class="n">uwu</span><span class="p">[</span><span class="mi">0</span><span class="p">]))(</span><span class="n">data</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Returns the latest 🟥Nova Games tournament result from api. Returns None if there are no results.</p>
 </div>
 
 
                             </div>
-                            <div id="TournamentPlayer.nova_account_name" class="classattr">
-                                <div class="attr variable">
-            <span class="name">nova_account_name</span><span class="annotation">: str | None</span>
+                            <div id="NovaGames.get_config" class="classattr">
+                                        <input id="NovaGames.get_config-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_config</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="nova_games/dynamic_config.html#NovaGamesDynamicConfig">novauniverse.interfaces.nova_games.dynamic_config.NovaGamesDynamicConfig</a></span>:</span></span>
 
-        
+                <label class="view-source-button" for="NovaGames.get_config-view-source"><span>View Source</span></label>
+
     </div>
-    <a class="headerlink" href="#TournamentPlayer.nova_account_name"></a>
-    
-            <div class="docstring"><p>Returns nova account name of tournament player.</p>
+    <a class="headerlink" href="#NovaGames.get_config"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGames.get_config-36"><a href="#NovaGames.get_config-36"><span class="linenos">36</span></a>    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NovaGamesDynamicConfig</span><span class="p">:</span>
+</span><span id="NovaGames.get_config-37"><a href="#NovaGames.get_config-37"><span class="linenos">37</span></a>        <span class="sd">&quot;&quot;&quot;Returns the dynamic configuration of Nova Games from the api.&quot;&quot;&quot;</span>
+</span><span id="NovaGames.get_config-38"><a href="#NovaGames.get_config-38"><span class="linenos">38</span></a>        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nova_games_dynamic_config_api</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="NovaGames.get_config-39"><a href="#NovaGames.get_config-39"><span class="linenos">39</span></a>
+</span><span id="NovaGames.get_config-40"><a href="#NovaGames.get_config-40"><span class="linenos">40</span></a>        <span class="k">return</span> <span class="n">NovaGamesDynamicConfig</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Returns the dynamic configuration of Nova Games from the api.</p>
 </div>
 
 
-                            </div>
-                            <div id="TournamentPlayer.team_number" class="classattr">
-                                <div class="attr variable">
-            <span class="name">team_number</span><span class="annotation">: int</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentPlayer.team_number"></a>
-    
-            <div class="docstring"><p>Returns the team number of the player.</p>
-</div>
-
-
-                            </div>
-                            <div id="TournamentPlayer.score" class="classattr">
-                                <div class="attr variable">
-            <span class="name">score</span><span class="annotation">: int</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentPlayer.score"></a>
-    
-            <div class="docstring"><p>Returns the score the player currently achieved.</p>
-</div>
-
-
-                            </div>
-                            <div id="TournamentPlayer.kills" class="classattr">
-                                <div class="attr variable">
-            <span class="name">kills</span><span class="annotation">: int</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentPlayer.kills"></a>
-    
-            <div class="docstring"><p>Returns the current amount of kills the player achieved.</p>
-</div>
-
-
-                            </div>
-                            <div class="inherited">
-                                <h5>Inherited Members</h5>
-                                <dl>
-                                    <div><dt><a href="../nova_player.html#NovaBasicPlayer">novauniverse.objects.nova_player.NovaBasicPlayer</a></dt>
-                                <dd id="TournamentPlayer.uuid" class="variable"><a href="../nova_player.html#NovaBasicPlayer.uuid">uuid</a></dd>
-                <dd id="TournamentPlayer.username" class="variable"><a href="../nova_player.html#NovaBasicPlayer.username">username</a></dd>
-                <dd id="TournamentPlayer.name" class="variable"><a href="../nova_player.html#NovaBasicPlayer.name">name</a></dd>
-
-            </div>
-                                </dl>
                             </div>
                 </section>
     </main>
@@ -312,7 +338,7 @@
                 script.async = true;
                 script.onload = () => resolve(window.pdocSearch);
                 script.onerror = (e) => reject(e);
-                script.src = "../../../search.js";
+                script.src = "../../search.js";
                 document.getElementsByTagName("head")[0].appendChild(script);
             });
         } catch (e) {
@@ -354,7 +380,7 @@
             }
             for (let result of results.slice(0, 10)) {
                 let doc = result.doc;
-                let url = `../../../${doc.modulename.replaceAll(".", "/")}.html`;
+                let url = `../../${doc.modulename.replaceAll(".", "/")}.html`;
                 if (doc.qualname) {
                     url += `#${doc.qualname}`;
                 }

@@ -43,6 +43,9 @@
                         <li>
                                 <a class="variable" href="#NovaBasicPlayer.username">username</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#NovaBasicPlayer.name">name</a>
+                        </li>
                 </ul>
 
             </li>
@@ -79,15 +82,19 @@
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="sd">&quot;&quot;&quot;Returns UUID of novauniverse player.&quot;&quot;&quot;</span>
 </span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>    <span class="n">username</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="sd">&quot;&quot;&quot;Returns username of novauniverse player.&quot;&quot;&quot;</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__post_init_subclass__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>            <span class="k">pass</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="sd">&quot;&quot;&quot;Aliases of ``username``.&quot;&quot;&quot;</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__post_init_subclass__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>            <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -113,15 +120,19 @@
 </span><span id="NovaBasicPlayer-10"><a href="#NovaBasicPlayer-10"><span class="linenos">10</span></a>    <span class="sd">&quot;&quot;&quot;Returns UUID of novauniverse player.&quot;&quot;&quot;</span>
 </span><span id="NovaBasicPlayer-11"><a href="#NovaBasicPlayer-11"><span class="linenos">11</span></a>    <span class="n">username</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="NovaBasicPlayer-12"><a href="#NovaBasicPlayer-12"><span class="linenos">12</span></a>    <span class="sd">&quot;&quot;&quot;Returns username of novauniverse player.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicPlayer-13"><a href="#NovaBasicPlayer-13"><span class="linenos">13</span></a>
-</span><span id="NovaBasicPlayer-14"><a href="#NovaBasicPlayer-14"><span class="linenos">14</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="NovaBasicPlayer-15"><a href="#NovaBasicPlayer-15"><span class="linenos">15</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span>
-</span><span id="NovaBasicPlayer-16"><a href="#NovaBasicPlayer-16"><span class="linenos">16</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
-</span><span id="NovaBasicPlayer-17"><a href="#NovaBasicPlayer-17"><span class="linenos">17</span></a>
-</span><span id="NovaBasicPlayer-18"><a href="#NovaBasicPlayer-18"><span class="linenos">18</span></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="NovaBasicPlayer-19"><a href="#NovaBasicPlayer-19"><span class="linenos">19</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__post_init_subclass__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
-</span><span id="NovaBasicPlayer-20"><a href="#NovaBasicPlayer-20"><span class="linenos">20</span></a>        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-</span><span id="NovaBasicPlayer-21"><a href="#NovaBasicPlayer-21"><span class="linenos">21</span></a>            <span class="k">pass</span>
+</span><span id="NovaBasicPlayer-13"><a href="#NovaBasicPlayer-13"><span class="linenos">13</span></a>    <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicPlayer-14"><a href="#NovaBasicPlayer-14"><span class="linenos">14</span></a>    <span class="sd">&quot;&quot;&quot;Aliases of ``username``.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicPlayer-15"><a href="#NovaBasicPlayer-15"><span class="linenos">15</span></a>
+</span><span id="NovaBasicPlayer-16"><a href="#NovaBasicPlayer-16"><span class="linenos">16</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="NovaBasicPlayer-17"><a href="#NovaBasicPlayer-17"><span class="linenos">17</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span>
+</span><span id="NovaBasicPlayer-18"><a href="#NovaBasicPlayer-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+</span><span id="NovaBasicPlayer-19"><a href="#NovaBasicPlayer-19"><span class="linenos">19</span></a>
+</span><span id="NovaBasicPlayer-20"><a href="#NovaBasicPlayer-20"><span class="linenos">20</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span>
+</span><span id="NovaBasicPlayer-21"><a href="#NovaBasicPlayer-21"><span class="linenos">21</span></a>
+</span><span id="NovaBasicPlayer-22"><a href="#NovaBasicPlayer-22"><span class="linenos">22</span></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="NovaBasicPlayer-23"><a href="#NovaBasicPlayer-23"><span class="linenos">23</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__post_init_subclass__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
+</span><span id="NovaBasicPlayer-24"><a href="#NovaBasicPlayer-24"><span class="linenos">24</span></a>        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+</span><span id="NovaBasicPlayer-25"><a href="#NovaBasicPlayer-25"><span class="linenos">25</span></a>            <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -163,6 +174,19 @@
     <a class="headerlink" href="#NovaBasicPlayer.username"></a>
     
             <div class="docstring"><p>Returns username of novauniverse player.</p>
+</div>
+
+
+                            </div>
+                            <div id="NovaBasicPlayer.name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">name</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NovaBasicPlayer.name"></a>
+    
+            <div class="docstring"><p>Aliases of <code><a href="#NovaBasicPlayer.username">username</a></code>.</p>
 </div>
 
 
