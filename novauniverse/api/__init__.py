@@ -67,5 +67,5 @@ class NovaAPI():
 
             return response_json
         else:
-            # I'm getting message and error here because some endpoints don't error with a message key.
+            # I'm getting message and error here because some endpoints don't error with a message key. (again the consistency in this api 🤬)
             raise UnSuccessfulOperation(response_json.get("message", response_json.get("error")))
