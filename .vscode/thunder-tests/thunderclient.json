@@ -168,14 +168,8 @@
     "method": "GET",
     "sortNum": 50000,
     "created": "2022-12-14T13:55:13.052Z",
-    "modified": "2022-12-14T13:56:03.427Z",
-    "headers": [
-      {
-        "name": "User-Agent",
-        "value": "Thunder Client (https://www.thunderclient.com)",
-        "isDisabled": true
-      }
-    ],
+    "modified": "2022-12-30T23:26:01.262Z",
+    "headers": [],
     "params": [],
     "tests": []
   }

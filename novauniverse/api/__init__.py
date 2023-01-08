@@ -10,6 +10,7 @@ from .. import nova_logger
 from ..info import PACKAGE_NAME_WITH_VER
 
 from typing import Any
+from .. import config
 
 class NovaAPI():
     """The main class that handles all requests to the web server at ``https://novauniverse.net/api/``. """
@@ -48,7 +49,8 @@ class NovaAPI():
         """Send a get request to that endpoint."""
 
         if self.endpoint is None: raise NoEndpointPassed()
-        if self.is_online is False: raise FailedConnectivityCheck()
+        if config.performance_mode is False: # Does online check if performance mode is not enabled.
+            if self.is_online is False: raise FailedConnectivityCheck()
 
         self.__logger.info(f"Sending get request to '{self.endpoint}'...")
         response_json = self.__http_session.get(self.endpoint).json()

@@ -3,52 +3,45 @@ from datetime import datetime
 
 from typing import List
 
+from .. import _inheritance_support, NovaDataclass
 from .tournament_team import TournamentTeam
 from .tournament_player import TournamentPlayer
 
-from devgoldyutils.console import ConsoleColours
+@dataclass(repr=False)
+class NovaBasicTournament(NovaDataclass):
+    """Represents a base dataclass for every tournament on nova universe."""
+    __data:dict = field(repr=False)
 
-class NovaBasicTournament():
-    """Represents a base class for every tournament on nova universe."""
-    def __init__(self, data:dict) -> None:
-        self.__data = data
+    id:int = field(init=False)
+    """Returns ID of tournament."""
 
-    @property
-    def id(self) -> int:
-        """Returns ID of tournament."""
-        return self.__data["id"]
+    date:datetime = field(init=False)
+    """Returns date the tournament took place."""
 
-    @property
-    def date(self) -> datetime:
-        """Returns date the tournament took place."""
-        return datetime.strptime(
-            self.__data["date"], 
-            "%Y-%m-%d"
-        )
+    display_name:str = field(init=False)
+    """Returns the display name of the tournament."""
 
-    @property
-    def display_name(self) -> str:
-        """Returns the display name of the tournament."""
-        return self.__data["display_name"]
+    winner_team_id:int = field(init=False)
+    """Returns winner team id."""
 
-    @property
-    def winner_team_id(self) -> int:
-        """Returns winner team id."""
-        return self.__data["winner_team_id"]
+    players:List[TournamentPlayer] = field(init=False)
+    """Returns all the players in that tournament."""
     
-    @property
-    def players(self) -> List[TournamentPlayer]:
-        """Returns all the players in that tournament."""
-        return [TournamentPlayer(player_data) for player_data in self.__data["players"]]
-    
-    @property
-    def teams(self) -> List[TournamentTeam]:
-        """Returns all the teams in that tournament."""
-        return [TournamentTeam(team_data, self.players) for team_data in self.__data["teams"]]
+    teams:List[TournamentTeam] = field(init=False)
+    """Returns all the teams in that tournament."""
 
     # Added properties.
     # -------------------
-    
-    @property
-    def winner_team(self) -> TournamentTeam:
-        return [team for team in self.teams if team.team_number == self.winner_team_id][0]
+    winner_team:TournamentTeam = field(init=False)
+    """Returns the team that won."""
+
+    def __post_init__(self):
+        self.id = self.__data["id"]
+        self.date = datetime.strptime(self.__data["date"], "%Y-%m-%d")
+        self.display_name = self.__data["display_name"]
+        self.winner_team_id = self.__data["winner_team_id"]
+        self.players = [TournamentPlayer(player_data) for player_data in self.__data["players"]]
+        self.teams = [TournamentTeam(team_data, self.players) for team_data in self.__data["teams"]]
+        self.winner_team = [team for team in self.teams if team.team_number == self.winner_team_id][0]
+
+        _inheritance_support(self, self.__data)

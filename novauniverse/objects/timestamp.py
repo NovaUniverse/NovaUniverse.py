@@ -1,30 +1,22 @@
-import datetime
+from datetime import datetime
+from dataclasses import dataclass, field
 
-class Timestamp():
+from . import _inheritance_support, NovaDataclass
+
+@dataclass(repr=False)
+class Timestamp(NovaDataclass):
     """A NovaUniverse API timestamp object."""
-    def __init__(self, timestamp_dict:dict) -> datetime.datetime:
+    __data:dict = field(repr=False)
+
+    date:datetime = field(init=False)
+    """The date and time at Zeeraa's house right now. Wait what, why do you want to stalk his date and time."""
+    timezone:str = field(init=False)
+    timezone_type:int = field(init=False)
+
+    def __post_init__(self):
         """Returns timestamp as python datetime object and more."""
-        self.__date:str = timestamp_dict["date"]
-        self.__timezone_type:int = timestamp_dict["timezone_type"]
-        self.__timezone:str = timestamp_dict["timezone"]
+        self.date = datetime.strptime(self.__data["date"], "%Y-%m-%d %H:%M:%S.%f")
+        self.timezone = self.__data["timezone"]
+        self.timezone_type = self.__data["timezone_type"]
 
-    def __repr__(self) -> str:
-        return (
-            f'{self.__class__.__name__}' + 
-            f'(date={self.date}, timezone_type={self.timezone_type}, timezone={self.timezone})'
-        )
-
-    @property
-    def date(self) -> datetime.datetime:
-        return datetime.datetime.strptime(
-            self.__date, 
-            "%Y-%m-%d %H:%M:%S.%f"
-        )
-
-    @property
-    def timezone_type(self) -> int:
-        return self.__timezone_type
-
-    @property
-    def timezone(self) -> str:
-        return self.__timezone
+        _inheritance_support(self, self.__data)

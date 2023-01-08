@@ -1,9 +1,11 @@
 from __future__ import annotations
 
-from .. import SearchInterface, SearchBy, Search, InterfaceObject
+from .. import SearchInterface, SearchBy, Search
 from .mcf_tournament import MCFTournament
+from ...objects.tournaments import TournamentPlayer
+from ...objects.order_by import OrderBy, OrderByNotSupported
 
-from typing import List
+from typing import List, Dict
 
 class MCF(SearchInterface):
     """
@@ -29,3 +31,28 @@ class MCF(SearchInterface):
         data.reverse()
 
         return (lambda uwu: None if uwu is [] else MCFTournament(uwu[0]))(data)
+
+    def get_top_players(self, order_by:OrderBy=0, max_players:int=5) -> List[TournamentPlayer]:
+        """
+        Returns the top ranked players based on your function prompts.
+        
+        This method returns ``novauniverse.objects.tournaments.tournament_player.TournamentPlayer`` but with all scores and kills combined.
+        """
+        players:Dict[str, TournamentPlayer] = {}
+
+        if isinstance(order_by, OrderBy): order_by = order_by.value
+
+        if order_by in [0, 1]:
+            for player in [player for mcf in self.get_all() for player in mcf.players]:
+                if player.uuid in players:
+                    players[player.uuid].score += player.score
+                    players[player.uuid].kills += player.kills
+                else:
+                    player.team_number = None; player.uid = None
+                    players[player.uuid] = player
+
+            key = (lambda: (lambda x: x[1].score) if order_by == 0 else (lambda x: x[1].kills))()
+
+            return [item[1] for item in sorted(players.items(), key=key, reverse=True)[:max_players]]
+        
+        raise OrderByNotSupported(order_by)

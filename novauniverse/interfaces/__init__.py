@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import abc
 from typing import Type, List, Tuple, Any
+from dataclasses import dataclass, field
 
 from .. import nova_logger
 from ..errors import NovaError, ErrorType
@@ -15,17 +16,13 @@ class Interface():
     def __init__(self):
         self.api:Type[NovaAPI] = NovaAPI
         self.endpoints:Type[Endpoints] = Endpoints
-        
+
 class InterfaceObject():
     """Base class for objects in all NovaUniverse.py interfaces."""
-    def __init__(self, id_and_name:Tuple[int, str], object_class:object, properties_to_represent:List[Tuple[str, Any]]=[]):
+    def __init__(self, id_and_name:Tuple[int, str], dataclass:object):
         self.__id = id_and_name[0]
         self.__name = id_and_name[1]
-        self.__object_class = object_class
-
-        self.__string_repr = ""
-        for property in properties_to_represent:
-            self.__string_repr += f"\u001b[38;5;51m{property[0]}\u001b[0m='{property[1]}', "
+        self.__dataclass = dataclass
 
     @property
     def id(self) -> int|None:
@@ -44,15 +41,6 @@ class InterfaceObject():
     @name.setter
     def name(self, value):
         self.__name = value
-
-    def __repr__(self) -> str:
-        try:
-            return (
-                f'\u001b[32m{self.__object_class.__class__.__name__}\u001b[0m' + 
-                f'({self.__string_repr[:-2]})'
-            )
-        except AttributeError:
-            return super().__repr__()
 
 class SearchInterface(Interface):
     """Adds searching to the basic interface class. Use this to add searching functionality to interfaces."""

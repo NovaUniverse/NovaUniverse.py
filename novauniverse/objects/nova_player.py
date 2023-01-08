@@ -1,7 +1,9 @@
 from dataclasses import dataclass, field
+from . import _inheritance_support, NovaDataclass
 
-@dataclass
-class NovaBasicPlayer:
+
+@dataclass(repr=False)
+class NovaBasicPlayer(NovaDataclass):
     """A very basic nova universe player class."""
     __data:dict = field(repr=False)
 
@@ -13,12 +15,11 @@ class NovaBasicPlayer:
     """Aliases of ``username``."""
 
     def __post_init__(self):
-        self.uuid = self.__data["uuid"]
-        self.username = self.__data["username"]
+        self.set_data(self.__data)
+        
+        self.uuid = self.get("uuid")
+        self.username = self.get("username")
 
         self.name = self.username
 
-        try:
-            self.__post_init_subclass__(self.__data)
-        except TypeError:
-            pass
+        _inheritance_support(self, self.__data)

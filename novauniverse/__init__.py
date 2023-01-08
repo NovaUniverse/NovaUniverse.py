@@ -11,6 +11,9 @@ Copyright (C) 2022 - Dev Goldy
 
 import logging as log
 
+from .configuration import Config
+config = Config()
+
 from .logging import add_custom_handler
 from .info import LOGGER_NAME
 
@@ -63,6 +66,7 @@ from .utils.search import Search
 from .objects.nova_player import NovaBasicPlayer
 from .objects.timestamp import Timestamp
 from .objects.tournaments import NovaBasicTournament, TournamentPlayer, TournamentTeam
+from .objects.order_by import OrderBy
 
 # Backend utils
 from .api import Endpoints, NovaAPI
