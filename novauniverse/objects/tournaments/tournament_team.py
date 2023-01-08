@@ -2,11 +2,12 @@ from dataclasses import dataclass, field
 from datetime import datetime
 
 from .tournament_player import TournamentPlayer
+from ..nova_dataclass import NovaDataclass
 
 from typing import Tuple, List
 
-@dataclass
-class TournamentTeam:
+@dataclass(repr=False)
+class TournamentTeam(NovaDataclass):
     """Represents a team from a tournament."""
     __data:dict = field(repr=False)
     __players:List[TournamentPlayer] = field(repr=False)
@@ -16,7 +17,7 @@ class TournamentTeam:
 
     # Added fields.
     # ---------------
-    players:Tuple[TournamentPlayer, TournamentPlayer] = field(init=False)
+    players:Tuple[TournamentPlayer] = field(init=False)
 
     def __post_init__(self):
         self.team_number = self.__data["team_number"]

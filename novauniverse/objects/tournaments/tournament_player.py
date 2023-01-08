@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 
 from ..nova_player import NovaBasicPlayer
 
-@dataclass
+@dataclass(repr=False)
 class TournamentPlayer(NovaBasicPlayer):
     """A base tournament player class, used in interfaces like mcf and nova games because player data is very similar between them."""
 
@@ -22,9 +22,9 @@ class TournamentPlayer(NovaBasicPlayer):
     """Returns the current amount of kills the player achieved."""
 
     def __post_init_subclass__(self, data:dict) -> None:
-        self.uid = data["uid"]
-        self.has_nova_account = data["has_nova_account"]
-        self.nova_account_name = data["nova_account_name"]
-        self.team_number = data["team_number"]
-        self.score = data["score"]
-        self.kills = data["kills"]
+        self.uid = self.get("uid")
+        self.has_nova_account = self.get("has_nova_account")
+        self.nova_account_name = self.get("nova_account_name")
+        self.team_number = self.get("team_number")
+        self.score = self.get("score", default=0)
+        self.kills = self.get("kills", default=0)

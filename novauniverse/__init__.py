@@ -66,6 +66,7 @@ from .utils.search import Search
 from .objects.nova_player import NovaBasicPlayer
 from .objects.timestamp import Timestamp
 from .objects.tournaments import NovaBasicTournament, TournamentPlayer, TournamentTeam
+from .objects.order_by import OrderBy
 
 # Backend utils
 from .api import Endpoints, NovaAPI

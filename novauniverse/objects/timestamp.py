@@ -1,10 +1,10 @@
 from datetime import datetime
 from dataclasses import dataclass, field
 
-from . import _inheritance_support
+from . import _inheritance_support, NovaDataclass
 
-@dataclass
-class Timestamp:
+@dataclass(repr=False)
+class Timestamp(NovaDataclass):
     """A NovaUniverse API timestamp object."""
     __data:dict = field(repr=False)
 
