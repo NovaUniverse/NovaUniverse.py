@@ -1,11 +1,10 @@
 from __future__ import annotations
+from io import StringIO
 from dataclasses import dataclass, field
 from typing import Any
 
 from prettyprinter import cpprint, install_extras
 install_extras(include=["dataclasses"])
-
-from io import StringIO
 
 from .. import config, nova_logger
 
