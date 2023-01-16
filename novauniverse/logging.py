@@ -37,6 +37,5 @@ def add_custom_handler(logger:log.Logger) -> log.Logger:
 
     logger.propagate = False
     logger.addHandler(stream_handler)
-    logger.info("UwU")
 
     return logger
