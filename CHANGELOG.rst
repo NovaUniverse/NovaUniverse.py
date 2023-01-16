@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-v1.3 - Rewrite, BREAKING CHANGES (18/11/2022)
+v2.0 - BIG Rewrite, BREAKING CHANGES (18/11/2022)
 ---------------------------
 - API requests are much much faster and efficient.
 - BRAND NEW programing interface.

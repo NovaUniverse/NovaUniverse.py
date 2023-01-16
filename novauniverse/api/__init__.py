@@ -3,7 +3,7 @@ from __future__ import annotations
 import requests
 
 from .errors import *
-from .endpoints import Endpoints
+from .endpoints import Endpoints, CDNEndpoints
 from .cache import cache_dict
 
 from .. import nova_logger
@@ -71,3 +71,5 @@ class NovaAPI():
         else:
             # I'm getting message and error here because some endpoints don't error with a message key. (again the consistency in this api 🤬)
             raise UnSuccessfulOperation(response_json.get("message", response_json.get("error")))
+
+from .cdn import NovaCDN

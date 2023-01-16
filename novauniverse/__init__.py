@@ -10,6 +10,7 @@ Copyright (C) 2022 - Dev Goldy
 """
 
 import logging as log
+from prettyprinter import cpprint as pprint
 
 from .configuration import Config
 config = Config()
@@ -69,4 +70,4 @@ from .objects.tournaments import NovaBasicTournament, TournamentPlayer, Tourname
 from .objects.order_by import OrderBy
 
 # Backend utils
-from .api import Endpoints, NovaAPI
+from .api import Endpoints, NovaAPI, NovaCDN

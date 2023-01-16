@@ -1,36 +1,45 @@
 from typing import List
 from dataclasses import dataclass, field
-from ...interfaces import InterfaceObject
+from ...objects import NovaDataclass
+from ...api import NovaCDN, CDNEndpoints
 
-@dataclass
-class TeamColour:
+@dataclass(repr=False)
+class TeamColour(NovaDataclass):
     team_number:str
     colour_name:str
 
-@dataclass
-class TeamName:
+@dataclass(repr=False)
+class TeamName(NovaDataclass):
     team_number:str
     display_name:str
 
-class NovaGamesDynamicConfig(InterfaceObject):
-    def __init__(self, data:dict):
-        self.__data = data
+@dataclass(repr=False)
+class TeamBadge(NovaDataclass):
+    team_number:str
+    code_name:str
+    image_url:str = field(init=False)
 
-        super().__init__((None, None), self, 
-            properties_to_represent = [
-                ("team_colours", self.team_colours),
-                ("team_names", self.team_names)
-            ]
-        )
+    def __post_init__(self):
+        self.image_url = CDNEndpoints.NOVA_GAMES_ICONS_TEAM + f"/{self.code_name[19:][:-3]}.png"
 
-    @property
-    def team_colours(self) -> List[TeamColour]:
-        """Returns the team colours."""
-        return [TeamColour(team_num, self.__data["team_colors"][team_num]) for team_num in self.__data["team_colors"]]
+@dataclass(repr=False)
+class NovaGamesDynamicConfig(NovaDataclass):
+    __data:dict = field(repr=False)
+    
+    team_colours:List[TeamColour] = field(init=False)
+    """Returns the team colours."""
+    team_names:List[TeamName] = field(init=False)
+    """Returns the team display names."""
+    team_badges:List[TeamBadge] = field(init=False)
 
-    team_colors = team_colours
+    # Aliases
+    # ---------
+    team_colors:List[TeamColour] = field(init=False)
+    """Aliases for ``team_colours`` because you know some people don't spell colour the same way, smh 🙄."""
 
-    @property
-    def team_names(self) -> List[TeamName]:
-        """Returns the team display names."""
-        return [TeamName(team_num, self.__data["team_names"][team_num]) for team_num in self.__data["team_names"]]
+    def __post_init__(self):
+        self.team_colours = [TeamColour(team_num, self.__data["team_colors"][team_num]) for team_num in self.__data["team_colors"]]
+        self.team_names = [TeamName(team_num, self.__data["team_names"][team_num]) for team_num in self.__data["team_names"]]
+        self.team_badges = [TeamBadge(team_num, self.__data["team_badges"][team_num]) for team_num in self.__data["team_badges"]]
+
+        self.team_colors = self.team_colours
