@@ -50,6 +50,15 @@
 
             </li>
             <li>
+                    <a class="class" href="#TeamBadge">TeamBadge</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#TeamBadge.__init__">TeamBadge</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#NovaGamesDynamicConfig">NovaGamesDynamicConfig</a>
                             <ul class="memberlist">
                         <li>
@@ -59,10 +68,10 @@
                                 <a class="variable" href="#NovaGamesDynamicConfig.team_colours">team_colours</a>
                         </li>
                         <li>
-                                <a class="variable" href="#NovaGamesDynamicConfig.team_colors">team_colors</a>
+                                <a class="variable" href="#NovaGamesDynamicConfig.team_names">team_names</a>
                         </li>
                         <li>
-                                <a class="variable" href="#NovaGamesDynamicConfig.team_names">team_names</a>
+                                <a class="variable" href="#NovaGamesDynamicConfig.team_colors">team_colors</a>
                         </li>
                 </ul>
 
@@ -91,40 +100,49 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">...interfaces</span> <span class="kn">import</span> <span class="n">InterfaceObject</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="nd">@dataclass</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="k">class</span> <span class="nc">TeamColour</span><span class="p">:</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>    <span class="n">colour_name</span><span class="p">:</span><span class="nb">str</span>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="nd">@dataclass</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="k">class</span> <span class="nc">TeamName</span><span class="p">:</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="n">display_name</span><span class="p">:</span><span class="nb">str</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="k">class</span> <span class="nc">NovaGamesDynamicConfig</span><span class="p">(</span><span class="n">InterfaceObject</span><span class="p">):</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="bp">self</span><span class="p">,</span> 
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>            <span class="n">properties_to_represent</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>                <span class="p">(</span><span class="s2">&quot;team_colours&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_colours</span><span class="p">),</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>                <span class="p">(</span><span class="s2">&quot;team_names&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_names</span><span class="p">)</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>            <span class="p">]</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="p">)</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="nd">@property</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="k">def</span> <span class="nf">team_colours</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TeamColour</span><span class="p">]:</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>        <span class="sd">&quot;&quot;&quot;Returns the team colours.&quot;&quot;&quot;</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TeamColour</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">]]</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="n">team_colors</span> <span class="o">=</span> <span class="n">team_colours</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="nd">@property</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="k">def</span> <span class="nf">team_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TeamName</span><span class="p">]:</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>        <span class="sd">&quot;&quot;&quot;Returns the team display names.&quot;&quot;&quot;</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TeamName</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">]]</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">...objects</span> <span class="kn">import</span> <span class="n">NovaDataclass</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">...api</span> <span class="kn">import</span> <span class="n">NovaCDN</span><span class="p">,</span> <span class="n">CDNEndpoints</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="k">class</span> <span class="nc">TeamColour</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="n">colour_name</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="k">class</span> <span class="nc">TeamName</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="n">display_name</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="k">class</span> <span class="nc">TeamBadge</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="n">code_name</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="n">image_url</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">image_url</span> <span class="o">=</span> <span class="n">CDNEndpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_ICONS_TEAM</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="p">[</span><span class="mi">19</span><span class="p">:][:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">.png&quot;</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="k">class</span> <span class="nc">NovaGamesDynamicConfig</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="n">__data</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>    
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>    <span class="n">team_colours</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamColour</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team colours.&quot;&quot;&quot;</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="n">team_names</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamName</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team display names.&quot;&quot;&quot;</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="n">team_badges</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamBadge</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="c1"># Aliases</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>    <span class="c1"># ---------</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>    <span class="n">team_colors</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamColour</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="sd">&quot;&quot;&quot;Aliases for ``team_colours`` because you know some people don&#39;t spell colour the same way, smh 🙄.&quot;&quot;&quot;</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_colours</span> <span class="o">=</span> <span class="p">[</span><span class="n">TeamColour</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">]]</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">TeamName</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">]]</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_badges</span> <span class="o">=</span> <span class="p">[</span><span class="n">TeamBadge</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_badges&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_badges&quot;</span><span class="p">]]</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_colors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_colours</span>
 </span></pre></div>
 
 
@@ -132,19 +150,19 @@
                 <section id="TeamColour">
                             <input id="TeamColour-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-                    <div class="decorator">@dataclass</div>
+                    <div class="decorator">@dataclass(repr=False)</div>
 
     <span class="def">class</span>
-    <span class="name">TeamColour</span>:
+    <span class="name">TeamColour</span><wbr>(<span class="base"><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></span>):
 
                 <label class="view-source-button" for="TeamColour-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#TeamColour"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TeamColour-6"><a href="#TeamColour-6"><span class="linenos">6</span></a><span class="nd">@dataclass</span>
-</span><span id="TeamColour-7"><a href="#TeamColour-7"><span class="linenos">7</span></a><span class="k">class</span> <span class="nc">TeamColour</span><span class="p">:</span>
-</span><span id="TeamColour-8"><a href="#TeamColour-8"><span class="linenos">8</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
-</span><span id="TeamColour-9"><a href="#TeamColour-9"><span class="linenos">9</span></a>    <span class="n">colour_name</span><span class="p">:</span><span class="nb">str</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TeamColour-7"><a href="#TeamColour-7"><span class="linenos"> 7</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="TeamColour-8"><a href="#TeamColour-8"><span class="linenos"> 8</span></a><span class="k">class</span> <span class="nc">TeamColour</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="TeamColour-9"><a href="#TeamColour-9"><span class="linenos"> 9</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="TeamColour-10"><a href="#TeamColour-10"><span class="linenos">10</span></a>    <span class="n">colour_name</span><span class="p">:</span><span class="nb">str</span>
 </span></pre></div>
 
 
@@ -164,23 +182,33 @@
     
 
                             </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></dt>
+                                <dd id="TeamColour.set_data" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.set_data">set_data</a></dd>
+                <dd id="TeamColour.get" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.get">get</a></dd>
+
+            </div>
+                                </dl>
+                            </div>
                 </section>
                 <section id="TeamName">
                             <input id="TeamName-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-                    <div class="decorator">@dataclass</div>
+                    <div class="decorator">@dataclass(repr=False)</div>
 
     <span class="def">class</span>
-    <span class="name">TeamName</span>:
+    <span class="name">TeamName</span><wbr>(<span class="base"><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></span>):
 
                 <label class="view-source-button" for="TeamName-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#TeamName"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TeamName-11"><a href="#TeamName-11"><span class="linenos">11</span></a><span class="nd">@dataclass</span>
-</span><span id="TeamName-12"><a href="#TeamName-12"><span class="linenos">12</span></a><span class="k">class</span> <span class="nc">TeamName</span><span class="p">:</span>
-</span><span id="TeamName-13"><a href="#TeamName-13"><span class="linenos">13</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
-</span><span id="TeamName-14"><a href="#TeamName-14"><span class="linenos">14</span></a>    <span class="n">display_name</span><span class="p">:</span><span class="nb">str</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TeamName-12"><a href="#TeamName-12"><span class="linenos">12</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="TeamName-13"><a href="#TeamName-13"><span class="linenos">13</span></a><span class="k">class</span> <span class="nc">TeamName</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="TeamName-14"><a href="#TeamName-14"><span class="linenos">14</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="TeamName-15"><a href="#TeamName-15"><span class="linenos">15</span></a>    <span class="n">display_name</span><span class="p">:</span><span class="nb">str</span>
 </span></pre></div>
 
 
@@ -200,69 +228,116 @@
     
 
                             </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></dt>
+                                <dd id="TeamName.set_data" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.set_data">set_data</a></dd>
+                <dd id="TeamName.get" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.get">get</a></dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="TeamBadge">
+                            <input id="TeamBadge-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+                    <div class="decorator">@dataclass(repr=False)</div>
+
+    <span class="def">class</span>
+    <span class="name">TeamBadge</span><wbr>(<span class="base"><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></span>):
+
+                <label class="view-source-button" for="TeamBadge-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#TeamBadge"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TeamBadge-17"><a href="#TeamBadge-17"><span class="linenos">17</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="TeamBadge-18"><a href="#TeamBadge-18"><span class="linenos">18</span></a><span class="k">class</span> <span class="nc">TeamBadge</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="TeamBadge-19"><a href="#TeamBadge-19"><span class="linenos">19</span></a>    <span class="n">team_number</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="TeamBadge-20"><a href="#TeamBadge-20"><span class="linenos">20</span></a>    <span class="n">code_name</span><span class="p">:</span><span class="nb">str</span>
+</span><span id="TeamBadge-21"><a href="#TeamBadge-21"><span class="linenos">21</span></a>    <span class="n">image_url</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="TeamBadge-22"><a href="#TeamBadge-22"><span class="linenos">22</span></a>
+</span><span id="TeamBadge-23"><a href="#TeamBadge-23"><span class="linenos">23</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TeamBadge-24"><a href="#TeamBadge-24"><span class="linenos">24</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">image_url</span> <span class="o">=</span> <span class="n">CDNEndpoints</span><span class="o">.</span><span class="n">NOVA_GAMES_ICONS_TEAM</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">code_name</span><span class="p">[</span><span class="mi">19</span><span class="p">:][:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">.png&quot;</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>TeamBadge(team_number: str, code_name: str)</p>
+</div>
+
+
+                            <div id="TeamBadge.__init__" class="classattr">
+                                <div class="attr function">
+            
+        <span class="name">TeamBadge</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">team_number</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">code_name</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TeamBadge.__init__"></a>
+    
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></dt>
+                                <dd id="TeamBadge.set_data" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.set_data">set_data</a></dd>
+                <dd id="TeamBadge.get" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.get">get</a></dd>
+
+            </div>
+                                </dl>
+                            </div>
                 </section>
                 <section id="NovaGamesDynamicConfig">
                             <input id="NovaGamesDynamicConfig-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-            
+                    <div class="decorator">@dataclass(repr=False)</div>
+
     <span class="def">class</span>
-    <span class="name">NovaGamesDynamicConfig</span><wbr>(<span class="base"><a href="../../interfaces.html#InterfaceObject">novauniverse.interfaces.InterfaceObject</a></span>):
+    <span class="name">NovaGamesDynamicConfig</span><wbr>(<span class="base"><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></span>):
 
                 <label class="view-source-button" for="NovaGamesDynamicConfig-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#NovaGamesDynamicConfig"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGamesDynamicConfig-16"><a href="#NovaGamesDynamicConfig-16"><span class="linenos">16</span></a><span class="k">class</span> <span class="nc">NovaGamesDynamicConfig</span><span class="p">(</span><span class="n">InterfaceObject</span><span class="p">):</span>
-</span><span id="NovaGamesDynamicConfig-17"><a href="#NovaGamesDynamicConfig-17"><span class="linenos">17</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
-</span><span id="NovaGamesDynamicConfig-18"><a href="#NovaGamesDynamicConfig-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-</span><span id="NovaGamesDynamicConfig-19"><a href="#NovaGamesDynamicConfig-19"><span class="linenos">19</span></a>
-</span><span id="NovaGamesDynamicConfig-20"><a href="#NovaGamesDynamicConfig-20"><span class="linenos">20</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="bp">self</span><span class="p">,</span> 
-</span><span id="NovaGamesDynamicConfig-21"><a href="#NovaGamesDynamicConfig-21"><span class="linenos">21</span></a>            <span class="n">properties_to_represent</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="NovaGamesDynamicConfig-22"><a href="#NovaGamesDynamicConfig-22"><span class="linenos">22</span></a>                <span class="p">(</span><span class="s2">&quot;team_colours&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_colours</span><span class="p">),</span>
-</span><span id="NovaGamesDynamicConfig-23"><a href="#NovaGamesDynamicConfig-23"><span class="linenos">23</span></a>                <span class="p">(</span><span class="s2">&quot;team_names&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_names</span><span class="p">)</span>
-</span><span id="NovaGamesDynamicConfig-24"><a href="#NovaGamesDynamicConfig-24"><span class="linenos">24</span></a>            <span class="p">]</span>
-</span><span id="NovaGamesDynamicConfig-25"><a href="#NovaGamesDynamicConfig-25"><span class="linenos">25</span></a>        <span class="p">)</span>
-</span><span id="NovaGamesDynamicConfig-26"><a href="#NovaGamesDynamicConfig-26"><span class="linenos">26</span></a>
-</span><span id="NovaGamesDynamicConfig-27"><a href="#NovaGamesDynamicConfig-27"><span class="linenos">27</span></a>    <span class="nd">@property</span>
-</span><span id="NovaGamesDynamicConfig-28"><a href="#NovaGamesDynamicConfig-28"><span class="linenos">28</span></a>    <span class="k">def</span> <span class="nf">team_colours</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TeamColour</span><span class="p">]:</span>
-</span><span id="NovaGamesDynamicConfig-29"><a href="#NovaGamesDynamicConfig-29"><span class="linenos">29</span></a>        <span class="sd">&quot;&quot;&quot;Returns the team colours.&quot;&quot;&quot;</span>
-</span><span id="NovaGamesDynamicConfig-30"><a href="#NovaGamesDynamicConfig-30"><span class="linenos">30</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TeamColour</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">]]</span>
-</span><span id="NovaGamesDynamicConfig-31"><a href="#NovaGamesDynamicConfig-31"><span class="linenos">31</span></a>
-</span><span id="NovaGamesDynamicConfig-32"><a href="#NovaGamesDynamicConfig-32"><span class="linenos">32</span></a>    <span class="n">team_colors</span> <span class="o">=</span> <span class="n">team_colours</span>
-</span><span id="NovaGamesDynamicConfig-33"><a href="#NovaGamesDynamicConfig-33"><span class="linenos">33</span></a>
-</span><span id="NovaGamesDynamicConfig-34"><a href="#NovaGamesDynamicConfig-34"><span class="linenos">34</span></a>    <span class="nd">@property</span>
-</span><span id="NovaGamesDynamicConfig-35"><a href="#NovaGamesDynamicConfig-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">team_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TeamName</span><span class="p">]:</span>
-</span><span id="NovaGamesDynamicConfig-36"><a href="#NovaGamesDynamicConfig-36"><span class="linenos">36</span></a>        <span class="sd">&quot;&quot;&quot;Returns the team display names.&quot;&quot;&quot;</span>
-</span><span id="NovaGamesDynamicConfig-37"><a href="#NovaGamesDynamicConfig-37"><span class="linenos">37</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TeamName</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">]]</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGamesDynamicConfig-26"><a href="#NovaGamesDynamicConfig-26"><span class="linenos">26</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaGamesDynamicConfig-27"><a href="#NovaGamesDynamicConfig-27"><span class="linenos">27</span></a><span class="k">class</span> <span class="nc">NovaGamesDynamicConfig</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="NovaGamesDynamicConfig-28"><a href="#NovaGamesDynamicConfig-28"><span class="linenos">28</span></a>    <span class="n">__data</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaGamesDynamicConfig-29"><a href="#NovaGamesDynamicConfig-29"><span class="linenos">29</span></a>    
+</span><span id="NovaGamesDynamicConfig-30"><a href="#NovaGamesDynamicConfig-30"><span class="linenos">30</span></a>    <span class="n">team_colours</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamColour</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaGamesDynamicConfig-31"><a href="#NovaGamesDynamicConfig-31"><span class="linenos">31</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team colours.&quot;&quot;&quot;</span>
+</span><span id="NovaGamesDynamicConfig-32"><a href="#NovaGamesDynamicConfig-32"><span class="linenos">32</span></a>    <span class="n">team_names</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamName</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaGamesDynamicConfig-33"><a href="#NovaGamesDynamicConfig-33"><span class="linenos">33</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team display names.&quot;&quot;&quot;</span>
+</span><span id="NovaGamesDynamicConfig-34"><a href="#NovaGamesDynamicConfig-34"><span class="linenos">34</span></a>    <span class="n">team_badges</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamBadge</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaGamesDynamicConfig-35"><a href="#NovaGamesDynamicConfig-35"><span class="linenos">35</span></a>
+</span><span id="NovaGamesDynamicConfig-36"><a href="#NovaGamesDynamicConfig-36"><span class="linenos">36</span></a>    <span class="c1"># Aliases</span>
+</span><span id="NovaGamesDynamicConfig-37"><a href="#NovaGamesDynamicConfig-37"><span class="linenos">37</span></a>    <span class="c1"># ---------</span>
+</span><span id="NovaGamesDynamicConfig-38"><a href="#NovaGamesDynamicConfig-38"><span class="linenos">38</span></a>    <span class="n">team_colors</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TeamColour</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaGamesDynamicConfig-39"><a href="#NovaGamesDynamicConfig-39"><span class="linenos">39</span></a>    <span class="sd">&quot;&quot;&quot;Aliases for ``team_colours`` because you know some people don&#39;t spell colour the same way, smh 🙄.&quot;&quot;&quot;</span>
+</span><span id="NovaGamesDynamicConfig-40"><a href="#NovaGamesDynamicConfig-40"><span class="linenos">40</span></a>
+</span><span id="NovaGamesDynamicConfig-41"><a href="#NovaGamesDynamicConfig-41"><span class="linenos">41</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="NovaGamesDynamicConfig-42"><a href="#NovaGamesDynamicConfig-42"><span class="linenos">42</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_colours</span> <span class="o">=</span> <span class="p">[</span><span class="n">TeamColour</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_colors&quot;</span><span class="p">]]</span>
+</span><span id="NovaGamesDynamicConfig-43"><a href="#NovaGamesDynamicConfig-43"><span class="linenos">43</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">TeamName</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_names&quot;</span><span class="p">]]</span>
+</span><span id="NovaGamesDynamicConfig-44"><a href="#NovaGamesDynamicConfig-44"><span class="linenos">44</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_badges</span> <span class="o">=</span> <span class="p">[</span><span class="n">TeamBadge</span><span class="p">(</span><span class="n">team_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_badges&quot;</span><span class="p">][</span><span class="n">team_num</span><span class="p">])</span> <span class="k">for</span> <span class="n">team_num</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;team_badges&quot;</span><span class="p">]]</span>
+</span><span id="NovaGamesDynamicConfig-45"><a href="#NovaGamesDynamicConfig-45"><span class="linenos">45</span></a>
+</span><span id="NovaGamesDynamicConfig-46"><a href="#NovaGamesDynamicConfig-46"><span class="linenos">46</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">team_colors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_colours</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Base class for objects in all NovaUniverse.py interfaces.</p>
+            <div class="docstring"><p>NovaGamesDynamicConfig(_NovaGamesDynamicConfig__data: dict)</p>
 </div>
 
 
                             <div id="NovaGamesDynamicConfig.__init__" class="classattr">
-                                        <input id="NovaGamesDynamicConfig.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
+                                <div class="attr function">
             
-        <span class="name">NovaGamesDynamicConfig</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span></span>)</span>
+        <span class="name">NovaGamesDynamicConfig</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">_NovaGamesDynamicConfig__data</span><span class="p">:</span> <span class="nb">dict</span></span>)</span>
 
-                <label class="view-source-button" for="NovaGamesDynamicConfig.__init__-view-source"><span>View Source</span></label>
-
+        
     </div>
     <a class="headerlink" href="#NovaGamesDynamicConfig.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaGamesDynamicConfig.__init__-17"><a href="#NovaGamesDynamicConfig.__init__-17"><span class="linenos">17</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
-</span><span id="NovaGamesDynamicConfig.__init__-18"><a href="#NovaGamesDynamicConfig.__init__-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-</span><span id="NovaGamesDynamicConfig.__init__-19"><a href="#NovaGamesDynamicConfig.__init__-19"><span class="linenos">19</span></a>
-</span><span id="NovaGamesDynamicConfig.__init__-20"><a href="#NovaGamesDynamicConfig.__init__-20"><span class="linenos">20</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="bp">self</span><span class="p">,</span> 
-</span><span id="NovaGamesDynamicConfig.__init__-21"><a href="#NovaGamesDynamicConfig.__init__-21"><span class="linenos">21</span></a>            <span class="n">properties_to_represent</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="NovaGamesDynamicConfig.__init__-22"><a href="#NovaGamesDynamicConfig.__init__-22"><span class="linenos">22</span></a>                <span class="p">(</span><span class="s2">&quot;team_colours&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_colours</span><span class="p">),</span>
-</span><span id="NovaGamesDynamicConfig.__init__-23"><a href="#NovaGamesDynamicConfig.__init__-23"><span class="linenos">23</span></a>                <span class="p">(</span><span class="s2">&quot;team_names&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">team_names</span><span class="p">)</span>
-</span><span id="NovaGamesDynamicConfig.__init__-24"><a href="#NovaGamesDynamicConfig.__init__-24"><span class="linenos">24</span></a>            <span class="p">]</span>
-</span><span id="NovaGamesDynamicConfig.__init__-25"><a href="#NovaGamesDynamicConfig.__init__-25"><span class="linenos">25</span></a>        <span class="p">)</span>
-</span></pre></div>
-
-
+    
     
 
                             </div>
@@ -273,19 +348,6 @@
         
     </div>
     <a class="headerlink" href="#NovaGamesDynamicConfig.team_colours"></a>
-    
-            <div class="docstring"><p>Returns the team colours.</p>
-</div>
-
-
-                            </div>
-                            <div id="NovaGamesDynamicConfig.team_colors" class="classattr">
-                                <div class="attr variable">
-            <span class="name">team_colors</span><span class="annotation">: List[<a href="#TeamColour">novauniverse.interfaces.nova_games.dynamic_config.TeamColour</a>]</span>
-
-        
-    </div>
-    <a class="headerlink" href="#NovaGamesDynamicConfig.team_colors"></a>
     
             <div class="docstring"><p>Returns the team colours.</p>
 </div>
@@ -305,12 +367,25 @@
 
 
                             </div>
+                            <div id="NovaGamesDynamicConfig.team_colors" class="classattr">
+                                <div class="attr variable">
+            <span class="name">team_colors</span><span class="annotation">: List[<a href="#TeamColour">novauniverse.interfaces.nova_games.dynamic_config.TeamColour</a>]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NovaGamesDynamicConfig.team_colors"></a>
+    
+            <div class="docstring"><p>Aliases for <code><a href="#NovaGamesDynamicConfig.team_colours">team_colours</a></code> because you know some people don't spell colour the same way, smh 🙄.</p>
+</div>
+
+
+                            </div>
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
-                                    <div><dt><a href="../../interfaces.html#InterfaceObject">novauniverse.interfaces.InterfaceObject</a></dt>
-                                <dd id="NovaGamesDynamicConfig.id" class="variable"><a href="../../interfaces.html#InterfaceObject.id">id</a></dd>
-                <dd id="NovaGamesDynamicConfig.name" class="variable"><a href="../../interfaces.html#InterfaceObject.name">name</a></dd>
+                                    <div><dt><a href="../../objects/nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></dt>
+                                <dd id="NovaGamesDynamicConfig.set_data" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.set_data">set_data</a></dd>
+                <dd id="NovaGamesDynamicConfig.get" class="function"><a href="../../objects/nova_dataclass.html#NovaDataclass.get">get</a></dd>
 
             </div>
                                 </dl>

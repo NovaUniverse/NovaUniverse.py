@@ -40,12 +40,6 @@
                         <li>
                                 <a class="variable" href="#Timestamp.date">date</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#Timestamp.timezone_type">timezone_type</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Timestamp.timezone">timezone</a>
-                        </li>
                 </ul>
 
             </li>
@@ -71,36 +65,28 @@
 
                         <label class="view-source-button" for="timestamp-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">import</span> <span class="nn">datetime</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="k">class</span> <span class="nc">Timestamp</span><span class="p">():</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>    <span class="sd">&quot;&quot;&quot;A NovaUniverse API timestamp object.&quot;&quot;&quot;</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestamp_dict</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">:</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>        <span class="sd">&quot;&quot;&quot;Returns timestamp as python datetime object and more.&quot;&quot;&quot;</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__date</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__timezone_type</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;timezone_type&quot;</span><span class="p">]</span>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__timezone</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">]</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_inheritance_support</span><span class="p">,</span> <span class="n">NovaDataclass</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="k">class</span> <span class="nc">Timestamp</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>    <span class="sd">&quot;&quot;&quot;A NovaUniverse API timestamp object.&quot;&quot;&quot;</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="n">__data</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>        <span class="k">return</span> <span class="p">(</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">+</span> 
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>            <span class="sa">f</span><span class="s1">&#39;(date=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="si">}</span><span class="s1">, timezone_type=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timezone_type</span><span class="si">}</span><span class="s1">, timezone=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timezone</span><span class="si">}</span><span class="s1">)&#39;</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>        <span class="p">)</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="nd">@property</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">:</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__date</span><span class="p">,</span> 
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>            <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="p">)</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>    <span class="nd">@property</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="k">def</span> <span class="nf">timezone_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timezone_type</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>    <span class="nd">@property</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timezone</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="n">date</span><span class="p">:</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="sd">&quot;&quot;&quot;The date and time at Zeeraa&#39;s house right now. Wait what, why do you want to stalk his date and time.&quot;&quot;&quot;</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="n">timezone</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="n">timezone_type</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="sd">&quot;&quot;&quot;Returns timestamp as python datetime object and more.&quot;&quot;&quot;</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">]</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timezone_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;timezone_type&quot;</span><span class="p">]</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="n">_inheritance_support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -108,42 +94,32 @@
                 <section id="Timestamp">
                             <input id="Timestamp-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-            
+                    <div class="decorator">@dataclass(repr=False)</div>
+
     <span class="def">class</span>
-    <span class="name">Timestamp</span>:
+    <span class="name">Timestamp</span><wbr>(<span class="base"><a href="nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></span>):
 
                 <label class="view-source-button" for="Timestamp-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#Timestamp"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Timestamp-4"><a href="#Timestamp-4"><span class="linenos"> 4</span></a><span class="k">class</span> <span class="nc">Timestamp</span><span class="p">():</span>
-</span><span id="Timestamp-5"><a href="#Timestamp-5"><span class="linenos"> 5</span></a>    <span class="sd">&quot;&quot;&quot;A NovaUniverse API timestamp object.&quot;&quot;&quot;</span>
-</span><span id="Timestamp-6"><a href="#Timestamp-6"><span class="linenos"> 6</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestamp_dict</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">:</span>
-</span><span id="Timestamp-7"><a href="#Timestamp-7"><span class="linenos"> 7</span></a>        <span class="sd">&quot;&quot;&quot;Returns timestamp as python datetime object and more.&quot;&quot;&quot;</span>
-</span><span id="Timestamp-8"><a href="#Timestamp-8"><span class="linenos"> 8</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__date</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span>
-</span><span id="Timestamp-9"><a href="#Timestamp-9"><span class="linenos"> 9</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__timezone_type</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;timezone_type&quot;</span><span class="p">]</span>
-</span><span id="Timestamp-10"><a href="#Timestamp-10"><span class="linenos">10</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__timezone</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">]</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Timestamp-7"><a href="#Timestamp-7"><span class="linenos"> 7</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="Timestamp-8"><a href="#Timestamp-8"><span class="linenos"> 8</span></a><span class="k">class</span> <span class="nc">Timestamp</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="Timestamp-9"><a href="#Timestamp-9"><span class="linenos"> 9</span></a>    <span class="sd">&quot;&quot;&quot;A NovaUniverse API timestamp object.&quot;&quot;&quot;</span>
+</span><span id="Timestamp-10"><a href="#Timestamp-10"><span class="linenos">10</span></a>    <span class="n">__data</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="Timestamp-11"><a href="#Timestamp-11"><span class="linenos">11</span></a>
-</span><span id="Timestamp-12"><a href="#Timestamp-12"><span class="linenos">12</span></a>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="Timestamp-13"><a href="#Timestamp-13"><span class="linenos">13</span></a>        <span class="k">return</span> <span class="p">(</span>
-</span><span id="Timestamp-14"><a href="#Timestamp-14"><span class="linenos">14</span></a>            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">+</span> 
-</span><span id="Timestamp-15"><a href="#Timestamp-15"><span class="linenos">15</span></a>            <span class="sa">f</span><span class="s1">&#39;(date=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="si">}</span><span class="s1">, timezone_type=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timezone_type</span><span class="si">}</span><span class="s1">, timezone=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timezone</span><span class="si">}</span><span class="s1">)&#39;</span>
-</span><span id="Timestamp-16"><a href="#Timestamp-16"><span class="linenos">16</span></a>        <span class="p">)</span>
-</span><span id="Timestamp-17"><a href="#Timestamp-17"><span class="linenos">17</span></a>
-</span><span id="Timestamp-18"><a href="#Timestamp-18"><span class="linenos">18</span></a>    <span class="nd">@property</span>
-</span><span id="Timestamp-19"><a href="#Timestamp-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">:</span>
-</span><span id="Timestamp-20"><a href="#Timestamp-20"><span class="linenos">20</span></a>        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
-</span><span id="Timestamp-21"><a href="#Timestamp-21"><span class="linenos">21</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__date</span><span class="p">,</span> 
-</span><span id="Timestamp-22"><a href="#Timestamp-22"><span class="linenos">22</span></a>            <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span>
-</span><span id="Timestamp-23"><a href="#Timestamp-23"><span class="linenos">23</span></a>        <span class="p">)</span>
-</span><span id="Timestamp-24"><a href="#Timestamp-24"><span class="linenos">24</span></a>
-</span><span id="Timestamp-25"><a href="#Timestamp-25"><span class="linenos">25</span></a>    <span class="nd">@property</span>
-</span><span id="Timestamp-26"><a href="#Timestamp-26"><span class="linenos">26</span></a>    <span class="k">def</span> <span class="nf">timezone_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="Timestamp-27"><a href="#Timestamp-27"><span class="linenos">27</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timezone_type</span>
-</span><span id="Timestamp-28"><a href="#Timestamp-28"><span class="linenos">28</span></a>
-</span><span id="Timestamp-29"><a href="#Timestamp-29"><span class="linenos">29</span></a>    <span class="nd">@property</span>
-</span><span id="Timestamp-30"><a href="#Timestamp-30"><span class="linenos">30</span></a>    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="Timestamp-31"><a href="#Timestamp-31"><span class="linenos">31</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timezone</span>
+</span><span id="Timestamp-12"><a href="#Timestamp-12"><span class="linenos">12</span></a>    <span class="n">date</span><span class="p">:</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="Timestamp-13"><a href="#Timestamp-13"><span class="linenos">13</span></a>    <span class="sd">&quot;&quot;&quot;The date and time at Zeeraa&#39;s house right now. Wait what, why do you want to stalk his date and time.&quot;&quot;&quot;</span>
+</span><span id="Timestamp-14"><a href="#Timestamp-14"><span class="linenos">14</span></a>    <span class="n">timezone</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="Timestamp-15"><a href="#Timestamp-15"><span class="linenos">15</span></a>    <span class="n">timezone_type</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="Timestamp-16"><a href="#Timestamp-16"><span class="linenos">16</span></a>
+</span><span id="Timestamp-17"><a href="#Timestamp-17"><span class="linenos">17</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Timestamp-18"><a href="#Timestamp-18"><span class="linenos">18</span></a>        <span class="sd">&quot;&quot;&quot;Returns timestamp as python datetime object and more.&quot;&quot;&quot;</span>
+</span><span id="Timestamp-19"><a href="#Timestamp-19"><span class="linenos">19</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="Timestamp-20"><a href="#Timestamp-20"><span class="linenos">20</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">]</span>
+</span><span id="Timestamp-21"><a href="#Timestamp-21"><span class="linenos">21</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timezone_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;timezone_type&quot;</span><span class="p">]</span>
+</span><span id="Timestamp-22"><a href="#Timestamp-22"><span class="linenos">22</span></a>
+</span><span id="Timestamp-23"><a href="#Timestamp-23"><span class="linenos">23</span></a>        <span class="n">_inheritance_support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -152,26 +128,15 @@
 
 
                             <div id="Timestamp.__init__" class="classattr">
-                                        <input id="Timestamp.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
+                                <div class="attr function">
             
-        <span class="name">Timestamp</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">timestamp_dict</span><span class="p">:</span> <span class="nb">dict</span></span>)</span>
+        <span class="name">Timestamp</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">_Timestamp__data</span><span class="p">:</span> <span class="nb">dict</span></span>)</span>
 
-                <label class="view-source-button" for="Timestamp.__init__-view-source"><span>View Source</span></label>
-
+        
     </div>
     <a class="headerlink" href="#Timestamp.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Timestamp.__init__-6"><a href="#Timestamp.__init__-6"><span class="linenos"> 6</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestamp_dict</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">:</span>
-</span><span id="Timestamp.__init__-7"><a href="#Timestamp.__init__-7"><span class="linenos"> 7</span></a>        <span class="sd">&quot;&quot;&quot;Returns timestamp as python datetime object and more.&quot;&quot;&quot;</span>
-</span><span id="Timestamp.__init__-8"><a href="#Timestamp.__init__-8"><span class="linenos"> 8</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__date</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span>
-</span><span id="Timestamp.__init__-9"><a href="#Timestamp.__init__-9"><span class="linenos"> 9</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__timezone_type</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;timezone_type&quot;</span><span class="p">]</span>
-</span><span id="Timestamp.__init__-10"><a href="#Timestamp.__init__-10"><span class="linenos">10</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__timezone</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">timestamp_dict</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">]</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Returns timestamp as python datetime object and more.</p>
-</div>
-
+    
+    
 
                             </div>
                             <div id="Timestamp.date" class="classattr">
@@ -182,30 +147,20 @@
     </div>
     <a class="headerlink" href="#Timestamp.date"></a>
     
-    
+            <div class="docstring"><p>The date and time at Zeeraa's house right now. Wait what, why do you want to stalk his date and time.</p>
+</div>
+
 
                             </div>
-                            <div id="Timestamp.timezone_type" class="classattr">
-                                <div class="attr variable">
-            <span class="name">timezone_type</span><span class="annotation">: int</span>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt><a href="nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></dt>
+                                <dd id="Timestamp.set_data" class="function"><a href="nova_dataclass.html#NovaDataclass.set_data">set_data</a></dd>
+                <dd id="Timestamp.get" class="function"><a href="nova_dataclass.html#NovaDataclass.get">get</a></dd>
 
-        
-    </div>
-    <a class="headerlink" href="#Timestamp.timezone_type"></a>
-    
-    
-
-                            </div>
-                            <div id="Timestamp.timezone" class="classattr">
-                                <div class="attr variable">
-            <span class="name">timezone</span><span class="annotation">: str</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Timestamp.timezone"></a>
-    
-    
-
+            </div>
+                                </dl>
                             </div>
                 </section>
     </main>

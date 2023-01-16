@@ -93,55 +93,48 @@
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="kn">from</span> <span class="nn">.tournament_team</span> <span class="kn">import</span> <span class="n">TournamentTeam</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="kn">from</span> <span class="nn">.tournament_player</span> <span class="kn">import</span> <span class="n">TournamentPlayer</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="kn">from</span> <span class="nn">devgoldyutils.console</span> <span class="kn">import</span> <span class="n">ConsoleColours</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="k">class</span> <span class="nc">NovaBasicTournament</span><span class="p">():</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="sd">&quot;&quot;&quot;Represents a base class for every tournament on nova universe.&quot;&quot;&quot;</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="nd">@property</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="sd">&quot;&quot;&quot;Returns ID of tournament.&quot;&quot;&quot;</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">_inheritance_support</span><span class="p">,</span> <span class="n">NovaDataclass</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="kn">from</span> <span class="nn">.tournament_team</span> <span class="kn">import</span> <span class="n">TournamentTeam</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="kn">from</span> <span class="nn">.tournament_player</span> <span class="kn">import</span> <span class="n">TournamentPlayer</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="k">class</span> <span class="nc">NovaBasicTournament</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="sd">&quot;&quot;&quot;Represents a base dataclass for every tournament on nova universe.&quot;&quot;&quot;</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="n">__data</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="nb">id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="sd">&quot;&quot;&quot;Returns ID of tournament.&quot;&quot;&quot;</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="n">date</span><span class="p">:</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="sd">&quot;&quot;&quot;Returns date the tournament took place.&quot;&quot;&quot;</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="nd">@property</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="p">:</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="sd">&quot;&quot;&quot;Returns date the tournament took place.&quot;&quot;&quot;</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> 
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>            <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>        <span class="p">)</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>    <span class="nd">@property</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="k">def</span> <span class="nf">display_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="sd">&quot;&quot;&quot;Returns the display name of the tournament.&quot;&quot;&quot;</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;display_name&quot;</span><span class="p">]</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="nd">@property</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">winner_team_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>        <span class="sd">&quot;&quot;&quot;Returns winner team id.&quot;&quot;&quot;</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;winner_team_id&quot;</span><span class="p">]</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>    <span class="nd">@property</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="k">def</span> <span class="nf">players</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">]:</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>        <span class="sd">&quot;&quot;&quot;Returns all the players in that tournament.&quot;&quot;&quot;</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">(</span><span class="n">player_data</span><span class="p">)</span> <span class="k">for</span> <span class="n">player_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;players&quot;</span><span class="p">]]</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>    
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>    <span class="nd">@property</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>    <span class="k">def</span> <span class="nf">teams</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentTeam</span><span class="p">]:</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>        <span class="sd">&quot;&quot;&quot;Returns all the teams in that tournament.&quot;&quot;&quot;</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TournamentTeam</span><span class="p">(</span><span class="n">team_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">)</span> <span class="k">for</span> <span class="n">team_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;teams&quot;</span><span class="p">]]</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>    <span class="c1"># Added properties.</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>    <span class="c1"># -------------------</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>    
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>    <span class="nd">@property</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>    <span class="k">def</span> <span class="nf">winner_team</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TournamentTeam</span><span class="p">:</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">team</span> <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="k">if</span> <span class="n">team</span><span class="o">.</span><span class="n">team_number</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">winner_team_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="n">display_name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="sd">&quot;&quot;&quot;Returns the display name of the tournament.&quot;&quot;&quot;</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>    <span class="n">winner_team_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="sd">&quot;&quot;&quot;Returns winner team id.&quot;&quot;&quot;</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="n">players</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>    <span class="sd">&quot;&quot;&quot;Returns all the players in that tournament.&quot;&quot;&quot;</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>    
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="n">teams</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TournamentTeam</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="sd">&quot;&quot;&quot;Returns all the teams in that tournament.&quot;&quot;&quot;</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="c1"># Added properties.</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="c1"># -------------------</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="n">winner_team</span><span class="p">:</span><span class="n">TournamentTeam</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team that won.&quot;&quot;&quot;</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;display_name&quot;</span><span class="p">]</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">winner_team_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;winner_team_id&quot;</span><span class="p">]</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">(</span><span class="n">player_data</span><span class="p">)</span> <span class="k">for</span> <span class="n">player_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;players&quot;</span><span class="p">]]</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="o">=</span> <span class="p">[</span><span class="n">TournamentTeam</span><span class="p">(</span><span class="n">team_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">)</span> <span class="k">for</span> <span class="n">team_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;teams&quot;</span><span class="p">]]</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">winner_team</span> <span class="o">=</span> <span class="p">[</span><span class="n">team</span> <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="k">if</span> <span class="n">team</span><span class="o">.</span><span class="n">team_number</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">winner_team_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>        <span class="n">_inheritance_support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -149,80 +142,69 @@
                 <section id="NovaBasicTournament">
                             <input id="NovaBasicTournament-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
-            
+                    <div class="decorator">@dataclass(repr=False)</div>
+
     <span class="def">class</span>
-    <span class="name">NovaBasicTournament</span>:
+    <span class="name">NovaBasicTournament</span><wbr>(<span class="base"><a href="nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></span>):
 
                 <label class="view-source-button" for="NovaBasicTournament-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#NovaBasicTournament"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaBasicTournament-12"><a href="#NovaBasicTournament-12"><span class="linenos">12</span></a><span class="k">class</span> <span class="nc">NovaBasicTournament</span><span class="p">():</span>
-</span><span id="NovaBasicTournament-13"><a href="#NovaBasicTournament-13"><span class="linenos">13</span></a>    <span class="sd">&quot;&quot;&quot;Represents a base class for every tournament on nova universe.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicTournament-14"><a href="#NovaBasicTournament-14"><span class="linenos">14</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="NovaBasicTournament-15"><a href="#NovaBasicTournament-15"><span class="linenos">15</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-</span><span id="NovaBasicTournament-16"><a href="#NovaBasicTournament-16"><span class="linenos">16</span></a>
-</span><span id="NovaBasicTournament-17"><a href="#NovaBasicTournament-17"><span class="linenos">17</span></a>    <span class="nd">@property</span>
-</span><span id="NovaBasicTournament-18"><a href="#NovaBasicTournament-18"><span class="linenos">18</span></a>    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="NovaBasicTournament-19"><a href="#NovaBasicTournament-19"><span class="linenos">19</span></a>        <span class="sd">&quot;&quot;&quot;Returns ID of tournament.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicTournament-20"><a href="#NovaBasicTournament-20"><span class="linenos">20</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaBasicTournament-11"><a href="#NovaBasicTournament-11"><span class="linenos">11</span></a><span class="nd">@dataclass</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-12"><a href="#NovaBasicTournament-12"><span class="linenos">12</span></a><span class="k">class</span> <span class="nc">NovaBasicTournament</span><span class="p">(</span><span class="n">NovaDataclass</span><span class="p">):</span>
+</span><span id="NovaBasicTournament-13"><a href="#NovaBasicTournament-13"><span class="linenos">13</span></a>    <span class="sd">&quot;&quot;&quot;Represents a base dataclass for every tournament on nova universe.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicTournament-14"><a href="#NovaBasicTournament-14"><span class="linenos">14</span></a>    <span class="n">__data</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-15"><a href="#NovaBasicTournament-15"><span class="linenos">15</span></a>
+</span><span id="NovaBasicTournament-16"><a href="#NovaBasicTournament-16"><span class="linenos">16</span></a>    <span class="nb">id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-17"><a href="#NovaBasicTournament-17"><span class="linenos">17</span></a>    <span class="sd">&quot;&quot;&quot;Returns ID of tournament.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicTournament-18"><a href="#NovaBasicTournament-18"><span class="linenos">18</span></a>
+</span><span id="NovaBasicTournament-19"><a href="#NovaBasicTournament-19"><span class="linenos">19</span></a>    <span class="n">date</span><span class="p">:</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-20"><a href="#NovaBasicTournament-20"><span class="linenos">20</span></a>    <span class="sd">&quot;&quot;&quot;Returns date the tournament took place.&quot;&quot;&quot;</span>
 </span><span id="NovaBasicTournament-21"><a href="#NovaBasicTournament-21"><span class="linenos">21</span></a>
-</span><span id="NovaBasicTournament-22"><a href="#NovaBasicTournament-22"><span class="linenos">22</span></a>    <span class="nd">@property</span>
-</span><span id="NovaBasicTournament-23"><a href="#NovaBasicTournament-23"><span class="linenos">23</span></a>    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datetime</span><span class="p">:</span>
-</span><span id="NovaBasicTournament-24"><a href="#NovaBasicTournament-24"><span class="linenos">24</span></a>        <span class="sd">&quot;&quot;&quot;Returns date the tournament took place.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicTournament-25"><a href="#NovaBasicTournament-25"><span class="linenos">25</span></a>        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
-</span><span id="NovaBasicTournament-26"><a href="#NovaBasicTournament-26"><span class="linenos">26</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> 
-</span><span id="NovaBasicTournament-27"><a href="#NovaBasicTournament-27"><span class="linenos">27</span></a>            <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span>
-</span><span id="NovaBasicTournament-28"><a href="#NovaBasicTournament-28"><span class="linenos">28</span></a>        <span class="p">)</span>
-</span><span id="NovaBasicTournament-29"><a href="#NovaBasicTournament-29"><span class="linenos">29</span></a>
-</span><span id="NovaBasicTournament-30"><a href="#NovaBasicTournament-30"><span class="linenos">30</span></a>    <span class="nd">@property</span>
-</span><span id="NovaBasicTournament-31"><a href="#NovaBasicTournament-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="nf">display_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="NovaBasicTournament-32"><a href="#NovaBasicTournament-32"><span class="linenos">32</span></a>        <span class="sd">&quot;&quot;&quot;Returns the display name of the tournament.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicTournament-33"><a href="#NovaBasicTournament-33"><span class="linenos">33</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;display_name&quot;</span><span class="p">]</span>
-</span><span id="NovaBasicTournament-34"><a href="#NovaBasicTournament-34"><span class="linenos">34</span></a>
-</span><span id="NovaBasicTournament-35"><a href="#NovaBasicTournament-35"><span class="linenos">35</span></a>    <span class="nd">@property</span>
-</span><span id="NovaBasicTournament-36"><a href="#NovaBasicTournament-36"><span class="linenos">36</span></a>    <span class="k">def</span> <span class="nf">winner_team_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="NovaBasicTournament-37"><a href="#NovaBasicTournament-37"><span class="linenos">37</span></a>        <span class="sd">&quot;&quot;&quot;Returns winner team id.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicTournament-38"><a href="#NovaBasicTournament-38"><span class="linenos">38</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;winner_team_id&quot;</span><span class="p">]</span>
-</span><span id="NovaBasicTournament-39"><a href="#NovaBasicTournament-39"><span class="linenos">39</span></a>    
-</span><span id="NovaBasicTournament-40"><a href="#NovaBasicTournament-40"><span class="linenos">40</span></a>    <span class="nd">@property</span>
-</span><span id="NovaBasicTournament-41"><a href="#NovaBasicTournament-41"><span class="linenos">41</span></a>    <span class="k">def</span> <span class="nf">players</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">]:</span>
-</span><span id="NovaBasicTournament-42"><a href="#NovaBasicTournament-42"><span class="linenos">42</span></a>        <span class="sd">&quot;&quot;&quot;Returns all the players in that tournament.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicTournament-43"><a href="#NovaBasicTournament-43"><span class="linenos">43</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">(</span><span class="n">player_data</span><span class="p">)</span> <span class="k">for</span> <span class="n">player_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;players&quot;</span><span class="p">]]</span>
-</span><span id="NovaBasicTournament-44"><a href="#NovaBasicTournament-44"><span class="linenos">44</span></a>    
-</span><span id="NovaBasicTournament-45"><a href="#NovaBasicTournament-45"><span class="linenos">45</span></a>    <span class="nd">@property</span>
-</span><span id="NovaBasicTournament-46"><a href="#NovaBasicTournament-46"><span class="linenos">46</span></a>    <span class="k">def</span> <span class="nf">teams</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentTeam</span><span class="p">]:</span>
-</span><span id="NovaBasicTournament-47"><a href="#NovaBasicTournament-47"><span class="linenos">47</span></a>        <span class="sd">&quot;&quot;&quot;Returns all the teams in that tournament.&quot;&quot;&quot;</span>
-</span><span id="NovaBasicTournament-48"><a href="#NovaBasicTournament-48"><span class="linenos">48</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">TournamentTeam</span><span class="p">(</span><span class="n">team_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">)</span> <span class="k">for</span> <span class="n">team_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;teams&quot;</span><span class="p">]]</span>
-</span><span id="NovaBasicTournament-49"><a href="#NovaBasicTournament-49"><span class="linenos">49</span></a>
-</span><span id="NovaBasicTournament-50"><a href="#NovaBasicTournament-50"><span class="linenos">50</span></a>    <span class="c1"># Added properties.</span>
-</span><span id="NovaBasicTournament-51"><a href="#NovaBasicTournament-51"><span class="linenos">51</span></a>    <span class="c1"># -------------------</span>
-</span><span id="NovaBasicTournament-52"><a href="#NovaBasicTournament-52"><span class="linenos">52</span></a>    
-</span><span id="NovaBasicTournament-53"><a href="#NovaBasicTournament-53"><span class="linenos">53</span></a>    <span class="nd">@property</span>
-</span><span id="NovaBasicTournament-54"><a href="#NovaBasicTournament-54"><span class="linenos">54</span></a>    <span class="k">def</span> <span class="nf">winner_team</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TournamentTeam</span><span class="p">:</span>
-</span><span id="NovaBasicTournament-55"><a href="#NovaBasicTournament-55"><span class="linenos">55</span></a>        <span class="k">return</span> <span class="p">[</span><span class="n">team</span> <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="k">if</span> <span class="n">team</span><span class="o">.</span><span class="n">team_number</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">winner_team_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="NovaBasicTournament-22"><a href="#NovaBasicTournament-22"><span class="linenos">22</span></a>    <span class="n">display_name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-23"><a href="#NovaBasicTournament-23"><span class="linenos">23</span></a>    <span class="sd">&quot;&quot;&quot;Returns the display name of the tournament.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicTournament-24"><a href="#NovaBasicTournament-24"><span class="linenos">24</span></a>
+</span><span id="NovaBasicTournament-25"><a href="#NovaBasicTournament-25"><span class="linenos">25</span></a>    <span class="n">winner_team_id</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-26"><a href="#NovaBasicTournament-26"><span class="linenos">26</span></a>    <span class="sd">&quot;&quot;&quot;Returns winner team id.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicTournament-27"><a href="#NovaBasicTournament-27"><span class="linenos">27</span></a>
+</span><span id="NovaBasicTournament-28"><a href="#NovaBasicTournament-28"><span class="linenos">28</span></a>    <span class="n">players</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-29"><a href="#NovaBasicTournament-29"><span class="linenos">29</span></a>    <span class="sd">&quot;&quot;&quot;Returns all the players in that tournament.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicTournament-30"><a href="#NovaBasicTournament-30"><span class="linenos">30</span></a>    
+</span><span id="NovaBasicTournament-31"><a href="#NovaBasicTournament-31"><span class="linenos">31</span></a>    <span class="n">teams</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">TournamentTeam</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-32"><a href="#NovaBasicTournament-32"><span class="linenos">32</span></a>    <span class="sd">&quot;&quot;&quot;Returns all the teams in that tournament.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicTournament-33"><a href="#NovaBasicTournament-33"><span class="linenos">33</span></a>
+</span><span id="NovaBasicTournament-34"><a href="#NovaBasicTournament-34"><span class="linenos">34</span></a>    <span class="c1"># Added properties.</span>
+</span><span id="NovaBasicTournament-35"><a href="#NovaBasicTournament-35"><span class="linenos">35</span></a>    <span class="c1"># -------------------</span>
+</span><span id="NovaBasicTournament-36"><a href="#NovaBasicTournament-36"><span class="linenos">36</span></a>    <span class="n">winner_team</span><span class="p">:</span><span class="n">TournamentTeam</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-37"><a href="#NovaBasicTournament-37"><span class="linenos">37</span></a>    <span class="sd">&quot;&quot;&quot;Returns the team that won.&quot;&quot;&quot;</span>
+</span><span id="NovaBasicTournament-38"><a href="#NovaBasicTournament-38"><span class="linenos">38</span></a>
+</span><span id="NovaBasicTournament-39"><a href="#NovaBasicTournament-39"><span class="linenos">39</span></a>    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="NovaBasicTournament-40"><a href="#NovaBasicTournament-40"><span class="linenos">40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</span><span id="NovaBasicTournament-41"><a href="#NovaBasicTournament-41"><span class="linenos">41</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="NovaBasicTournament-42"><a href="#NovaBasicTournament-42"><span class="linenos">42</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;display_name&quot;</span><span class="p">]</span>
+</span><span id="NovaBasicTournament-43"><a href="#NovaBasicTournament-43"><span class="linenos">43</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">winner_team_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;winner_team_id&quot;</span><span class="p">]</span>
+</span><span id="NovaBasicTournament-44"><a href="#NovaBasicTournament-44"><span class="linenos">44</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">TournamentPlayer</span><span class="p">(</span><span class="n">player_data</span><span class="p">)</span> <span class="k">for</span> <span class="n">player_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;players&quot;</span><span class="p">]]</span>
+</span><span id="NovaBasicTournament-45"><a href="#NovaBasicTournament-45"><span class="linenos">45</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="o">=</span> <span class="p">[</span><span class="n">TournamentTeam</span><span class="p">(</span><span class="n">team_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">)</span> <span class="k">for</span> <span class="n">team_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;teams&quot;</span><span class="p">]]</span>
+</span><span id="NovaBasicTournament-46"><a href="#NovaBasicTournament-46"><span class="linenos">46</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">winner_team</span> <span class="o">=</span> <span class="p">[</span><span class="n">team</span> <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">teams</span> <span class="k">if</span> <span class="n">team</span><span class="o">.</span><span class="n">team_number</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">winner_team_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="NovaBasicTournament-47"><a href="#NovaBasicTournament-47"><span class="linenos">47</span></a>
+</span><span id="NovaBasicTournament-48"><a href="#NovaBasicTournament-48"><span class="linenos">48</span></a>        <span class="n">_inheritance_support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Represents a base class for every tournament on nova universe.</p>
+            <div class="docstring"><p>Represents a base dataclass for every tournament on nova universe.</p>
 </div>
 
 
                             <div id="NovaBasicTournament.__init__" class="classattr">
-                                        <input id="NovaBasicTournament.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
+                                <div class="attr function">
             
-        <span class="name">NovaBasicTournament</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span></span>)</span>
+        <span class="name">NovaBasicTournament</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">_NovaBasicTournament__data</span><span class="p">:</span> <span class="nb">dict</span></span>)</span>
 
-                <label class="view-source-button" for="NovaBasicTournament.__init__-view-source"><span>View Source</span></label>
-
+        
     </div>
     <a class="headerlink" href="#NovaBasicTournament.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="NovaBasicTournament.__init__-14"><a href="#NovaBasicTournament.__init__-14"><span class="linenos">14</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="NovaBasicTournament.__init__-15"><a href="#NovaBasicTournament.__init__-15"><span class="linenos">15</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-</span></pre></div>
-
-
+    
     
 
                             </div>
@@ -312,8 +294,20 @@
     </div>
     <a class="headerlink" href="#NovaBasicTournament.winner_team"></a>
     
-    
+            <div class="docstring"><p>Returns the team that won.</p>
+</div>
 
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt><a href="nova_dataclass.html#NovaDataclass">novauniverse.objects.nova_dataclass.NovaDataclass</a></dt>
+                                <dd id="NovaBasicTournament.set_data" class="function"><a href="nova_dataclass.html#NovaDataclass.set_data">set_data</a></dd>
+                <dd id="NovaBasicTournament.get" class="function"><a href="nova_dataclass.html#NovaDataclass.get">get</a></dd>
+
+            </div>
+                                </dl>
                             </div>
                 </section>
     </main>
