@@ -141,8 +141,8 @@ Some brief examples of how you can use NovaUniverse.py.
     print(f"ID of news letter --> {newsletter.id}")
     ```
 
-    #### ❗ Notice!
-    Each interface supports it's own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case ``novauniverse.utils.search.SearchNotCompletelySupported`` will be raised.
+    > #### ❗ Notice!
+    > Each interface supports it's own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case ``novauniverse.utils.search.SearchNotCompletelySupported`` will be raised.
 
     More examples...
     ```python
@@ -170,5 +170,5 @@ Some brief examples of how you can use NovaUniverse.py.
     client.start()
     ```
 
-    If you would like to know the attributes of NovaOnlinePlayer, check this out: [**NovaOnlinePlayer**](https://novauniversepy.devgoldy.me/novauniverse/interfaces/stats/server/nova_online_player.html#NovaOnlinePlayer)
+    > If you would like to know the attributes of NovaOnlinePlayer, check this out: [**NovaOnlinePlayer**](https://novauniversepy.devgoldy.me/novauniverse/interfaces/stats/server/nova_online_player.html#NovaOnlinePlayer)
 
