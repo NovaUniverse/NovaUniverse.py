@@ -13,15 +13,7 @@ class ServerInfo(InterfaceObject):
         self.__data = data
         self.__players_data = players_data
 
-        super().__init__(
-            id_and_name=(None, None), object_class=self,
-
-            properties_to_represent= [
-                ("player_count", self.player_count),
-                ("server_count", self.server_count),
-                ("player_preview", self.player_preview)
-            ]
-        )
+        super().__init__(id_and_name=(None, None), dataclass=self)
 
     @property
     def global_(self) -> Global:
