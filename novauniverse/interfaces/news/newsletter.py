@@ -14,14 +14,7 @@ class NewsLetter(InterfaceObject):
     def __init__(self, data:dict) -> None:
         self.__data:dict = data
 
-        super().__init__(id_and_name=(self.id, self.title), object_class=self,
-            properties_to_represent = [
-                ("id", self.id),
-                ("title", self.title),
-                ("timestamp", self.timestamp),
-                ("author", self.author)
-            ]
-        )
+        super().__init__(id_and_name=(self.id, self.title), dataclass=self)
 
     @property
     def id(self) -> int:

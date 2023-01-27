@@ -1,7 +1,7 @@
 from typing import List
 from dataclasses import dataclass, field
 from ...objects import NovaDataclass
-from ...api import NovaCDN, CDNEndpoints
+from ...api import CDNEndpoints
 
 @dataclass(repr=False)
 class TeamColour(NovaDataclass):

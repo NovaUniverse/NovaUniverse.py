@@ -1,9 +1,10 @@
 from ....interfaces import InterfaceObject
+from ....objects.nova_dataclass import NovaDataclass
 
 from dataclasses import dataclass, field
 
-@dataclass
-class MemberCount:
+@dataclass(repr=False)
+class MemberCount(NovaDataclass):
     __data:dict = field(repr=False)
 
     total:int = field(init=False)
@@ -16,16 +17,13 @@ class MemberCount:
 
         self.members = ( self.total - self.bots )
 
-class DiscordStats(InterfaceObject):
-    def __init__(self, data:dict):
-        self.__data = data
+@dataclass(repr=False)
+class DiscordStats(NovaDataclass):
+    __data:dict = field(repr=False)
 
-        super().__init__(id_and_name=(None, None), object_class=self, 
-            properties_to_represent=[
-                ("member_count", self.member_count)
-            ]
-        )
+    member_count:MemberCount = field(init=False)
+    
+    def __post_init__(self):
+        self.set_data(self.__data)
 
-    @property
-    def member_count(self) -> MemberCount:
-        return MemberCount(self.__data["member_count"])
+        self.member_count = MemberCount(self.get("member_count"))
