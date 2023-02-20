@@ -11,7 +11,7 @@ classifiers = [
 ]
 
 import requests
-readme_request = requests.get("https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/main/README.md")
+readme_request = requests.get("https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/v2/README.md")
  
 setup(
   name='novauniverse',
