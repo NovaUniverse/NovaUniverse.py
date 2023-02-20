@@ -2,7 +2,7 @@ from __future__ import annotations
 from enum import Enum
 from typing import Type
 
-from ..errors import NovaError, ErrorType
+from ..errors import NovaError
 
 # SearchBy Enum class
 # ---------------------
@@ -14,11 +14,11 @@ class SearchBy(Enum):
 # --------
 class SearchGotNoArgs(NovaError):
     def __init__(self) -> None:
-        super().__init__("'Search()' class must have either id or name passed. Like --> Search(name='UwU Dev Goldy')", ErrorType.ERROR)
+        super().__init__("'Search()' class must have either id or name passed. Like --> Search(name='UwU Dev Goldy')")
 
 class SearchNotCompletelySupported(NovaError):
     def __init__(self, searched_by, interface:object) -> None:
-        super().__init__(f"Searching by '{searched_by}' not supported by '{interface.__class__.__name__}' interface/endpoint.", ErrorType.ERROR)
+        super().__init__(f"Searching by '{searched_by}' not supported by '{interface.__class__.__name__}' interface/endpoint.")
 
 """
 class HasNotBeenSearched(NovaError):

@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import abc
-from typing import Type, List, Tuple, Any
-from dataclasses import dataclass, field
+from typing import Type, List, Tuple
 
 from .. import nova_logger
-from ..errors import NovaError, ErrorType
+from ..errors import NovaError
 from ..api import NovaAPI, Endpoints
 from ..utils.search import Search, SearchBy
 
@@ -78,7 +77,7 @@ class SearchInterface(Interface):
                         return object
         
         else:
-            raise NovaError(f"You must use the 'novauniverse.Search()' class for searching in '{self.__interface_class.__name__}'.", ErrorType.ERROR)
+            raise NovaError(f"You must use the 'novauniverse.Search()' class for searching in '{self.__interface_class.__name__}'.")
 
         return None
 
