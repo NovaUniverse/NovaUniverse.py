@@ -1,8 +1,13 @@
-from devgoldyutils import Colours
-from enum import Enum
+import logging as log
+from devgoldyutils import DevGoldyUtilsError
 
-class NovaError(Exception):
+from . import nova_logger
+
+class NovaError(DevGoldyUtilsError):
     """The base class of all NovaUniverse.py errors."""
-    def __init__(self, message:str) -> None:
-        """Raises this as a NovaUniverse.py exception."""
-        super().__init__(Colours.RED.apply_to_string(message))
+    def __init__(self, message: str, logger: log.Logger = None):
+        """Raises a NovaUniverse.py exception."""
+        if logger is None:
+            logger = nova_logger
+
+        super().__init__(message, logger)

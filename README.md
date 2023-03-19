@@ -1,6 +1,6 @@
 [![Discord Shield](https://discordapp.com/api/guilds/692764975902752871/widget.png?style=shield)](https://discord.gg/4gZSVJ7)
 [![PyPI version](https://badge.fury.io/py/novauniverse.svg)](https://pypi.org/project/novauniverse/)
-[![Python Badge](https://img.shields.io/pypi/pyversions/GoldyBot?style=flat)](https://pypi.org/project/novauniverse/ "Supported python versions.")
+[![Python Badge](https://img.shields.io/pypi/pyversions/novauniverse?style=flat)](https://pypi.org/project/novauniverse/ "Supported python versions.")
 [![Docs Badge](https://img.shields.io/static/v1?label=docs&message=Available&color=light-green)](https://novauniversepy.devgoldy.me/)
 
 <p align="center">
@@ -9,7 +9,7 @@
 
 ### 🐍[``novauniverse.py``](https://pypi.org/project/novauniverse/) - A modern & maintained wrapper for the [Nova Universe API](https://novauniverse.net/api/) written in Python.
 
-#### ℹ Notice: 2.0 is currently in development so PyPi package install will not be avaliable but you can still install it via github. More on that below.
+#### ℹ Notice: 2.0 is currently in development so PyPi package install will not be available but you can still install it via github. More on that below.
 
 <p align="right">
  <img align="left" src="https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/v2/assets/logo.png" width="180" />

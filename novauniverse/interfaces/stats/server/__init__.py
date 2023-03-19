@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from ....utils.search import Search, SearchBy
-from ... import Interface, InterfaceObject
+from ... import BasicInterface, NovaAPI, Endpoints
 
 from typing import List, Any
 
 from .server_info import ServerInfo
 from .nova_online_player import NovaOnlinePlayer
 
-class Server(Interface):
+class Server(BasicInterface):
     """
     The interface for NovaAPI's ``/stats/extended`` endpoint.
     Allows you to get all 🌐server stats/info and see which players are 🟢online.
@@ -16,8 +15,8 @@ class Server(Interface):
     def __init__(self):
         super().__init__()
         
-        self.stats_extended_api = self.api(self.endpoints.STATS_EXTENDED)
-        self.players_online_api = self.api(self.endpoints.PLAYERS_ONLINE)
+        self.stats_extended_api = NovaAPI(Endpoints.STATS_EXTENDED)
+        self.players_online_api = NovaAPI(Endpoints.PLAYERS_ONLINE)
 
     def get_stats(self) -> ServerInfo:
         """Get's and returns all server stats."""

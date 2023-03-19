@@ -1,4 +1,3 @@
-dist
-demo.py
 __pycache__
-novauniverse.egg-info
+env
+demo

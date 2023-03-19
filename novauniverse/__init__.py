@@ -1,29 +1,20 @@
 """
 🐲 Nova Universe - A modern & maintained wrapper for the Nova Universe API written in Python.
 
-Copyright (C) 2022 - Dev Goldy
-
-----------------------------
-.. include:: ../README.md
-
-<br>
+Copyright (C) 2023 - Dev Goldy
 """
 
-import logging as log
-from prettyprinter import cpprint as pprint
-
-from .configuration import Config
-config = Config()
-
-from .logging import add_custom_handler
+# Logging stuff
+# ---------------
 from .info import LOGGER_NAME
+from devgoldyutils.logging import add_custom_handler, log
 
 nova_logger = add_custom_handler(log.getLogger(LOGGER_NAME))
 """
 The python ``logging.Logger()`` class for NovaUniverse.py.
 
 ---------------
-### ***``Example:``***
+### ``Example:``
 
 You can disable and also adjust the level of logging from the api wrapper like this:
 
@@ -47,21 +38,27 @@ nova_logger.setLevel(logging.NOTSET)
 
 nova_logger.setLevel(log.WARN)
 
+# Configuration
+# ---------------
+from .configuration import Config
+config = Config()
+"""🐉 NovaUniverse.py config."""
+
 # Endpoint Interfaces.
 # ------------------------
-from .interfaces.news import News
+#from .interfaces.news import News
 from .interfaces.stats.discord import Discord
 from .interfaces.stats.server import Server, NovaOnlinePlayer
-from .interfaces.mcf import MCF
-from .interfaces.nova_games import NovaGames
+#from .interfaces.mcf import MCF
+#from .interfaces.nova_games import NovaGames
 
 
 #  Utils and Objects.
 # ------------------------
-from .client import NovaClient
-from .events import Events
+#from .client import NovaClient
+#from .events import Events
 
-from .utils.search import Search
+#from .utils.search import Search
 
 # Backend objects
 from .objects.nova_player import NovaBasicPlayer

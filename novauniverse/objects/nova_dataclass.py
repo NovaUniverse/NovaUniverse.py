@@ -1,7 +1,7 @@
 from __future__ import annotations
 from io import StringIO
-from dataclasses import dataclass, field
-from typing import Any
+from dataclasses import dataclass
+from devgoldyutils import DictDataclass
 
 from prettyprinter import cpprint, install_extras
 install_extras(include=["dataclasses"])
@@ -9,9 +9,11 @@ install_extras(include=["dataclasses"])
 from .. import config, nova_logger
 
 @dataclass
-class NovaDataclass:
+class NovaDataclass(DictDataclass):
     """The root NovaUniverse.py class that all dataclasses inherited from."""
-    __dict_data:dict = field(init=False, repr=False, default=None)
+    def __post_init__(self):
+        self.logger = nova_logger
+        super().__post_init__()
 
     # BETTER dataclass representation, also it's coloured. 🌈
     # ---------------------------------------------------------
@@ -23,18 +25,3 @@ class NovaDataclass:
         cpprint(self, stream=text_stream, depth=3, max_seq_len=1)
         text_stream.seek(0)
         return text_stream.read()
-
-    def set_data(self, data:dict):
-        self.__dict_data = data
-
-    def get(self, key:Any, data:dict=None, default:Any=None) -> Any|dict|None:
-        """Get's and returns value of key in data dictionary."""
-        try:
-            if data is None: data = self.__dict_data
-            return data[key]
-        except KeyError:
-            if not data in [{}, None]:
-                nova_logger.warn(
-                    f"The key '{key}' was not found in the dictionary so '{default}' was returned. It looks like something changed in the API recently. PLEASE update the library if you haven't already."
-                )
-            return default

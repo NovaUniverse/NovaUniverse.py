@@ -15,5 +15,5 @@ class Config():
         return config_dict["performance_mode"]
 
     @performance_mode.setter
-    def performance_mode(self, a:bool):
-        config_dict["performance_mode"] = a
+    def performance_mode(self, x:bool):
+        config_dict["performance_mode"] = x

@@ -1,12 +1,14 @@
 from dataclasses import dataclass, field
 
-from ....objects.timestamp import Timestamp
+from ....objects import Timestamp, NovaDataclass
 
 @dataclass
-class System:
-    __data:dict = field(repr=False)
+class System(NovaDataclass):
+    data:dict = field(repr=False)
 
     localtime:Timestamp = field(init=False)
 
     def __post_init__(self):
-        self.localtime = Timestamp(self.__data["localtime"])
+        super().__post_init__()
+
+        self.localtime = Timestamp(self.get("localtime"))

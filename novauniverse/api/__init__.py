@@ -1,20 +1,22 @@
 from __future__ import annotations
 
 import requests
+from devgoldyutils import LoggerAdapter
 
 from .errors import *
-from .endpoints import Endpoints, CDNEndpoints
-from .cache import cache_dict
+from .endpoints import Endpoints
 
 from .. import nova_logger
 from ..info import PACKAGE_NAME_WITH_VER
 
-from typing import Any
 from .. import config
+
+cache_dict = {
+    "http_session": None
+}
 
 class NovaAPI():
     """The main class that handles all requests to the web server at ``https://novauniverse.net/api/``. """
-
     def __init__(self, endpoint:str=None):
         self.endpoint:str = endpoint
         
@@ -26,12 +28,12 @@ class NovaAPI():
             
             cache_dict["http_session"] = self.__http_session
 
-        self.__logger = nova_logger
+        self.logger = LoggerAdapter(nova_logger, prefix="NovaAPI")
 
     @property
     def is_online(self) -> bool:
         try:
-            self.__logger.debug("Checking if Nova Universe API is online...")
+            self.logger.debug("Checking if Nova Universe API is online...")
 
             response = self.__http_session.get(Endpoints.connectivity_check)
             success = response.json()["success"]
@@ -39,7 +41,7 @@ class NovaAPI():
             return False
 
         if success:
-            self.__logger.debug("Yes API is Online!")
+            self.logger.debug("Yes API is Online!")
             return True
         else:
             return False
@@ -52,9 +54,9 @@ class NovaAPI():
         if config.performance_mode is False: # Does online check if performance mode is not enabled.
             if self.is_online is False: raise FailedConnectivityCheck()
 
-        self.__logger.info(f"Sending get request to '{self.endpoint}'...")
+        self.logger.info(f"Sending get request to '{self.endpoint}'...")
         response_json = self.__http_session.get(self.endpoint).json()
-        self.__logger.debug(f"Data from request --> {response_json}")
+        self.logger.debug(f"Data from request --> {response_json}")
 
         if isinstance(response_json, list):
             # If it's a list just return it. (The consistency in this api, smh lol)
@@ -62,10 +64,10 @@ class NovaAPI():
 
         response_json:dict
         if response_json.get("success", True):
-            self.__logger.info(f"Get request of '{self.endpoint}' was successful!")
+            self.logger.info(f"Get request of '{self.endpoint}' was successful!")
 
             # Log if response was cached.
-            if response_json.get("cached"): self.__logger.warning(f"This response from '{self.endpoint}' was indicated cached by the API!")
+            if response_json.get("cached"): self.logger.warning(f"This response from '{self.endpoint}' was indicated cached by the API!")
 
             return response_json
         else:

@@ -1,12 +1,12 @@
 from datetime import datetime
 from dataclasses import dataclass, field
 
-from . import _inheritance_support, NovaDataclass
+from . import NovaDataclass
 
 @dataclass(repr=False)
 class Timestamp(NovaDataclass):
     """A NovaUniverse API timestamp object."""
-    __data:dict = field(repr=False)
+    data:dict = field(repr=False)
 
     date:datetime = field(init=False)
     """The date and time at Zeeraa's house right now. Wait what, why do you want to stalk his date and time."""
@@ -15,8 +15,8 @@ class Timestamp(NovaDataclass):
 
     def __post_init__(self):
         """Returns timestamp as python datetime object and more."""
-        self.date = datetime.strptime(self.__data["date"], "%Y-%m-%d %H:%M:%S.%f")
-        self.timezone = self.__data["timezone"]
-        self.timezone_type = self.__data["timezone_type"]
+        super().__post_init__()
 
-        _inheritance_support(self, self.__data)
+        self.date = datetime.strptime(self.get("date"), "%Y-%m-%d %H:%M:%S.%f")
+        self.timezone = self.get("timezone")
+        self.timezone_type = self.get("timezone_type")
