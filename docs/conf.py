@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath(".."))
 project = 'NovaUniverse.py'
 copyright = '2023, Goldy'
 author = 'Goldy'
-release = 'v2.0-dev-4'
+version = "v2.0dev4"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
