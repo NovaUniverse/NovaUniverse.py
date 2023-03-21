@@ -1,0 +1,50 @@
+[project]
+name = "novauniverse"
+description = "A modern & maintained wrapper for the Nova Universe API written in 🐍 Python."
+authors = [
+    {name = "Goldy", email = "goldy@devgoldy.me"},
+]
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.7"
+license = { file = "LICENSE" }
+keywords = [
+    "novauniverse", "minecraft novauniverse", "nova universe", "mc novauniverse"
+]
+classifiers = [
+	'Operating System :: Microsoft :: Windows :: Windows 11',
+    'Operating System :: Microsoft :: Windows :: Windows 10',
+    'Operating System :: POSIX :: Linux',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11'
+]
+dependencies = [
+    "requests",
+    "importlib-metadata; python_version<'3.8'",
+    "devgoldyutils>=2.3.7",
+    "prettyprinter",
+    "python-decouple>=3.7",
+    "pytest",
+    "pytest-cov",
+    "Sphinx",
+    "furo"
+]
+
+dynamic = ["version"]
+
+[project.urls]
+GitHub = "https://github.com/NovaUniverse/NovaUniverse.py"
+BugTracker = "https://github.com/NovaUniverse/NovaUniverse.py/issues"
+ChangeLog = "https://github.com/NovaUniverse/NovaUniverse.py/v2/CHANGELOG.md"
+
+[tool.setuptools.dynamic]
+version = { attr = "novauniverse.info.VERSION" }
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["novauniverse"]

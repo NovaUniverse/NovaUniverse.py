@@ -1,176 +1,174 @@
-# Nova Universe.py *(Pythonic API Wrapper)*
-
 [![Discord Shield](https://discordapp.com/api/guilds/692764975902752871/widget.png?style=shield)](https://discord.gg/4gZSVJ7)
 [![PyPI version](https://badge.fury.io/py/novauniverse.svg)](https://pypi.org/project/novauniverse/)
+[![Python Badge](https://img.shields.io/pypi/pyversions/novauniverse?style=flat)](https://pypi.org/project/novauniverse/ "Supported python versions.")
+[![Docs Badge](https://img.shields.io/static/v1?label=docs&message=Available&color=light-green)](https://novauniversepy.devgoldy.me/)
 
 <p align="center">
  <img src="https://user-images.githubusercontent.com/66202304/147414615-4a410681-0e02-41e3-88cd-3d28d4bf6898.png" width="500" />
 </p>
 
-### ``novauniverse.py`` - A modern API wrapper for the minecraft server Nova Universe written in Python.
+### 🐍[``novauniverse.py``](https://pypi.org/project/novauniverse/) - A modern & maintained wrapper for the [Nova Universe API](https://novauniverse.net/api/) written in Python.
 
-#### ⭐[Goals of this Project.](https://github.com/NovaUniverse/NovaUniverse.py/projects/1)
+#### ℹ Notice: 2.0 is currently in development so PyPi package install will not be available but you can still install it via github. More on that below.
 
 <p align="right">
- <img align="left" src="https://media.discordapp.net/attachments/710019553098465320/895037951443107860/Untitled_Artwork_4_1.png" width="180" />
+ <img align="left" src="https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/v2/assets/logo.png" width="180" />
  
- # *What is Nova Universe.py?*
- NovaUniverse.py is a API wrapper for the minecraft server **[Nova Universe](https://novauniverse.net/)** that allows you to access player data, player's game stats and server status across the Nova Universe network all in a object oriented pythonic way.
+ <h2>What is Nova Universe.py?</h2>
+ NovaUniverse.py is a API wrapper for the minecraft server <a href="https://novauniverse.net/">Nova Universe</a> that allows you to access the Nova Universe <a href="https://novauniverse.net/api">API</a> in a fast object oriented way in Python. One of the bonuses is that it was developed by one of the devs at NovaUniverse.
 </p>
 
+<br>
+
+<details>
+  <summary> <b>📔 Menu</b> </summary>
+  
+- ### [*Install/Set Up*](#installset-up)
+- ### [*Examples*](#examples)
+  - [The Interface](#the-interface)
+  - [The Search interface](#the-search-interface)
+  - [Events](#events)
+
+</details>
+
+<br>
+
 ## *Install/Set Up*
-1. **Install package from pip.**
+1. ~~**Install package from pypi.**~~ (In development so no PyPi package yet, install via GitHub instead.)
 ```sh
 #Windows/Linux
 
-pip install novauniverse
+pip install git+https://github.com/NovaUniverse/NovaUniverse.py.git@v2
 ```
-2. **That's It!** 
+2. **That's It!** - *Brief Example Below*
 ```python
-import novauniverse as nova
+from novauniverse import NovaClient, Events, NovaOnlinePlayer 
 
-player = nova.Player(player_name="THEGOLDENPRO")
+client = NovaClient()
 
-print(player.first_join)
+@client.on_event(Events.CLIENT_READY)
+def client_is_ready():
+    print("Client is ready!")
 
-#OUTPUT: 2021-01-15 19:28:32
+@client.on_event(Events.PLAYER_JOIN)
+def on_player_join(player:NovaOnlinePlayer):
+    print(f"{player.username} joined {player.server_name}!")
+
+client.start()
 ```
 
-# *Documentation*
+## *Examples*
+Some brief examples of how you can use NovaUniverse.py.
 
-* #### [Get Player Data](https://novauniversepy.readthedocs.io/en/latest/#get-player-data)
-* #### [Get Session Data](https://novauniversepy.readthedocs.io/en/latest/#get-session-data)
-* #### [Get Server Info](#get-server-info)
-* #### ~~[Get License Info]()~~ *(Coming Soon)*
-* #### [Get Mcf Stats](#get-mcf-stats-1)
+- ### The Interface
+    The easiest way to retrieve data from the Nova api using NovaUniverse.py is by using the interfaces available to you. As of December 2022, this api wrapper covers most of the api's endpoints with an interface.
 
-###### (MORE DOCS AT [READTHEDOCS](http://novauniversepy.readthedocs.io/)) (PYPI: [INSTALL HERE](https://pypi.org/project/novauniverse/))
+    Here's a quick showcase on how to use them.
 
-<br>
+    - Getting Discord Stats.
 
-## *Get Server Info*
+        ```python
+        from novauniverse import Discord
 
-Heres how you can grab stats about our servers running on the network. You can grab stats like, the list of players online, total player count, total server count and more with novauniverse.py.
+        # Get discord server stats.
+        discord_stats = Discord().get_stats()
 
-```python
-novauniverse.Server()
-```
-### An Example
-```python
-import novauniverse as nova
+        # Prints out the member count.
+        print(f"There are {discord_stats.member_count.members} members on the Nova Universe discord server.")
+        ```
+    - Getting Newsletters.
 
-server = nova.Server()
+        ```python
+        from novauniverse import News
 
-print(f"There are {server.player_count} players online.")
-print(f"There are {server.server_count} servers online.")
-print(f"It is currently {server.localtime.time} at Zeeraa's house.")
+        # Get latest newsletter.
+        latest_newsletter = News().get_latest()
 
-for player in server.players:
-    print(f"'{player.username}' is currently online in '{player.server_name_}'.")
-```
+        # Print it.
+        print(f"The url for the news letter '{latest_newsletter.title}' is '{latest_newsletter.full_url}'.")
+        ```
+    - Getting online players.
 
-* #### Attributes
-    * **``player_count -> int`` -** *The amount of players on the network right now. (LIVE)*
-    * **``server_count -> int`` -** *The amount of servers online on the network right now. (LIVE)*
-    * **``cached -> bool`` -** *Has this data been cached by the API or not.*
-    * **``localtime -> datetime`` -** *The local time at Zeeraa's house... uMm, returns as python datetime object. (LIVE)*
-    * **``timezone -> str`` -** *The name of the timezone the API server is in.*
-    * **``players -> list[online_player]`` -** *Returns list of players online as player object.*
+        ```python
+        from novauniverse import Server
 
-<br>
+        # Get all online players on the minecraft server.
+        online_players = Server().get_online_players()
 
-## *Get MCF Stats*
+        # Print all online players on the minecraft server.
+        for player in online_players:
+            print(f"{player.username} is online on the '{player.server_name}' server.")
+        ```
 
-Heres how you can grab stats about our tournament MCF. With novauniverse.py you can grab all staticstics of each MCF week & session. Like the kills of a player or a team.
+    - Getting tournament results.
 
-```python
-novauniverse.Mcf()
-```
-### An Example
-```python
-import novauniverse as nova
+        ```python
+        from novauniverse import NovaGames, MCF
 
-mcf_games = nova.Mcf()
+        # Get the latest Nova Games tournament.
+        nova_games = NovaGames().get_latest()
 
-for mcf in mcf_games:
-    print(f"This week of mcf was hosted on [{mcf.date.date()}].")
-    print(f"It was won by Team {mcf.winner_team_number}, they had a total score of {mcf.winner_team.team_score}.")
-    print(f"Both {mcf.winner_team.players[0].name} and {mcf.winner_team.players[1].name} was rewarded.")
-    print("")
+        # Prints out how much each player scored in that tournament and also how many kills they achieved.
+        for player in nova_games.players:
+            print(f"'{player.username}' got {player.kills} kill(s) and scored {player.score} point(s) in the Nova Games hosted on {nova_games.date.date()}.")
+        ```
+        
+        MCF interface also exists this same way.
 
-"""
-This week of mcf was hosted on [2022-04-09].
-It was won by Team 9, they had a total score of 1989.
-Both Wavesea and ItsNitroTiger was rewarded.
+    Neat right 😁, more info in our [docs](https://novauniversepy.devgoldy.me/).
 
-This week of mcf was hosted on [2022-04-16].
-It was won by Team 5, they had a total score of 1480.
-Both gummywroms and ItsNitroTiger was rewarded.
+- ### The Search interface
 
-This week of mcf was hosted on [2022-04-23].
-It was won by Team 2, they had a total score of 1652.
-Both W0lly1 and Noahkup was rewarded.
+    Some interfaces/endpoints obtain search features, specially those that inherited from SearchInterface.
 
-This week of mcf was hosted on [2022-04-30].
-It was won by Team 3, they had a total score of 2024.
-Both AiroKun and darkleonard2 was rewarded.
-"""
-```
+    Here we are searching by id.
+    ```python
+    from novauniverse import News, Search
 
-* #### Attributes
-    * **``id -> int`` -** *The id of the tournament.*
-    * **``date -> datetime.datetime`` -** *The date when the tournament took place.*
-    * **``display_name -> str`` -** *The display name of the MCF session.*
-    * **``winner_team_id -> int`` -** *The team number of the winning team.*
-    * **``winner_team ->`` [``ExtendedMCFTeam``](#--extendedmcfteam) -** *Returns team object of the winning team.*
-    * **``teams ->`` [``list[ExtendedMCFTeam]``](#--extendedmcfteam) -** *Returns list of all teams that played in this MCF.*
+    newsletter = News().find(Search(id=17))
 
-<br>
+    print(f"Name of news letter --> {newsletter.name}")
+    print(f"ID of news letter --> {newsletter.id}")
+    ```
 
-## *Objects*
+    Here we are searching by name.
+    ```python
+    from novauniverse import News, Search
 
-### ***- ``ExtendedMCFTeam``***
-**( Inherits from [``BasicMCFTeam``](#--basicmcfteam) )**
-```python
-novauniverse.objects._mcf_.ExtendedMCFTeam()
-```
+    newsletter = News().find(Search(name="Api Wrappers"))
 
-This class represents a team in the mcf tournamant.
+    print(f"Name of news letter --> {newsletter.name}")
+    print(f"ID of news letter --> {newsletter.id}")
+    ```
 
-* #### Attributes
-    * **``players ->`` [``list[MCFPlayer]``](#--MCFPlayer) -** *Returns list of players in that team via MCFPlayer objects.*
+    > #### ❗ Notice!
+    > Each interface supports it's own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case ``novauniverse.utils.search.SearchNotCompletelySupported`` will be raised.
 
-<br>
+    More examples...
+    ```python
+    from novauniverse import MCF, Search
 
-### ***- ``BasicMCFTeam``***
-```python
-novauniverse.objects._mcf_.ExtendedMCFTeam()
-```
+    mcf = MCF().find(Search(id=17))
 
-Basic mcf team class.
+    for player in mcf.players:
+        print(f"'{player.username}' got {player.kills} kill(s) and scored {player.score} point(s) in the MCF hosted on {mcf.date.date()}.")
+    ```
 
-* #### Attributes
-    * **``team_number -> int`` -** *Returns the number of this team. WARNING: This method is slower, it is recommended to use ``MCF().winner_team_number`` whenever possible if you are finding the winner's team id.*
-    * **``team_score -> int``** - Returns the total score of this team.
+- ### Events
+    NovaUniverse.py being a feature rich api wrapper provides a collection of events that can be triggered by an action occurring on the Nova Universe Network. Like example a player joining the minecraft server.
 
-<br>
+    This is how we register a player join event.
+    ```python
+    from novauniverse import NovaClient, Events, NovaOnlinePlayer 
 
-### ***- ``MCFPlayer``***
-```python
-novauniverse.objects._mcf_.MCFPlayer()
-```
+    client = NovaClient()
 
-This class represents a player in the mcf tournamant.
+    @client.on_event(Events.PLAYER_JOIN)
+    def on_player_join(player:NovaOnlinePlayer):
+        print(f"{player.username} joined {player.server_name}!")
 
-* #### Attributes
-    * **``id -> int``** - Returns the MCF id of the player.
-    * **``has_nova_account -> bool``** - Returns True/False if the player is linked to a novauniverse account.
-    * **``nova_account_name -> (str | None)``** - Returns the name of the nova universe account this player is linked to.
-    * **``username -> int``** - Returns the MCF id of the player.
-    * **``uuid -> str``** - Returns the player's mojang uuid.
-    * **``team_number -> int``** - Returns the number of the team the player is in.
-    * **``score -> int``** - Returns the total score this player achived.
-    * **``kills -> int``** - Returns the amount of kills this player got.
-    
--------------------
-### ``Documentation is still currently being written...``
+    client.start()
+    ```
+
+    > If you would like to know the attributes of NovaOnlinePlayer, check this out: [**NovaOnlinePlayer**](https://novauniversepy.devgoldy.me/novauniverse/interfaces/stats/server/nova_online_player.html#NovaOnlinePlayer)
+

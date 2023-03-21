@@ -1,5 +1,5 @@
-dist
-demo.py
 __pycache__
-.vscode
-novauniverse.egg-info
+env
+demo
+docs/_build
+.pytest_cache
