@@ -42,4 +42,4 @@ def on_player_join(player:NovaOnlinePlayer):
 client.start()
 ```
 
-### > More Documentation at https://nupy.devgoldy.me/
+> ### More Documentation at https://nupy.devgoldy.me/
