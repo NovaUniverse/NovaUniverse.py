@@ -2,3 +2,4 @@ __pycache__
 env
 demo
 docs/_build
+.pytest_cache
