@@ -21,5 +21,5 @@ class TournamentPlayer(NovaBasicPlayer):
 
         self.uid = self.get("uid")
         self.team_number = self.get("team_number")
-        self.score = self.get("score", default=0)
-        self.kills = self.get("kills", default=0)
+        self.score = self.get("score", default_value = 0)
+        self.kills = self.get("kills", default_value = 0)
