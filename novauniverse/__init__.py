@@ -49,7 +49,7 @@ config = Config()
 #from .interfaces.news import News
 from .interfaces.stats.discord import Discord
 from .interfaces.stats.server import Server, NovaOnlinePlayer
-#from .interfaces.mcf import MCF
+from .interfaces.mcf import MCF
 #from .interfaces.nova_games import NovaGames
 
 
@@ -58,7 +58,7 @@ from .interfaces.stats.server import Server, NovaOnlinePlayer
 #from .client import NovaClient
 #from .events import Events
 
-#from .utils.search import Search
+from .utils.search import Search
 
 # Backend objects
 from .objects.nova_player import NovaBasicPlayer

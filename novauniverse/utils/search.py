@@ -1,14 +1,13 @@
 from __future__ import annotations
 from enum import Enum
-from typing import Type
 
 from ..errors import NovaError
 
 # SearchBy Enum class
 # ---------------------
 class SearchBy(Enum):
-    id = 1
-    name_ = 2
+    ID = 1
+    NAME = 2
 
 # Errors
 # --------
@@ -20,43 +19,30 @@ class SearchNotCompletelySupported(NovaError):
     def __init__(self, searched_by, interface:object) -> None:
         super().__init__(f"Searching by '{searched_by}' not supported by '{interface.__class__.__name__}' interface/endpoint.")
 
-"""
-class HasNotBeenSearched(NovaError):
-    def __init__(self) -> None:
-        super().__init__("Can't return this property/method because you have not searched for this object.", ErrorType.ERROR)
-"""
-
 # Search class
 # ---------------
 class Search():
-    """Search by id or name if supported."""
+    """A util that allows you to search within an interface by id or name if supported."""
     def __init__(self, id:str|int=None, name:str=None) -> None:
-        self.__id = id
-        self.__name = name
+        self.id = id
+        self.name = name
 
-        self.__using_id = False
-        self.__using_name = False
+        self.search_by:SearchBy|None = None
 
-        if not self.__id == None: self.__using_id = True
-        if not self.__name == None: self.__using_name = True
+        if self.name is not None:
+            self.search_by = SearchBy.NAME
+        if self.id is not None:
+            self.search_by = SearchBy.ID
         
-        if self.__using_id == False and self.__using_name == False:
+        if self.search_by is None:
             raise SearchGotNoArgs()
 
     def get_query(self) -> str|int|None:
-        if self.search_by is SearchBy.id:
-            return self.__id
-        if self.search_by is SearchBy.name_:
-            return self.__name
-        return None
-
-    @property
-    def search_by(self) -> SearchBy|None:
-        if self.__using_id:
-            return SearchBy.id
-        if self.__using_name:
-            return SearchBy.name_
-
+        """Returns the query."""
+        if self.search_by is SearchBy.ID:
+            return self.id
+        if self.search_by is SearchBy.NAME:
+            return self.name
         return None
 
     def not_supported(self, interface: object):

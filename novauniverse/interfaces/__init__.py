@@ -1,10 +1,10 @@
+from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Dict
 from devgoldyutils import LoggerAdapter
 
-from .. import nova_logger
-from ..api import NovaAPI, Endpoints
+from .. import nova_logger, errors
 from ..utils.search import Search, SearchBy
 
 class Interface():
@@ -23,39 +23,32 @@ class BasicInterface(Interface):
 # TODO: Finish this off..
 class SearchInterface(ABC, Interface):
     """Adds searching to a basic NU.PY interface. Use this to add searching functionality to your interfaces."""
-    def __init__(self, supports:List[SearchBy]) -> None:
+    def __init__(self, supports: List[SearchBy], keys: Dict[SearchBy, str]) -> None:
         self.__supports = supports
+        self.__keys = keys
 
         self.logger = LoggerAdapter(nova_logger, prefix="SearchInterface")
         super().__init__()
 
     @abstractmethod
-    def find(self, search:Search, object_list=None) -> InterfaceObject|None:
-        if isinstance(search, Search):
-            if not search.search_by in self.__supports:
-                search.not_supported(self.__interface_class)
-            
-            # Search by id
-            # --------------
-            if search.search_by is SearchBy.id:
-                self.logger.debug(f"Searching for '{self.__interface_class.__name__}' by id...")
+    def search(self, query: Search | int | str, objects: List[object] = None) -> object | None:
+        """It is recommended to use ``novauniverse.utils.search.Search()`` as a query."""
+        if not isinstance(query, Search):
+            query = Search(name = str(query))
+            # TODO: Add fuzzy search in the future.
 
-                for object in object_list:
-                    if object.id == search.get_query():
-                        self.logger.info(f"Found '{self.__interface_class.__name__}' by id.")
-                        return object
+        if not query.search_by in self.__supports:
+            query.not_supported(self)
 
-            # Search by name
-            # --------------
-            if search.search_by is SearchBy.name_:
-                self.logger.debug(f"Searching for '{self.__interface_class.__name__}' by name...")
-
-                for object in object_list:
-                    if object.name == search.get_query():
-                        self.logger.info(f"Found '{self.__interface_class.__name__}' by name.")
-                        return object
-        
-        else:
-            raise NovaError(f"You must use the 'novauniverse.Search()' class for searching in '{self.__interface_class.__name__}'.")
+        self.logger.debug(f"Searching in '{self.__class__.__name__}' by '{query.search_by.name}' for '{query.get_query()}'...")
+        for object in objects:
+            if object.__dict__[self.__keys[query.search_by]] == query.get_query():
+                self.logger.info(f"Found {query.get_query()} by '{query.search_by.name}'.")
+                return object
 
         return None
+
+
+# Root Imports
+# --------------
+from ..api import NovaAPI, Endpoints
