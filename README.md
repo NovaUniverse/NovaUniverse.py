@@ -21,7 +21,6 @@
 </p>
 
 <br>
-<br>
 
 ## *Install/Set Up*
 1. **Install package from pypi.**
