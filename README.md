@@ -21,7 +21,7 @@
 <br>
 
 ## *Install/Set Up*
-1. ~~**Install package from pypi.**~~ (In development so no PyPi package yet, install via GitHub instead.)
+1. **Install package from pypi.**
 ```sh
 #Windows/Linux
 
@@ -44,4 +44,4 @@ def on_player_join(player:NovaOnlinePlayer):
 client.start()
 ```
 
-> ### More Documentation at https://nupy.devgoldy.me/
+> ### More Examples and Info at https://nupy.devgoldy.me/
