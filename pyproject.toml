@@ -25,14 +25,18 @@ dependencies = [
     "importlib-metadata; python_version<'3.8'",
     "devgoldyutils>=2.3.7",
     "prettyprinter",
-    "python-decouple>=3.7",
-    "pytest",
-    "pytest-cov",
-    "Sphinx",
-    "furo"
+    "python-decouple>=3.7"
 ]
 
 dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+  "Sphinx",
+  "furo",
+  "pytest",
+  "pytest-cov",
+]
 
 [project.urls]
 GitHub = "https://github.com/NovaUniverse/NovaUniverse.py"
