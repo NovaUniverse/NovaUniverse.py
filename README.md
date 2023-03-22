@@ -9,7 +9,7 @@
 
 ### 🐍[``novauniverse.py``](https://pypi.org/project/novauniverse/) - A modern & maintained wrapper for the [Nova Universe API](https://novauniverse.net/api/) written in Python.
 
-#### ℹ Notice: 2.0 is currently in development so PyPi package install will not be available but you can still install it via github. More on that below.
+#### ℹ Notice: 2.0 is currently in development so not all api endpoints are implemented.
 
 <p align="right">
  <img align="left" src="https://raw.githubusercontent.com/NovaUniverse/NovaUniverse.py/v2/assets/logo.png" width="180" />
@@ -18,12 +18,14 @@
  NovaUniverse.py is a API wrapper for the minecraft server <a href="https://novauniverse.net/">Nova Universe</a> that allows you to access the Nova Universe <a href="https://novauniverse.net/api">API</a> in a fast object oriented way in Python. One of the bonuses is that it was developed by one of the devs at NovaUniverse.
 </p>
 
+<br>
+
 ## *Install/Set Up*
 1. ~~**Install package from pypi.**~~ (In development so no PyPi package yet, install via GitHub instead.)
 ```sh
 #Windows/Linux
 
-pip install git+https://github.com/NovaUniverse/NovaUniverse.py.git@v2
+pip install novauniverse
 ```
 2. **That's It!** - *Brief Example Below*
 ```python
