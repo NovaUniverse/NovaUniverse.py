@@ -13,8 +13,10 @@ A modern & maintained wrapper for the `Nova Universe API`_ written in Python.
    :maxdepth: 1
 
    api
+   events
    interfaces
    objects
+   utils
 
 
 What is NovaUniverse.py?
@@ -45,7 +47,7 @@ One of the bonuses is that it was developed by `ME`_, an admin at NovaUniverse.
          print("Client is ready!")
 
       @client.on_event(Events.PLAYER_JOIN)
-      def on_player_join(player:NovaOnlinePlayer):
+      def on_player_join(player: NovaOnlinePlayer):
          print(f"{player.username} joined {player.server_name}!")
 
       client.start()
@@ -53,45 +55,10 @@ One of the bonuses is that it was developed by `ME`_, an admin at NovaUniverse.
 
 *Examples:*
 ===============
-Some brief examples of how you can use NovaUniverse.py. 🌟
+Some quick short examples to get started with NovaUniverse.py. 🌟
+After you have a read here please do check out
 
-
-The Interface ✨
-==================
-The easiest way to retrieve data from the Nova api using NovaUniverse.py is by using the interfaces available to you. As of March 2023, this api wrapper covers some of the novauniverse api's endpoints with an interface.
-
-   **Here's a quick showcase on how to use them.**
-
-   Getting Discord Stats::
-
-      from novauniverse import Discord
-
-      # Get discord server stats.
-      discord_stats = Discord().get_stats()
-
-      # Prints out the member count.
-      print(f"There are {discord_stats.member_count.members} members on the Nova Universe discord server.")
-
-   Getting Newsletters::
-
-      from novauniverse import News
-
-      # Get latest newsletter.
-      latest_newsletter = News().get_latest()
-
-      # Print it.
-      print(f"The url for the news letter '{latest_newsletter.title}' is '{latest_newsletter.full_url}'.")
-
-   Getting online players::
-
-      from novauniverse import Server
-
-      # Get all online players on the minecraft server.
-      online_players = Server().get_online_players()
-
-      # Print all online players on the minecraft server.
-      for player in online_players:
-         print(f"{player.username} is online on the '{player.server_name}' server.")
+   This is what we call interfaces. Interfaces are used to... well... **interface!** ha ha, yes... they are how you interface with the Nova Universe API.
 
    Getting tournament results::
 
@@ -103,38 +70,16 @@ The easiest way to retrieve data from the Nova api using NovaUniverse.py is by u
       # Prints out how much each player scored in that tournament and also how many kills they achieved.
       for player in nova_games.players:
          print(f"'{player.username}' got {player.kills} kill(s) and scored {player.score} point(s) in the Nova Games hosted on {nova_games.date.date()}.")
-      
-   MCF interface also exists this same way.
 
    Neat right 😁.
 
-The Search interface 🔎
-=========================
-Some interfaces/endpoints obtain search features, specially those that inherited from SearchInterface.
+   .. note::
 
-   Here we are searching by id::
+      Learn more about interfaces :ref:`over here. <The Interface>`
 
-      from novauniverse import News, Search
+---------------
 
-      newsletter = News().search(Search(id=17))
-
-      print(f"Name of news letter --> {newsletter.name}")
-      print(f"ID of news letter --> {newsletter.id}")
-
-   Here we are searching by name::
-
-      from novauniverse import News, Search
-
-      newsletter = News().search(Search(name="Api Wrappers"))
-
-      print(f"Name of news letter --> {newsletter.name}")
-      print(f"ID of news letter --> {newsletter.id}")
-
-
-   ❗ Notice!
-   Each interface supports it's own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case ``novauniverse.utils.search.SearchNotCompletelySupported`` will be raised.
-
-   More examples::
+   Searching for a specific mcf tournament::
    
       from novauniverse import MCF, Search
 
@@ -143,27 +88,9 @@ Some interfaces/endpoints obtain search features, specially those that inherited
       for player in mcf.players:
          print(f"'{player.username}' got {player.kills} kill(s) and scored {player.score} point(s) in the MCF hosted on {mcf.date.date()}.")
 
-   If you would like more help, you may open a Github issue or help ticket on the NovaUniverse Discord.
+   .. note::
 
-Events 🎟
-=========
-NovaUniverse.py being a feature rich api wrapper provides a collection of events that can be triggered by an action occurring on the Nova Universe Network. Like example a player joining the minecraft server.
-
-   This is how we register a player join event::
-
-      from novauniverse import NovaClient, Events, NovaOnlinePlayer 
-
-      client = NovaClient()
-
-      @client.on_event(Events.PLAYER_JOIN)
-      def on_player_join(player:NovaOnlinePlayer):
-         print(f"{player.username} joined {player.server_name}!")
-
-      client.start()
-
-   If you would like to know the attributes of NovaOnlinePlayer, check this out: `NovaOnlinePlayer`_.
-
-   .. _NovaOnlinePlayer: https://nupy.devgoldy.me/NovaUniverse.py/interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer
+      More at :ref:`search interfaces. <The Search Interface>`
 
 
 Configuration Reference

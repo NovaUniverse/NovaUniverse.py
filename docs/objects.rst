@@ -1,4 +1,4 @@
-Objects
+Objects 📦
 ============================
 .. toctree::
    :maxdepth: 1
