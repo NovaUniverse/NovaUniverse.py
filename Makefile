@@ -7,3 +7,6 @@ build-docs:
 test:
 	cd tests
 	pytest
+
+build:
+	python -m build

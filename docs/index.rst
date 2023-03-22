@@ -34,7 +34,7 @@ One of the bonuses is that it was developed by `ME`_, an admin at NovaUniverse.
 
       #Windows/Linux
 
-      pip install git+https://github.com/NovaUniverse/NovaUniverse.py.git@v2
+      pip install novauniverse
 
 2. **That's It!** - *Brief Example Below*::
 

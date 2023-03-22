@@ -3,3 +3,5 @@ env
 demo
 docs/_build
 .pytest_cache
+dist
+*.egg-info
