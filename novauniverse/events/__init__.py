@@ -1,51 +1,47 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
 from enum import Enum
 from typing import Callable
+from devgoldyutils import LoggerAdapter
 
 from ..api import NovaAPI
 from .. import nova_logger
 
-@dataclass
-class EventInfo:
-    """Details about a event."""
-    code_name:str
-    data_api:NovaAPI|None
-
-
-# Base Event Class
-# -------------------------
-class Event(ABC):
-    """A base class for all NovaUniverse.py events."""
-    def __init__(self, event_class:object, info:EventInfo):
-        self.__event_class = event_class
-        self.__info = info
+class Event():
+    def __init__(self, event_name:str) -> None:
+        """A base class all NovaUniverse.py events inherited from."""
+        self.name = event_name
 
         self.functions_to_trigger:list = []
 
-    @property
-    def code_name(self) -> str:
-        """Returns code name of event."""
-        return self.__info.code_name
+        self.logger = LoggerAdapter(nova_logger, prefix=self.name)
+    
+    def add_function(self, func:Callable):
+        """Used by ``EventClient`` to add functions to events."""
+        self.functions_to_trigger.append(func)
+        self.logger.debug(
+            f"Added '{func.__name__}' function to '{self.name}' func trigger list."
+        )
 
-    @property
-    def data_api(self) -> NovaAPI|None:
-        """Returns data function/callable from event info."""
-        return self.__info.data_api
+class EndpointEvent(ABC, Event):
+    """Allows you to easily create events from NovaUniverse.py endpoints."""
+    def __init__(self, event_name, endpoint:str):
+        self.data_api = (lambda: NovaAPI(endpoint) if endpoint is not None else None)()
+        """The event's data api."""
 
+        super().__init__(event_name)
 
     @abstractmethod
     def loop(self, data:dict|None) -> bool:
         """
-        This method is called each ``NovaClient`` 💖heartbeat if the event is in use.
+        This method is called each ``EventClient`` 💖heartbeat if the event is in use.
 
         -------------------
         
-        Returning ``True`` indicates to ``NovaClient`` that the data has changed and it can trigger the event.
+        Returning ``True`` indicates to the ``EventClient`` that the data has changed and it can trigger the event.
 
-        Returning ``False`` indicates to ``NovaClient`` that the data has not changed and it shouldn't trigger the event.
+        Returning ``False`` indicates to the ``EventClient`` that the data has not changed and it shouldn't trigger the event.
         """
         ...
 
@@ -53,12 +49,6 @@ class Event(ABC):
     def trigger_event(self):
         """This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``."""
         ...
-
-
-    def add_function(self, func):
-        """Used by ``NovaClient`` to add functions to events."""
-        self.functions_to_trigger.append(func)
-        nova_logger.debug(f"Added '{func.__name__}' function to '{self.code_name}' func trigger list.")
 
 
 # Import all events under this module.
