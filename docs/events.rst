@@ -4,9 +4,9 @@ NovaUniverse.py being a feature rich api wrapper provides a collection of events
 
    This is how we register a player join event::
 
-      from novauniverse import NovaClient, Events, NovaOnlinePlayer 
+      from novauniverse import EventClient, Events, NovaOnlinePlayer 
 
-      client = NovaClient()
+      client = EventClient()
 
       @client.on_event(Events.PLAYER_JOIN)
       def on_player_join(player:NovaOnlinePlayer):

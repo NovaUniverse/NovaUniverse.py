@@ -38,9 +38,9 @@ One of the bonuses is that it was developed by `ME`_, an admin at NovaUniverse.
 
 2. **That's It!** - *Brief Example Below*::
 
-      from novauniverse import NovaClient, Events, NovaOnlinePlayer 
+      from novauniverse import EventClient, Events, NovaOnlinePlayer 
 
-      client = NovaClient()
+      client = EventClient()
 
       @client.on_event(Events.CLIENT_READY)
       def client_is_ready():

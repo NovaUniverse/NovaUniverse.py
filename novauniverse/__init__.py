@@ -23,10 +23,10 @@ import logging
 nova_logger.setLevel(logging.DEBUG)
 ```
 
-If your using the ``novauniverse.NovaClient`` class, a shortcut for enabling debugging would be this:
+If your using the ``novauniverse.EventClient`` class, a shortcut for enabling debugging would be this:
 
 ```python
-NovaClient(debug=True)
+EventClient(debug=True)
 ```
 
 If you want to completely disable logging like example warnings, you can do that with:
