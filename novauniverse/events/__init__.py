@@ -61,36 +61,63 @@ from .player_leave import PlayerLeave
 class Events(Enum):
     """
     An enum class of all available events.
-    
+
     ---------------
-    ### ***``Example:``***
 
-    These can be used like this:
+    ⭐ Example:
+    -------------
+    These can be used like so::
 
-    ```python
-    client = EventClient()
+        client = EventClient()
 
-    @client.on_event(Events.CLIENT_READY)
-    def client_is_ready():
-        print("Client is ready!")
+        @client.on_event(Events.CLIENT_READY)
+        def client_is_ready():
+            print("Client is ready!")
 
-    @client.on_event(Events.PLAYER_JOIN)
-    def on_player_join(player:NovaOnlinePlayer):
-        print(f"{player.username} joined {player.server_name}!")
+        @client.on_event(Events.PLAYER_JOIN)
+        def on_player_join(player:NovaOnlinePlayer):
+            print(f"{player.username} joined {player.server_name}!")
 
-    @client.on_event(Events.PLAYER_LEAVE)
-    def on_player_join(player:NovaOnlinePlayer):
-        print(f"{player.username} left {player.server_name}!")
+        @client.on_event(Events.PLAYER_LEAVE)
+        def on_player_join(player:NovaOnlinePlayer):
+            print(f"{player.username} left {player.server_name}!")
 
-    client.start()
-    ```
+        client.start()
+
     """
 
     CLIENT_READY = ClientReady
-    """Triggers when NovaClient is ready."""
+    """
+    Triggers when NovaClient is ready.
+    
+    Used like so::
+
+        @client.on_event(Events.CLIENT_READY)
+        def client_is_ready():
+            print("Client is ready!")
+
+    """
 
     PLAYER_JOIN = PlayerJoin
-    """Triggers each time a player joins any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function."""
+    """
+    Triggers each time a player joins any lobby on the Nova Universe network. Passes :py:meth:`~novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer` object to function.
+    
+    Used like so::
+    
+        @client.on_event(Events.PLAYER_JOIN)
+        def on_player_join(player: NovaOnlinePlayer):
+            print(f"{player.username} joined {player.server_name}!")
+
+    """
 
     PLAYER_LEAVE = PlayerLeave
-    """Triggers each time a player leaves any lobby on the Nova Universe network. Passes ``NovaOnlinePlayer`` object to function."""
+    """
+    Triggers each time a player leaves any lobby on the Nova Universe network. Passes :py:meth:`~novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer` object to function.
+    
+    Used like so::
+    
+        @client.on_event(Events.PLAYER_LEAVE)
+        def on_player_join(player: NovaOnlinePlayer):
+            print(f"{player.username} left {player.server_name}!")
+    
+    """

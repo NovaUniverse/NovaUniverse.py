@@ -1,4 +1,4 @@
-API
+API 🔌
 ========================
 This is where the api wrappers and endpoints are held.
 
