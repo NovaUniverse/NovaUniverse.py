@@ -7,7 +7,7 @@
   [![Discord Shield](https://discordapp.com/api/guilds/692764975902752871/widget.png?style=shield)](https://discord.gg/4gZSVJ7)
   [![PyPI version](https://badge.fury.io/py/novauniverse.svg)](https://pypi.org/project/novauniverse/)
   [![Python Badge](https://img.shields.io/pypi/pyversions/novauniverse?style=flat)](https://pypi.org/project/novauniverse/ "Supported python versions.")
-  [![Docs Badge](https://img.shields.io/static/v1?label=docs&message=Available&color=light-green)](https://nupy.devgoldy.me/)
+  [![Docs Badge](https://img.shields.io/github/actions/workflow/status/NovaUniverse/NovaUniverse.py/documentation.yaml?label=docs)](https://nupy.devgoldy.me/)
   
 </div>
 
