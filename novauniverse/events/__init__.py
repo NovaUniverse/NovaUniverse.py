@@ -26,9 +26,9 @@ class Event():
 
 class EndpointEvent(ABC, Event):
     """Allows you to easily create events from NovaUniverse.py endpoints."""
-    def __init__(self, event_name, endpoint:str):
-        self.data_api = (lambda: NovaAPI(endpoint) if endpoint is not None else None)()
-        """The event's data api."""
+    def __init__(self, event_name, endpoint:str|None):
+        self.endpoint = endpoint
+        """The event's endpoint. 🔗"""
 
         super().__init__(event_name)
 
@@ -36,9 +36,10 @@ class EndpointEvent(ABC, Event):
     def loop(self, data:dict|None) -> bool:
         """
         This method is called each ``EventClient`` 💖heartbeat if the event is in use.
+        You will have to handle this to the accordance of your event.
 
         -------------------
-        
+
         Returning ``True`` indicates to the ``EventClient`` that the data has changed and it can trigger the event.
 
         Returning ``False`` indicates to the ``EventClient`` that the data has not changed and it shouldn't trigger the event.
@@ -46,7 +47,7 @@ class EndpointEvent(ABC, Event):
         ...
 
     @abstractmethod
-    def trigger_event(self):
+    def trigger_event(self) -> None:
         """This method is ran when ``NovaClient`` gets an indication that the data has changed from ``Event.loop``."""
         ...
 
@@ -67,7 +68,7 @@ class Events(Enum):
     These can be used like this:
 
     ```python
-    client = NovaClient()
+    client = EventClient()
 
     @client.on_event(Events.CLIENT_READY)
     def client_is_ready():

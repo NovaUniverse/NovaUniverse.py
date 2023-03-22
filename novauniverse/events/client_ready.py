@@ -1,19 +1,19 @@
-from . import Event, EventInfo
+from . import EndpointEvent
 
-class ClientReady(Event):
+class ClientReady(EndpointEvent):
     """Triggers when NovaClient is ready."""
     def __init__(self):
-        super().__init__(self, EventInfo("client_ready", None))
+        super().__init__("client_ready", endpoint=None)
 
         self.__ready = False
 
     def loop(self, data) -> bool:
         if self.__ready is False:
-            self.__ready = True
             return True
-        else:
-            return False
+
+        return False
         
     def trigger_event(self):
         for function in self.functions_to_trigger:
+            self.__ready = True
             function()

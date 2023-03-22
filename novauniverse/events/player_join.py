@@ -1,17 +1,16 @@
 import ast
 
-from . import Event, EventInfo
+from . import EndpointEvent
 from ..interfaces.stats.server import NovaOnlinePlayer
 
-from ..api import NovaAPI
 from ..api.endpoints import Endpoints
 
 from typing import Set
 
-class PlayerJoin(Event):
+class PlayerJoin(EndpointEvent):
     """Triggers each time a player joins any lobby on the Nova Universe network."""
     def __init__(self):
-        super().__init__(self, EventInfo("player_join", NovaAPI(Endpoints.PLAYERS_ONLINE)))
+        super().__init__("player_join", Endpoints.PLAYERS_ONLINE)
 
         self.__old_players:Set[str] = set()
         self.__who_joined:NovaOnlinePlayer = None

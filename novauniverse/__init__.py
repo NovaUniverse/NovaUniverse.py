@@ -53,10 +53,10 @@ from .interfaces.mcf import MCF
 #from .interfaces.nova_games import NovaGames
 
 
-#  Utils and Objects.
+# Events
 # ------------------------
-#from .client import NovaClient
-#from .events import Events
+from .events import Events
+from .event_client import EventClient
 
 from .utils.search import Search
 
