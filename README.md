@@ -31,9 +31,9 @@ pip install novauniverse
 ```
 2. **That's It!** - *Brief Example Below*
 ```python
-from novauniverse import NovaClient, Events, NovaOnlinePlayer 
+from novauniverse import EventClient, Events, NovaOnlinePlayer 
 
-client = NovaClient()
+client = EventClient()
 
 @client.on_event(Events.CLIENT_READY)
 def client_is_ready():
