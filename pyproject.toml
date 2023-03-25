@@ -41,7 +41,7 @@ dev = [
 [project.urls]
 GitHub = "https://github.com/NovaUniverse/NovaUniverse.py"
 BugTracker = "https://github.com/NovaUniverse/NovaUniverse.py/issues"
-ChangeLog = "https://github.com/NovaUniverse/NovaUniverse.py/v2/CHANGELOG.md"
+ChangeLog = "https://github.com/NovaUniverse/NovaUniverse.py/main/CHANGELOG.md"
 
 [tool.setuptools.dynamic]
 version = { attr = "novauniverse.info.VERSION" }
