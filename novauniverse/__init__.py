@@ -9,7 +9,7 @@ Copyright (C) 2023 - Dev Goldy
 from .info import LOGGER_NAME
 from devgoldyutils.logging import add_custom_handler, log
 
-nova_logger = add_custom_handler(log.getLogger(LOGGER_NAME))
+nova_logger = add_custom_handler(log.getLogger(LOGGER_NAME), level=log.WARNING)
 """
 The python ``logging.Logger()`` class for NovaUniverse.py.
 
