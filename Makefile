@@ -5,12 +5,11 @@ build-docs:
 	cd docs && make.bat html
 
 test:
-	cd tests
-	pytest -v
+	ruff .
+	cd tests && pytest -v
 
 test-v:
-	cd tests
-	pytest -vv
+	cd tests && pytest -vv
 
 build:
 	python -m build
