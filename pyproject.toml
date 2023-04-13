@@ -48,11 +48,16 @@ ChangeLog = "https://github.com/NovaUniverse/NovaUniverse.py/blob/main/CHANGELOG
 version = { attr = "novauniverse.info.VERSION" }
 
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools>=61.2", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["novauniverse"]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["novauniverse*"]
+exclude = ["docs*", "tests*", ".github*"]
+
 
 
 # Ruff
