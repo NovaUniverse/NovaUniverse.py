@@ -20,7 +20,6 @@ class BasicInterface(Interface):
         super().__init__()
 
 
-# TODO: Finish this off..
 class SearchInterface(ABC, Interface):
     """Adds searching to a basic NU.PY interface. Use this to add searching functionality to your interfaces."""
     def __init__(self, supports: List[SearchBy], keys: Dict[SearchBy, str]) -> None:

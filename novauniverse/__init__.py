@@ -44,8 +44,8 @@ config = Config()
 #from .interfaces.news import News
 from .interfaces.stats.discord import Discord
 from .interfaces.stats.server import Server, NovaOnlinePlayer
-from .interfaces.mcf import MCF
-#from .interfaces.nova_games import NovaGames
+from .interfaces.tournaments.mcf import MCF
+from .interfaces.tournaments.nova_games import NovaGames
 
 
 # Events

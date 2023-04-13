@@ -3,14 +3,14 @@
 
 MCF Interface
 ---------------
-.. automodule:: novauniverse.interfaces.mcf
+.. automodule:: novauniverse.interfaces.tournaments.mcf
    :members:
    :undoc-members:
    :show-inheritance:
 
-MCF Tournament Reference
+MCFTournament Reference
 --------------------------
-.. automodule:: novauniverse.interfaces.mcf.mcf_tournament
+.. automodule:: novauniverse.interfaces.tournaments.mcf.mcf_tournament
    :members:
    :undoc-members:
    :show-inheritance:

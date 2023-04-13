@@ -4,10 +4,10 @@ Interfaces 🧩
 .. toctree::
    :maxdepth: 1
 
-   interfaces.mcf
+   interfaces.tournaments.mcf
+   interfaces.tournaments.nova_games
    interfaces.stats.discord
    interfaces.stats.server
-
 
 .. _The Interface:
 
@@ -115,3 +115,11 @@ Interface Reference
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+Other interfaces
+------------------
+.. toctree::
+   :maxdepth: 1
+
+   interfaces.tournaments
