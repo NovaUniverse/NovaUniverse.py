@@ -14,29 +14,24 @@ nova_logger = add_custom_handler(log.getLogger(LOGGER_NAME), level=log.WARNING)
 The python ``logging.Logger()`` class for NovaUniverse.py.
 
 ---------------
-### ``Example:``
 
-You can disable and also adjust the level of logging from the api wrapper like this:
+⭐Example:
+------------
 
-```python
-import logging
-nova_logger.setLevel(logging.DEBUG)
-```
+You can disable and also adjust the level of logging from the api wrapper like this::
 
-If your using the ``novauniverse.EventClient`` class, a shortcut for enabling debugging would be this:
+    import logging
+    nova_logger.setLevel(logging.DEBUG)
 
-```python
-EventClient(debug=True)
-```
+If your using the ``novauniverse.EventClient`` class, a shortcut for enabling debugging would be this::
 
-If you want to completely disable logging like example warnings, you can do that with:
+    EventClient(debug=True)
 
-```python
-nova_logger.setLevel(logging.NOTSET)
-```
+If you want to completely disable logging like example remove warnings, you can do that with::
+
+    nova_logger.setLevel(logging.NOTSET)
+
 """
-
-nova_logger.setLevel(log.WARN)
 
 # Configuration
 # ---------------
