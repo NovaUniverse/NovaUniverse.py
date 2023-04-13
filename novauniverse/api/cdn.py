@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import requests
 
-from .errors import *
+from . import errors
 from .. import config
 
 from . import NovaAPI
@@ -28,9 +28,9 @@ class NovaCDN(NovaAPI):
     def get(self) -> requests.Response:
         """Send a get request to that CDN endpoint."""
 
-        if self.endpoint is None: raise NoEndpointPassed()
+        if self.endpoint is None: raise errors.NoEndpointPassed()
         if config.performance_mode is False: # Does online check if performance mode is not enabled.
-            if self.is_online is False: raise FailedConnectivityCheck()
+            if self.is_online is False: raise errors.FailedConnectivityCheck()
 
         self.logger.info(f"Sending cdn get request to '{self.endpoint}'...")
         response_file = self.__http_session.get(self.endpoint)
@@ -40,4 +40,4 @@ class NovaCDN(NovaAPI):
             return response_file
         else:
             # I think all the error messages in the CDN are spit out in plain text on HTML. I'm not sure though. (Create a github issue if there's an issue with this anywhere.)
-            raise UnSuccessfulOperation(response_file.text)
+            raise errors.UnSuccessfulOperation(response_file.text)

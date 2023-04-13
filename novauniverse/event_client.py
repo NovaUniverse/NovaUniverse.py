@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-import sys
 import time
-from typing import List, Type, NoReturn, Dict, Callable
+from typing import List, Type, NoReturn, Dict
 from devgoldyutils import LoggerAdapter
 
 import logging
@@ -69,7 +68,7 @@ class EventClient():
         # I'm using issubclass() here instead of isinstance() because these are just references to a class and not an actual instance of a class. 
         # Hence isinstance() will not work for my case.
         if issubclass(event.value, EndpointEvent):
-            if not event.value in [event.__class__ for endpoint in self.__endpoint_events for event in self.__endpoint_events[endpoint]]:
+            if event.value not in [event.__class__ for endpoint in self.__endpoint_events for event in self.__endpoint_events[endpoint]]:
                 self.add_event(event.value)
 
         # Handle other type of events here...
@@ -95,7 +94,7 @@ class EventClient():
                 for endpoint in self.__endpoint_events:
                     data = None
 
-                    if not endpoint is None:
+                    if endpoint is not None:
                         data = NovaAPI(endpoint).get()
 
                     for event in self.__endpoint_events[endpoint]:

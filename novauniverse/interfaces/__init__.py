@@ -40,7 +40,7 @@ class SearchInterface(ABC, Interface):
             else:
                 query = Search(name = query)
 
-        if not query.search_by in self.__supports:
+        if query.search_by not in self.__supports:
             query.not_supported(self)
 
         self.logger.debug(f"Searching in '{self.__class__.__name__}' by '{query.search_by.name}' for '{query.get_query()}'...")
