@@ -32,15 +32,19 @@ class SearchInterface(ABC, Interface):
 
     @abstractmethod
     def search(self, query: Search | int | str, objects: List[object] = None) -> object | None:
-        """It is recommended to use ``novauniverse.utils.search.Search()`` as a query."""
-        if not isinstance(query, Search):
-            query = Search(name = str(query))
-            # TODO: Add fuzzy search in the future.
+        """It is recommended to use ``novauniverse.utils.search.Search()`` as a query but strings and integers will also work and be handled respectively."""
+
+        if isinstance(query, str) or isinstance(query, int):
+            if query.isnumeric():
+                query = Search(id = query)
+            else:
+                query = Search(name = query)
 
         if not query.search_by in self.__supports:
             query.not_supported(self)
 
         self.logger.debug(f"Searching in '{self.__class__.__name__}' by '{query.search_by.name}' for '{query.get_query()}'...")
+        # TODO: Add fuzzy search in the future.
         for object in objects:
             if object.__dict__[self.__keys[query.search_by]] == query.get_query():
                 self.logger.info(f"Found {query.get_query()} by '{query.search_by.name}'.")

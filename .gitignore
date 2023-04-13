@@ -5,3 +5,4 @@ docs/_build
 .pytest_cache
 dist
 *.egg-info
+.ruff_cache

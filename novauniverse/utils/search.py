@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import overload, NoReturn
 from enum import Enum
 
 from ..errors import NovaError
@@ -23,6 +24,16 @@ class SearchNotCompletelySupported(NovaError):
 # ---------------
 class Search():
     """A util that allows you to search within an interface by id or name if supported."""
+    @overload
+    def __init__(self, id:str|int) -> None:
+        """Search by id."""
+        ...
+    
+    @overload
+    def __init__(self, name:str) -> None:
+        """Search by name."""
+        ...
+
     def __init__(self, id:str|int=None, name:str=None) -> None:
         self.id = id
         self.name = name
@@ -45,6 +56,6 @@ class Search():
             return self.name
         return None
 
-    def not_supported(self, interface: object):
+    def not_supported(self, interface: object) -> NoReturn:
         """Raises error to warn user this interface does not support searching by id/name."""
         raise SearchNotCompletelySupported(self.search_by.name, interface)

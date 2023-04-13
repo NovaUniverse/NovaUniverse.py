@@ -6,7 +6,11 @@ build-docs:
 
 test:
 	cd tests
-	pytest
+	pytest -v
+
+test-v:
+	cd tests
+	pytest -vv
 
 build:
 	python -m build

@@ -4,6 +4,7 @@ Interfaces 🧩
 .. toctree::
    :maxdepth: 1
 
+   interfaces.mcf
    interfaces.stats.discord
    interfaces.stats.server
 
