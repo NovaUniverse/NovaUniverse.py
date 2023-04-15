@@ -1,4 +1,4 @@
-VER = "2.1.1"
+VER = "2.1.3"
 
 VERSION = f"{VER}" # Full version string.
 
