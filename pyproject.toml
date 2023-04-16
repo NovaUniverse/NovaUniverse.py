@@ -31,12 +31,17 @@ dependencies = [
 dynamic = ["version"]
 
 [project.optional-dependencies]
+async = [
+    "aiohttp"
+]
+
 dev = [
     "ruff",
     "Sphinx",
     "furo",
     "pytest",
     "pytest-cov",
+    "pyodide"
 ]
 
 [project.urls]

@@ -10,11 +10,15 @@ class NovaAPIError(NovaError):
 
 # Other exceptions.
 #---------------------
-
 class NoEndpointPassed(NovaAPIError):
     """Raised when no endpoint is passed to NovaAPI."""
     def __init__(self) -> None:
         super().__init__("No endpoint was passed to NovaAPI(), an endpoint must be passed to use it's methods.")
+
+class OnlyAsyncSupportedOnPyScript(NovaAPIError):
+    """Raised when a synchronous version of NovaAPI is used in py script."""
+    def __init__(self) -> None:
+        super().__init__("Only NovaAsyncAPI is supported in PyScript. You can't use the synchronous version.")
 
 class FailedConnectivityCheck(NovaAPIError):
     """Raised when failed to connect to Nova Universe API."""

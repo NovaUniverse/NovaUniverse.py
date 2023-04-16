@@ -62,4 +62,4 @@ from .objects.tournaments import NovaBasicTournament, TournamentPlayer, Tourname
 from .objects.order_by import OrderBy
 
 # Backend utils
-from .api import Endpoints, NovaAPI, NovaCDN
+from .api import Endpoints, NovaAPI, NovaCDN, NovaAsyncAPI

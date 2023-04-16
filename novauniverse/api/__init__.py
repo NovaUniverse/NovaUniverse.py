@@ -3,7 +3,7 @@ from __future__ import annotations
 import requests
 from devgoldyutils import LoggerAdapter
 
-from .errors import *
+from . import errors
 from .endpoints import Endpoints
 
 from .. import nova_logger
@@ -12,7 +12,8 @@ from ..info import PACKAGE_NAME_WITH_VER
 from .. import config
 
 cache_dict = {
-    "http_session": None
+    "http_session": None,
+    "async_http_session": None
 }
 
 class NovaAPI():
@@ -45,14 +46,16 @@ class NovaAPI():
             return True
         else:
             return False
-        
+
 
     def get(self) -> dict|list:
         """Send a get request to that endpoint."""
+        if self.endpoint is None: raise errors.NoEndpointPassed()
+        if config.py_script_mode is True: raise errors.OnlyAsyncSupportedOnPyScript()
 
-        if self.endpoint is None: raise NoEndpointPassed()
-        if config.performance_mode is False: # Does online check if performance mode is not enabled.
-            if self.is_online is False: raise FailedConnectivityCheck()
+        if config.performance_mode is False: 
+            # Doesn't do online check if performance mode is enabled.
+            if self.is_online is False: raise errors.FailedConnectivityCheck()
 
         self.logger.info(f"Sending get request to '{self.endpoint}'...")
         response_json = self.__http_session.get(self.endpoint).json()
@@ -72,6 +75,8 @@ class NovaAPI():
             return response_json
         else:
             # I'm getting message and error here because some endpoints don't error with a message key. (again the consistency in this api 🤬)
-            raise UnSuccessfulOperation(response_json.get("message", response_json.get("error")))
+            raise errors.UnSuccessfulOperation(response_json.get("message", response_json.get("error")))
+
 
 from .cdn import NovaCDN
+from .async_api import NovaAsyncAPI
