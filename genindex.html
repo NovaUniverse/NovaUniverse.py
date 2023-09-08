@@ -1,0 +1,1064 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <link rel="shortcut icon" href="_static/logo.png"/><!-- Generated with Sphinx 7.2.5 and Furo 2023.08.19 --><title>Index - NovaUniverse.py documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: red;
+  --color-brand-content: #CC3333;
+  --color-admonition-background: #ffaeae;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: red;
+  --color-brand-content: #FFAEAE;
+  --color-admonition-background: #0d0404;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: red;
+  --color-brand-content: #FFAEAE;
+  --color-admonition-background: #0d0404;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">NovaUniverse.py  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">NovaUniverse.py  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API 🔌</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API 🔌</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="events.html">Events 🎟</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Events 🎟</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="interfaces.html">Interfaces 🧩</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Interfaces 🧩</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.tournaments.mcf.html">🔥 MCF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.tournaments.nova_games.html">🟥 Nova Games</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.stats.discord.html">🎮 Discord Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.stats.server.html">🌐 Server Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.tournaments.html">🏆 Tournament Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="objects.html">Objects 📦</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Objects 📦</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.tournaments.html">Tournament Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="utils.html">Utils ⚙</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Utils ⚙</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="events.html#novauniverse.event_client.EventClient.add_event">add_event() (novauniverse.event_client.EventClient method)</a>
+</li>
+        <li><a href="events.html#novauniverse.events.Event.add_function">add_function() (novauniverse.events.Event method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.player_preview.PlayerPreview.additional">additional (novauniverse.interfaces.stats.server.player_preview.PlayerPreview attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.available">available (novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.html#novauniverse.interfaces.BasicInterface">BasicInterface (class in novauniverse.interfaces)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.MemberCount.bots">bots (novauniverse.interfaces.stats.discord.discord_stats.MemberCount attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.cached">cached (novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.CDNEndpoints">CDNEndpoints (class in novauniverse.api.endpoints)</a>
+</li>
+        <li><a href="events.html#novauniverse.events.Events.CLIENT_READY">CLIENT_READY (novauniverse.events.Events attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="index.html#novauniverse.configuration.Config">Config (class in novauniverse.configuration)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.connectivity_check">connectivity_check (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.player_preview.PlayerPreview.content">content (novauniverse.interfaces.stats.server.player_preview.PlayerPreview attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.DiscordStats.data">data (novauniverse.interfaces.stats.discord.discord_stats.DiscordStats attribute)</a>
+
+        <ul>
+          <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.MemberCount.data">(novauniverse.interfaces.stats.discord.discord_stats.MemberCount attribute)</a>
+</li>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.global_.Global.data">(novauniverse.interfaces.stats.server.global_.Global attribute)</a>
+</li>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.data">(novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+</li>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.player_preview.PlayerPreview.data">(novauniverse.interfaces.stats.server.player_preview.PlayerPreview attribute)</a>
+</li>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.data">(novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.system.System.data">(novauniverse.interfaces.stats.server.system.System attribute)</a>
+</li>
+          <li><a href="objects.html#novauniverse.objects.nova_player.NovaBasicPlayer.data">(novauniverse.objects.nova_player.NovaBasicPlayer attribute)</a>
+</li>
+          <li><a href="objects.html#novauniverse.objects.timestamp.Timestamp.data">(novauniverse.objects.timestamp.Timestamp attribute)</a>
+</li>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.data">(novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+</li>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_team.TournamentTeam.data">(novauniverse.objects.tournaments.tournament_team.TournamentTeam attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.html#novauniverse.objects.timestamp.Timestamp.date">date (novauniverse.objects.timestamp.Timestamp attribute)</a>
+
+        <ul>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.date">(novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.Discord">Discord (class in novauniverse.interfaces.stats.discord)</a>
+</li>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.DiscordStats">DiscordStats (class in novauniverse.interfaces.stats.discord.discord_stats)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.display_name">display_name (novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+
+        <ul>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.display_name">(novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="events.html#novauniverse.events.EndpointEvent.endpoint">endpoint (novauniverse.events.EndpointEvent attribute)</a>
+</li>
+        <li><a href="events.html#novauniverse.events.EndpointEvent">EndpointEvent (class in novauniverse.events)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints">Endpoints (class in novauniverse.api.endpoints)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="events.html#novauniverse.events.Event">Event (class in novauniverse.events)</a>
+</li>
+        <li><a href="events.html#novauniverse.event_client.EventClient">EventClient (class in novauniverse.event_client)</a>
+</li>
+        <li><a href="events.html#novauniverse.events.Events">Events (class in novauniverse.events)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.html#novauniverse.api.errors.FailedConnectivityCheck">FailedConnectivityCheck</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.html#novauniverse.api.cdn.NovaCDN.get">get() (novauniverse.api.cdn.NovaCDN method)</a>
+
+        <ul>
+          <li><a href="api.html#novauniverse.api.NovaAPI.get">(novauniverse.api.NovaAPI method)</a>
+</li>
+        </ul></li>
+        <li><a href="interfaces.tournaments.mcf.html#novauniverse.interfaces.tournaments.mcf.MCF.get_all">get_all() (novauniverse.interfaces.tournaments.mcf.MCF method)</a>
+
+        <ul>
+          <li><a href="interfaces.tournaments.nova_games.html#novauniverse.interfaces.tournaments.nova_games.NovaGames.get_all">(novauniverse.interfaces.tournaments.nova_games.NovaGames method)</a>
+</li>
+          <li><a href="interfaces.tournaments.html#novauniverse.interfaces.tournaments.TournamentInterface.get_all">(novauniverse.interfaces.tournaments.TournamentInterface method)</a>
+</li>
+        </ul></li>
+        <li><a href="events.html#novauniverse.event_client.EventClient.get_event_instance">get_event_instance() (novauniverse.event_client.EventClient method)</a>
+</li>
+        <li><a href="interfaces.tournaments.mcf.html#novauniverse.interfaces.tournaments.mcf.MCF.get_latest">get_latest() (novauniverse.interfaces.tournaments.mcf.MCF method)</a>
+
+        <ul>
+          <li><a href="interfaces.tournaments.nova_games.html#novauniverse.interfaces.tournaments.nova_games.NovaGames.get_latest">(novauniverse.interfaces.tournaments.nova_games.NovaGames method)</a>
+</li>
+          <li><a href="interfaces.tournaments.html#novauniverse.interfaces.tournaments.TournamentInterface.get_latest">(novauniverse.interfaces.tournaments.TournamentInterface method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.Server.get_online_players">get_online_players() (novauniverse.interfaces.stats.server.Server method)</a>
+</li>
+        <li><a href="utils.html#novauniverse.utils.search.Search.get_query">get_query() (novauniverse.utils.search.Search method)</a>
+</li>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.Discord.get_stats">get_stats() (novauniverse.interfaces.stats.discord.Discord method)</a>
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.Server.get_stats">(novauniverse.interfaces.stats.server.Server method)</a>
+</li>
+        </ul></li>
+        <li><a href="interfaces.tournaments.html#novauniverse.interfaces.tournaments.TournamentInterface.get_top_players">get_top_players() (novauniverse.interfaces.tournaments.TournamentInterface method)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.global_.Global">Global (class in novauniverse.interfaces.stats.server.global_)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.global_">global_ (novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.id">id (novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+
+        <ul>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.id">(novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="utils.html#novauniverse.utils.search.SearchBy.ID">ID (novauniverse.utils.search.SearchBy attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.html#novauniverse.interfaces.Interface">Interface (class in novauniverse.interfaces)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.cdn.NovaCDN.is_cdn_endpoint">is_cdn_endpoint() (novauniverse.api.cdn.NovaCDN method)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.NovaAPI.is_online">is_online (novauniverse.api.NovaAPI property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="K" class="genindex-section">
+  <h2>K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.html#novauniverse.objects.order_by.OrderBy.KILLS">KILLS (novauniverse.objects.order_by.OrderBy attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_player.TournamentPlayer.kills">kills (novauniverse.objects.tournaments.tournament_player.TournamentPlayer attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.system.System.localtime">localtime (novauniverse.interfaces.stats.server.system.System attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="events.html#novauniverse.events.EndpointEvent.loop">loop() (novauniverse.events.EndpointEvent method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.player_preview.PlayerPreview.max_preview_items">max_preview_items (novauniverse.interfaces.stats.server.player_preview.PlayerPreview attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.max_preview_players">max_preview_players (novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+</li>
+        <li><a href="interfaces.tournaments.mcf.html#novauniverse.interfaces.tournaments.mcf.MCF">MCF (class in novauniverse.interfaces.tournaments.mcf)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.MCF_RESULT">MCF_RESULT (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="interfaces.tournaments.mcf.html#novauniverse.interfaces.tournaments.mcf.mcf_tournament.MCFTournament">MCFTournament (class in novauniverse.interfaces.tournaments.mcf.mcf_tournament)</a>
+</li>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.DiscordStats.member_count">member_count (novauniverse.interfaces.stats.discord.discord_stats.DiscordStats attribute)</a>
+</li>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.MemberCount">MemberCount (class in novauniverse.interfaces.stats.discord.discord_stats)</a>
+</li>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.MemberCount.members">members (novauniverse.interfaces.stats.discord.discord_stats.MemberCount attribute)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="api.html#module-novauniverse.api">novauniverse.api</a>
+</li>
+          <li><a href="api.html#module-novauniverse.api.cdn">novauniverse.api.cdn</a>
+</li>
+          <li><a href="api.html#module-novauniverse.api.endpoints">novauniverse.api.endpoints</a>
+</li>
+          <li><a href="api.html#module-novauniverse.api.errors">novauniverse.api.errors</a>
+</li>
+          <li><a href="index.html#module-novauniverse.configuration">novauniverse.configuration</a>
+</li>
+          <li><a href="index.html#module-novauniverse.errors">novauniverse.errors</a>
+</li>
+          <li><a href="events.html#module-novauniverse.event_client">novauniverse.event_client</a>
+</li>
+          <li><a href="events.html#module-novauniverse.events">novauniverse.events</a>
+</li>
+          <li><a href="interfaces.html#module-novauniverse.interfaces">novauniverse.interfaces</a>
+</li>
+          <li><a href="interfaces.stats.discord.html#module-novauniverse.interfaces.stats.discord">novauniverse.interfaces.stats.discord</a>
+</li>
+          <li><a href="interfaces.stats.discord.html#module-novauniverse.interfaces.stats.discord.discord_stats">novauniverse.interfaces.stats.discord.discord_stats</a>
+</li>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server">novauniverse.interfaces.stats.server</a>
+</li>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.global_">novauniverse.interfaces.stats.server.global_</a>
+</li>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.nova_online_player">novauniverse.interfaces.stats.server.nova_online_player</a>
+</li>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.nova_server">novauniverse.interfaces.stats.server.nova_server</a>
+</li>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.player_preview">novauniverse.interfaces.stats.server.player_preview</a>
+</li>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.server_info">novauniverse.interfaces.stats.server.server_info</a>
+</li>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.system">novauniverse.interfaces.stats.server.system</a>
+</li>
+          <li><a href="interfaces.tournaments.html#module-novauniverse.interfaces.tournaments">novauniverse.interfaces.tournaments</a>
+</li>
+          <li><a href="interfaces.tournaments.mcf.html#module-novauniverse.interfaces.tournaments.mcf">novauniverse.interfaces.tournaments.mcf</a>
+</li>
+          <li><a href="interfaces.tournaments.mcf.html#module-novauniverse.interfaces.tournaments.mcf.mcf_tournament">novauniverse.interfaces.tournaments.mcf.mcf_tournament</a>
+</li>
+          <li><a href="interfaces.tournaments.nova_games.html#module-novauniverse.interfaces.tournaments.nova_games">novauniverse.interfaces.tournaments.nova_games</a>
+</li>
+          <li><a href="interfaces.tournaments.nova_games.html#module-novauniverse.interfaces.tournaments.nova_games.nova_games_tournament">novauniverse.interfaces.tournaments.nova_games.nova_games_tournament</a>
+</li>
+          <li><a href="objects.html#module-novauniverse.objects.nova_dataclass">novauniverse.objects.nova_dataclass</a>
+</li>
+          <li><a href="objects.html#module-novauniverse.objects.nova_player">novauniverse.objects.nova_player</a>
+</li>
+          <li><a href="objects.html#module-novauniverse.objects.order_by">novauniverse.objects.order_by</a>
+</li>
+          <li><a href="objects.html#module-novauniverse.objects.timestamp">novauniverse.objects.timestamp</a>
+</li>
+          <li><a href="objects.tournaments.html#module-novauniverse.objects.tournaments">novauniverse.objects.tournaments</a>
+</li>
+          <li><a href="objects.tournaments.html#module-novauniverse.objects.tournaments.tournament_player">novauniverse.objects.tournaments.tournament_player</a>
+</li>
+          <li><a href="objects.tournaments.html#module-novauniverse.objects.tournaments.tournament_team">novauniverse.objects.tournaments.tournament_team</a>
+</li>
+          <li><a href="utils.html#module-novauniverse.utils.search">novauniverse.utils.search</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.name">name (novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+
+        <ul>
+          <li><a href="objects.html#novauniverse.objects.nova_player.NovaBasicPlayer.name">(novauniverse.objects.nova_player.NovaBasicPlayer attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="utils.html#novauniverse.utils.search.SearchBy.NAME">NAME (novauniverse.utils.search.SearchBy attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.NEWS_ALL">NEWS_ALL (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.NEWS_LATEST">NEWS_LATEST (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.errors.NoEndpointPassed">NoEndpointPassed</a>
+</li>
+        <li><a href="utils.html#novauniverse.utils.search.Search.not_supported">not_supported() (novauniverse.utils.search.Search method)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.NOVA_GAMES_DYNAMIC_CONFIGURATION">NOVA_GAMES_DYNAMIC_CONFIGURATION (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.CDNEndpoints.NOVA_GAMES_ICONS_TEAM">NOVA_GAMES_ICONS_TEAM (novauniverse.api.endpoints.CDNEndpoints attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.NOVA_GAMES_LIVE_STATS">NOVA_GAMES_LIVE_STATS (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.NOVA_GAMES_RESULT">NOVA_GAMES_RESULT (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.NovaAPI">NovaAPI (class in novauniverse.api)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.errors.NovaAPIError">NovaAPIError</a>
+</li>
+        <li><a href="objects.html#novauniverse.objects.nova_player.NovaBasicPlayer">NovaBasicPlayer (class in novauniverse.objects.nova_player)</a>
+</li>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament">NovaBasicTournament (class in novauniverse.objects.tournaments)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.cdn.NovaCDN">NovaCDN (class in novauniverse.api.cdn)</a>
+</li>
+        <li><a href="objects.html#novauniverse.objects.nova_dataclass.NovaDataclass">NovaDataclass (class in novauniverse.objects.nova_dataclass)</a>
+</li>
+        <li><a href="index.html#novauniverse.errors.NovaError">NovaError</a>
+</li>
+        <li><a href="interfaces.tournaments.nova_games.html#novauniverse.interfaces.tournaments.nova_games.NovaGames">NovaGames (class in novauniverse.interfaces.tournaments.nova_games)</a>
+</li>
+        <li><a href="interfaces.tournaments.nova_games.html#novauniverse.interfaces.tournaments.nova_games.nova_games_tournament.NovaGamesTournament">NovaGamesTournament (class in novauniverse.interfaces.tournaments.nova_games.nova_games_tournament)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer">NovaOnlinePlayer (class in novauniverse.interfaces.stats.server.nova_online_player)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer">NovaServer (class in novauniverse.interfaces.stats.server.nova_server)</a>
+</li>
+        <li>
+    novauniverse.api
+
+        <ul>
+          <li><a href="api.html#module-novauniverse.api">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.api.cdn
+
+        <ul>
+          <li><a href="api.html#module-novauniverse.api.cdn">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.api.endpoints
+
+        <ul>
+          <li><a href="api.html#module-novauniverse.api.endpoints">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.api.errors
+
+        <ul>
+          <li><a href="api.html#module-novauniverse.api.errors">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.configuration
+
+        <ul>
+          <li><a href="index.html#module-novauniverse.configuration">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.errors
+
+        <ul>
+          <li><a href="index.html#module-novauniverse.errors">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.event_client
+
+        <ul>
+          <li><a href="events.html#module-novauniverse.event_client">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.events
+
+        <ul>
+          <li><a href="events.html#module-novauniverse.events">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces
+
+        <ul>
+          <li><a href="interfaces.html#module-novauniverse.interfaces">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.discord
+
+        <ul>
+          <li><a href="interfaces.stats.discord.html#module-novauniverse.interfaces.stats.discord">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    novauniverse.interfaces.stats.discord.discord_stats
+
+        <ul>
+          <li><a href="interfaces.stats.discord.html#module-novauniverse.interfaces.stats.discord.discord_stats">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.server
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.server.global_
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.global_">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.server.nova_online_player
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.nova_online_player">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.server.nova_server
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.nova_server">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.server.player_preview
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.player_preview">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.server.server_info
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.server_info">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.stats.server.system
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#module-novauniverse.interfaces.stats.server.system">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.tournaments
+
+        <ul>
+          <li><a href="interfaces.tournaments.html#module-novauniverse.interfaces.tournaments">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.tournaments.mcf
+
+        <ul>
+          <li><a href="interfaces.tournaments.mcf.html#module-novauniverse.interfaces.tournaments.mcf">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.tournaments.mcf.mcf_tournament
+
+        <ul>
+          <li><a href="interfaces.tournaments.mcf.html#module-novauniverse.interfaces.tournaments.mcf.mcf_tournament">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.tournaments.nova_games
+
+        <ul>
+          <li><a href="interfaces.tournaments.nova_games.html#module-novauniverse.interfaces.tournaments.nova_games">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.interfaces.tournaments.nova_games.nova_games_tournament
+
+        <ul>
+          <li><a href="interfaces.tournaments.nova_games.html#module-novauniverse.interfaces.tournaments.nova_games.nova_games_tournament">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.objects.nova_dataclass
+
+        <ul>
+          <li><a href="objects.html#module-novauniverse.objects.nova_dataclass">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.objects.nova_player
+
+        <ul>
+          <li><a href="objects.html#module-novauniverse.objects.nova_player">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.objects.order_by
+
+        <ul>
+          <li><a href="objects.html#module-novauniverse.objects.order_by">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.objects.timestamp
+
+        <ul>
+          <li><a href="objects.html#module-novauniverse.objects.timestamp">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.objects.tournaments
+
+        <ul>
+          <li><a href="objects.tournaments.html#module-novauniverse.objects.tournaments">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.objects.tournaments.tournament_player
+
+        <ul>
+          <li><a href="objects.tournaments.html#module-novauniverse.objects.tournaments.tournament_player">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.objects.tournaments.tournament_team
+
+        <ul>
+          <li><a href="objects.tournaments.html#module-novauniverse.objects.tournaments.tournament_team">module</a>
+</li>
+        </ul></li>
+        <li>
+    novauniverse.utils.search
+
+        <ul>
+          <li><a href="utils.html#module-novauniverse.utils.search">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="events.html#novauniverse.event_client.EventClient.on_event">on_event() (novauniverse.event_client.EventClient method)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.online_players">online_players (novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.html#novauniverse.objects.order_by.OrderBy">OrderBy (class in novauniverse.objects.order_by)</a>
+</li>
+        <li><a href="objects.html#novauniverse.objects.order_by.OrderByNotSupported">OrderByNotSupported</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="index.html#novauniverse.configuration.Config.performance_mode">performance_mode (novauniverse.configuration.Config property)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.global_.Global.player_count">player_count (novauniverse.interfaces.stats.server.global_.Global attribute)</a>
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.player_count">(novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="events.html#novauniverse.events.Events.PLAYER_JOIN">PLAYER_JOIN (novauniverse.events.Events attribute)</a>
+</li>
+        <li><a href="events.html#novauniverse.events.Events.PLAYER_LEAVE">PLAYER_LEAVE (novauniverse.events.Events attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.player_preview">player_preview (novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.player_preview">(novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.player_preview.PlayerPreview">PlayerPreview (class in novauniverse.interfaces.stats.server.player_preview)</a>
+</li>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.players">players (novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+
+        <ul>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_team.TournamentTeam.players">(novauniverse.objects.tournaments.tournament_team.TournamentTeam attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.players_data">players_data (novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+
+        <ul>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_team.TournamentTeam.players_data">(novauniverse.objects.tournaments.tournament_team.TournamentTeam attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.PLAYERS_ONLINE">PLAYERS_ONLINE (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.html#novauniverse.objects.order_by.OrderBy.SCORE">SCORE (novauniverse.objects.order_by.OrderBy attribute)</a>
+</li>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_player.TournamentPlayer.score">score (novauniverse.objects.tournaments.tournament_player.TournamentPlayer attribute)</a>
+</li>
+        <li><a href="utils.html#novauniverse.utils.search.Search">Search (class in novauniverse.utils.search)</a>
+</li>
+        <li><a href="interfaces.html#novauniverse.interfaces.SearchInterface.search">search() (novauniverse.interfaces.SearchInterface method)</a>
+
+        <ul>
+          <li><a href="interfaces.tournaments.mcf.html#novauniverse.interfaces.tournaments.mcf.MCF.search">(novauniverse.interfaces.tournaments.mcf.MCF method)</a>
+</li>
+          <li><a href="interfaces.tournaments.nova_games.html#novauniverse.interfaces.tournaments.nova_games.NovaGames.search">(novauniverse.interfaces.tournaments.nova_games.NovaGames method)</a>
+</li>
+          <li><a href="interfaces.tournaments.html#novauniverse.interfaces.tournaments.TournamentInterface.search">(novauniverse.interfaces.tournaments.TournamentInterface method)</a>
+</li>
+        </ul></li>
+        <li><a href="utils.html#novauniverse.utils.search.SearchBy">SearchBy (class in novauniverse.utils.search)</a>
+</li>
+        <li><a href="utils.html#novauniverse.utils.search.SearchGotNoArgs">SearchGotNoArgs</a>
+</li>
+        <li><a href="interfaces.html#novauniverse.interfaces.SearchInterface">SearchInterface (class in novauniverse.interfaces)</a>
+</li>
+        <li><a href="utils.html#novauniverse.utils.search.SearchNotCompletelySupported">SearchNotCompletelySupported</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.Server">Server (class in novauniverse.interfaces.stats.server)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.global_.Global.server_count">server_count (novauniverse.interfaces.stats.server.global_.Global attribute)</a>
+
+        <ul>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_server.NovaServer.server_count">(novauniverse.interfaces.stats.server.nova_server.NovaServer attribute)</a>
+</li>
+          <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.server_count">(novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer.server_name">server_name (novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer.server_type_display_name">server_type_display_name (novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer.server_type_id">server_type_id (novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer.server_type_name">server_type_name (novauniverse.interfaces.stats.server.nova_online_player.NovaOnlinePlayer attribute)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo">ServerInfo (class in novauniverse.interfaces.stats.server.server_info)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.servers">servers (novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+        <li><a href="events.html#novauniverse.event_client.EventClient.start">start() (novauniverse.event_client.EventClient method)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.STATS_DISCORD">STATS_DISCORD (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.endpoints.Endpoints.STATS_EXTENDED">STATS_EXTENDED (novauniverse.api.endpoints.Endpoints attribute)</a>
+</li>
+        <li><a href="events.html#novauniverse.event_client.EventClient.stop">stop() (novauniverse.event_client.EventClient method)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.system.System">System (class in novauniverse.interfaces.stats.server.system)</a>
+</li>
+        <li><a href="interfaces.stats.server.html#novauniverse.interfaces.stats.server.server_info.ServerInfo.system">system (novauniverse.interfaces.stats.server.server_info.ServerInfo attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_player.TournamentPlayer.team_number">team_number (novauniverse.objects.tournaments.tournament_player.TournamentPlayer attribute)</a>
+
+        <ul>
+          <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_team.TournamentTeam.team_number">(novauniverse.objects.tournaments.tournament_team.TournamentTeam attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_team.TournamentTeam.team_score">team_score (novauniverse.objects.tournaments.tournament_team.TournamentTeam attribute)</a>
+</li>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.teams">teams (novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+</li>
+        <li><a href="objects.html#novauniverse.objects.timestamp.Timestamp">Timestamp (class in novauniverse.objects.timestamp)</a>
+</li>
+        <li><a href="objects.html#novauniverse.objects.timestamp.Timestamp.timezone">timezone (novauniverse.objects.timestamp.Timestamp attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.html#novauniverse.objects.timestamp.Timestamp.timezone_type">timezone_type (novauniverse.objects.timestamp.Timestamp attribute)</a>
+</li>
+        <li><a href="interfaces.stats.discord.html#novauniverse.interfaces.stats.discord.discord_stats.MemberCount.total">total (novauniverse.interfaces.stats.discord.discord_stats.MemberCount attribute)</a>
+</li>
+        <li><a href="interfaces.tournaments.html#novauniverse.interfaces.tournaments.TournamentInterface">TournamentInterface (class in novauniverse.interfaces.tournaments)</a>
+</li>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_player.TournamentPlayer">TournamentPlayer (class in novauniverse.objects.tournaments.tournament_player)</a>
+</li>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_team.TournamentTeam">TournamentTeam (class in novauniverse.objects.tournaments.tournament_team)</a>
+</li>
+        <li><a href="events.html#novauniverse.events.EndpointEvent.trigger_event">trigger_event() (novauniverse.events.EndpointEvent method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.tournament_player.TournamentPlayer.uid">uid (novauniverse.objects.tournaments.tournament_player.TournamentPlayer attribute)</a>
+</li>
+        <li><a href="api.html#novauniverse.api.errors.UnSuccessfulOperation">UnSuccessfulOperation</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.html#novauniverse.objects.nova_player.NovaBasicPlayer.username">username (novauniverse.objects.nova_player.NovaBasicPlayer attribute)</a>
+</li>
+        <li><a href="objects.html#novauniverse.objects.nova_player.NovaBasicPlayer.uuid">uuid (novauniverse.objects.nova_player.NovaBasicPlayer attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.winner_team">winner_team (novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="objects.tournaments.html#novauniverse.objects.tournaments.NovaBasicTournament.winner_team_id">winner_team_id (novauniverse.objects.tournaments.NovaBasicTournament attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Goldy
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

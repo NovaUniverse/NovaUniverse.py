@@ -1,0 +1,454 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="🔥 MCF" href="interfaces.tournaments.mcf.html" /><link rel="prev" title="Events 🎟" href="events.html" />
+
+    <link rel="shortcut icon" href="_static/logo.png"/><!-- Generated with Sphinx 7.2.5 and Furo 2023.08.19 -->
+        <title>Interfaces 🧩 - NovaUniverse.py documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: red;
+  --color-brand-content: #CC3333;
+  --color-admonition-background: #ffaeae;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: red;
+  --color-brand-content: #FFAEAE;
+  --color-admonition-background: #0d0404;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: red;
+  --color-brand-content: #FFAEAE;
+  --color-admonition-background: #0d0404;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">NovaUniverse.py  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">NovaUniverse.py  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API 🔌</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API 🔌</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="events.html">Events 🎟</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Events 🎟</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Interfaces 🧩</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Interfaces 🧩</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.tournaments.mcf.html">🔥 MCF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.tournaments.nova_games.html">🟥 Nova Games</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.stats.discord.html">🎮 Discord Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.stats.server.html">🌐 Server Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.tournaments.html">🏆 Tournament Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="objects.html">Objects 📦</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Objects 📦</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.tournaments.html">Tournament Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="utils.html">Utils ⚙</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Utils ⚙</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="interfaces">
+<h1>Interfaces 🧩<a class="headerlink" href="#interfaces" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.tournaments.mcf.html">🔥 MCF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.tournaments.nova_games.html">🟥 Nova Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.stats.discord.html">🎮 Discord Stats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.stats.server.html">🌐 Server Stats</a></li>
+</ul>
+</div>
+<section id="the-interface">
+<span id="id1"></span><h2>The Interface ✨<a class="headerlink" href="#the-interface" title="Link to this heading">#</a></h2>
+<p>The easiest way to retrieve data from the Nova api using NovaUniverse.py is by using the interfaces available to you. As of March 2023, this api wrapper covers some of the novauniverse api’s endpoints with an interface.</p>
+<blockquote>
+<div><p><strong>Here’s a quick showcase on how to use them.</strong></p>
+<p>Getting Discord Stats:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">Discord</span>
+
+<span class="c1"># Get discord server stats.</span>
+<span class="n">discord_stats</span> <span class="o">=</span> <span class="n">Discord</span><span class="p">()</span><span class="o">.</span><span class="n">get_stats</span><span class="p">()</span>
+
+<span class="c1"># Prints out the member count.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">discord_stats</span><span class="o">.</span><span class="n">member_count</span><span class="o">.</span><span class="n">members</span><span class="si">}</span><span class="s2"> members on the Nova Universe discord server.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Getting Newsletters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">News</span>
+
+<span class="c1"># Get latest newsletter.</span>
+<span class="n">latest_newsletter</span> <span class="o">=</span> <span class="n">News</span><span class="p">()</span><span class="o">.</span><span class="n">get_latest</span><span class="p">()</span>
+
+<span class="c1"># Print it.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The url for the news letter &#39;</span><span class="si">{</span><span class="n">latest_newsletter</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39; is &#39;</span><span class="si">{</span><span class="n">latest_newsletter</span><span class="o">.</span><span class="n">full_url</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Getting online players:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">Server</span>
+
+<span class="c1"># Get all online players on the minecraft server.</span>
+<span class="n">online_players</span> <span class="o">=</span> <span class="n">Server</span><span class="p">()</span><span class="o">.</span><span class="n">get_online_players</span><span class="p">()</span>
+
+<span class="c1"># Print all online players on the minecraft server.</span>
+<span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">online_players</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> is online on the &#39;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">server_name</span><span class="si">}</span><span class="s2">&#39; server.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Getting tournament results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">NovaGames</span><span class="p">,</span> <span class="n">MCF</span>
+
+<span class="c1"># Get the latest Nova Games tournament.</span>
+<span class="n">nova_games</span> <span class="o">=</span> <span class="n">NovaGames</span><span class="p">()</span><span class="o">.</span><span class="n">get_latest</span><span class="p">()</span>
+
+<span class="c1"># Prints out how much each player scored in that tournament and also how many kills they achieved.</span>
+<span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">nova_games</span><span class="o">.</span><span class="n">players</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; got </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">kills</span><span class="si">}</span><span class="s2"> kill(s) and scored </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2"> point(s) in the Nova Games hosted on </span><span class="si">{</span><span class="n">nova_games</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MCF interface also exists this same way.</p>
+</div>
+<p>Neat right 😁.</p>
+</div></blockquote>
+</section>
+<section id="the-search-interface">
+<span id="id2"></span><h2>The Search interface 🔎<a class="headerlink" href="#the-search-interface" title="Link to this heading">#</a></h2>
+<p>Some interfaces/endpoints obtain search features, specially those that inherited from SearchInterface.</p>
+<blockquote>
+<div><p>Here we are searching by id:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">News</span><span class="p">,</span> <span class="n">Search</span>
+
+<span class="n">newsletter</span> <span class="o">=</span> <span class="n">News</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">Search</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">17</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name of news letter --&gt; </span><span class="si">{</span><span class="n">newsletter</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID of news letter --&gt; </span><span class="si">{</span><span class="n">newsletter</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we are searching by name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">News</span><span class="p">,</span> <span class="n">Search</span>
+
+<span class="n">newsletter</span> <span class="o">=</span> <span class="n">News</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">Search</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Api Wrappers&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name of news letter --&gt; </span><span class="si">{</span><span class="n">newsletter</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID of news letter --&gt; </span><span class="si">{</span><span class="n">newsletter</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Each interface supports it’s own SearchBy options. For example News() might support searching by id but not support searching by name. If this is the case <a class="reference internal" href="utils.html#novauniverse.utils.search.SearchNotCompletelySupported" title="novauniverse.utils.search.SearchNotCompletelySupported"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SearchNotCompletelySupported()</span></code></a> will be raised.</p>
+</div>
+<p>More examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novauniverse</span> <span class="kn">import</span> <span class="n">MCF</span><span class="p">,</span> <span class="n">Search</span>
+
+<span class="n">mcf</span> <span class="o">=</span> <span class="n">MCF</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">Search</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">17</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">mcf</span><span class="o">.</span><span class="n">players</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; got </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">kills</span><span class="si">}</span><span class="s2"> kill(s) and scored </span><span class="si">{</span><span class="n">player</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2"> point(s) in the MCF hosted on </span><span class="si">{</span><span class="n">mcf</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you would like more help, you may open a Github issue or help ticket on the NovaUniverse Discord.</p>
+</div>
+</div></blockquote>
+</section>
+<section id="module-novauniverse.interfaces">
+<span id="interface-reference"></span><h2>Interface Reference<a class="headerlink" href="#module-novauniverse.interfaces" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="novauniverse.interfaces.BasicInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">novauniverse.interfaces.</span></span><span class="sig-name descname"><span class="pre">BasicInterface</span></span><a class="reference internal" href="_modules/novauniverse/interfaces.html#BasicInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#novauniverse.interfaces.BasicInterface" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#novauniverse.interfaces.Interface" title="novauniverse.interfaces.Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface</span></code></a></p>
+<p>A basic interface, nothing more… nothing less…</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="novauniverse.interfaces.Interface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">novauniverse.interfaces.</span></span><span class="sig-name descname"><span class="pre">Interface</span></span><a class="reference internal" href="_modules/novauniverse/interfaces.html#Interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#novauniverse.interfaces.Interface" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base interface where all NovaUniverse.py endpoint interfaces inherit from.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="novauniverse.interfaces.SearchInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">novauniverse.interfaces.</span></span><span class="sig-name descname"><span class="pre">SearchInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">supports</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="utils.html#novauniverse.utils.search.SearchBy" title="novauniverse.utils.search.SearchBy"><span class="pre">SearchBy</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="utils.html#novauniverse.utils.search.SearchBy" title="novauniverse.utils.search.SearchBy"><span class="pre">SearchBy</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/novauniverse/interfaces.html#SearchInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#novauniverse.interfaces.SearchInterface" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <a class="reference internal" href="#novauniverse.interfaces.Interface" title="novauniverse.interfaces.Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface</span></code></a></p>
+<p>Adds searching to a basic NU.PY interface. Use this to add searching functionality to your interfaces.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="novauniverse.interfaces.SearchInterface.search">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#novauniverse.utils.search.Search" title="novauniverse.utils.search.Search"><span class="pre">Search</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/novauniverse/interfaces.html#SearchInterface.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#novauniverse.interfaces.SearchInterface.search" title="Link to this definition">#</a></dt>
+<dd><p>It is recommended to use <code class="docutils literal notranslate"><span class="pre">novauniverse.utils.search.Search()</span></code> as a query but strings and integers will also work and be handled respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="other-interfaces">
+<h2>Other interfaces<a class="headerlink" href="#other-interfaces" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.tournaments.html">🏆 Tournament Interface</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="interfaces.tournaments.mcf.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">🔥 MCF</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="events.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Events 🎟</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Goldy
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Interfaces 🧩</a><ul>
+<li><a class="reference internal" href="#the-interface">The Interface ✨</a></li>
+<li><a class="reference internal" href="#the-search-interface">The Search interface 🔎</a></li>
+<li><a class="reference internal" href="#module-novauniverse.interfaces">Interface Reference</a><ul>
+<li><a class="reference internal" href="#novauniverse.interfaces.BasicInterface"><code class="docutils literal notranslate"><span class="pre">BasicInterface</span></code></a></li>
+<li><a class="reference internal" href="#novauniverse.interfaces.Interface"><code class="docutils literal notranslate"><span class="pre">Interface</span></code></a></li>
+<li><a class="reference internal" href="#novauniverse.interfaces.SearchInterface"><code class="docutils literal notranslate"><span class="pre">SearchInterface</span></code></a><ul>
+<li><a class="reference internal" href="#novauniverse.interfaces.SearchInterface.search"><code class="docutils literal notranslate"><span class="pre">SearchInterface.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-interfaces">Other interfaces</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>
